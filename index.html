@@ -3,24 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9to5 University - Professional Resume Builder</title>
+    <title>9to5 University - Streamline Your Career Journey</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-        /* Modern Theme Colors - Inspired by streamline image */
+        /* Streamline-Inspired Theme Colors */
         :root {
-            --primary-blue: #1A56DB;
-            --accent-teal: #0E9F6E;
-            --light-blue: #3F83F8;
-            --dark-blue: #1E429F;
-            --light-gray: #F9FAFB;
-            --medium-gray: #E5E7EB;
-            --dark-gray: #111827;
+            --primary-blue: #2563EB;
+            --secondary-blue: #3B82F6;
+            --accent-teal: #0D9488;
+            --dark-navy: #1E3A8A;
+            --light-blue: #DBEAFE;
+            --light-gray: #F8FAFC;
+            --medium-gray: #E2E8F0;
+            --dark-gray: #1F2937;
             --white: #FFFFFF;
-            --shadow: rgba(0, 0, 0, 0.08);
-            --gradient-primary: linear-gradient(135deg, #1A56DB 0%, #3F83F8 100%);
-            --gradient-secondary: linear-gradient(135deg, #0E9F6E 0%, #3BD4A4 100%);
+            --success-green: #10B981;
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
         }
         
         * {
@@ -43,11 +46,11 @@
             padding: 0 24px;
         }
         
-        /* Header & Navigation - Modern Design */
+        /* Header & Navigation - Clean & Modern */
         header {
             background-color: var(--white);
             padding: 1.2rem 0;
-            box-shadow: 0 1px 3px var(--shadow);
+            box-shadow: var(--shadow-sm);
             position: sticky;
             top: 0;
             z-index: 1000;
@@ -72,12 +75,12 @@
             justify-content: center;
             width: 48px;
             height: 48px;
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
             border-radius: 12px;
             color: white;
             font-weight: 800;
             font-size: 1.5rem;
-            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+            box-shadow: var(--shadow-md);
         }
         
         .logo-text {
@@ -88,22 +91,21 @@
         .logo-text h1 {
             font-size: 1.6rem;
             font-weight: 700;
-            color: var(--dark-blue);
+            color: var(--dark-navy);
             letter-spacing: -0.5px;
         }
         
         .logo-text .tagline {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--accent-teal);
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
         }
         
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
         
         nav a {
@@ -113,26 +115,10 @@
             font-size: 0.95rem;
             transition: color 0.2s;
             padding: 0.5rem 0;
-            position: relative;
         }
         
         nav a:hover {
             color: var(--primary-blue);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-blue);
-            transition: width 0.3s;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
         }
         
         .auth-buttons {
@@ -157,9 +143,9 @@
         }
         
         .btn-signup {
-            background: var(--gradient-primary);
+            background-color: var(--primary-blue);
             color: white;
-            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+            box-shadow: var(--shadow-md);
         }
         
         .btn-login:hover {
@@ -167,14 +153,15 @@
         }
         
         .btn-signup:hover {
+            background-color: var(--dark-navy);
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(26, 86, 219, 0.3);
+            box-shadow: var(--shadow-lg);
         }
         
         /* Hero Section - Streamline Inspired */
         .hero {
-            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
-            padding: 5rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #EFF6FF 100%);
             position: relative;
             overflow: hidden;
         }
@@ -182,12 +169,12 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(26, 86, 219, 0.05) 0%, rgba(14, 159, 110, 0.05) 100%);
-            clip-path: polygon(100% 0, 0 0, 100% 100%);
+            top: -50%;
+            right: -10%;
+            width: 60%;
+            height: 200%;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(13, 148, 136, 0.1) 100%);
+            transform: rotate(12deg);
         }
         
         .hero-content {
@@ -196,40 +183,41 @@
             z-index: 1;
         }
         
-        .hero h2 {
-            font-size: 3.2rem;
+        .hero h1 {
+            font-size: 3.5rem;
             font-weight: 800;
             line-height: 1.1;
             margin-bottom: 1.5rem;
-            color: var(--dark-blue);
+            color: var(--dark-navy);
             letter-spacing: -1px;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #4B5563;
             margin-bottom: 2.5rem;
             max-width: 600px;
         }
         
         .btn-primary {
-            background: var(--gradient-primary);
+            background-color: var(--primary-blue);
             color: white;
             font-size: 1.1rem;
             padding: 1rem 2.5rem;
             border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(26, 86, 219, 0.3);
+            box-shadow: var(--shadow-lg);
             display: inline-flex;
             align-items: center;
             gap: 10px;
         }
         
         .btn-primary:hover {
+            background-color: var(--dark-navy);
             transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(26, 86, 219, 0.4);
+            box-shadow: var(--shadow-xl);
         }
         
-        /* Stats Section */
+        /* Stats Section - Minimal */
         .stats {
             display: flex;
             justify-content: center;
@@ -257,51 +245,100 @@
         
         /* Main Content */
         main {
-            padding: 4rem 0;
+            padding: 5rem 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
-            color: var(--dark-blue);
+            margin-bottom: 4rem;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 700;
             margin-bottom: 1rem;
+            color: var(--dark-navy);
         }
         
         .section-title p {
             color: #6B7280;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
         }
         
-        /* Resume Builder Section - Modern Card */
-        .resume-builder {
+        /* Features Grid - Streamline Layout */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+        
+        .feature-card {
             background-color: var(--white);
             border-radius: 16px;
-            padding: 3rem;
-            box-shadow: 0 10px 40px var(--shadow);
-            margin-bottom: 4rem;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
             border: 1px solid var(--medium-gray);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         
-        .builder-header {
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 16px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--medium-gray);
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: white;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
+        }
+        
+        .feature-card h3 {
+            font-size: 1.5rem;
+            color: var(--dark-navy);
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #6B7280;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+        
+        .feature-highlight {
+            background-color: var(--light-blue);
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+            font-weight: 500;
+            color: var(--dark-navy);
+            margin-top: 1.5rem;
+        }
+        
+        /* Resume Builder Section - Streamline Dashboard Style */
+        .resume-builder-section {
+            background-color: var(--light-gray);
+            border-radius: 24px;
+            padding: 4rem;
+            margin-bottom: 5rem;
+            border: 1px solid var(--medium-gray);
         }
         
         .builder-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
+            margin-top: 3rem;
         }
         
         @media (max-width: 1024px) {
@@ -311,9 +348,10 @@
         }
         
         .form-section {
-            background-color: var(--light-gray);
-            border-radius: 12px;
-            padding: 2rem;
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
         }
         
         .preview-section {
@@ -330,7 +368,7 @@
             display: block;
             margin-bottom: 0.5rem;
             font-weight: 600;
-            color: var(--dark-blue);
+            color: var(--dark-navy);
             font-size: 0.95rem;
         }
         
@@ -347,7 +385,7 @@
         input:focus, textarea:focus, select:focus {
             outline: none;
             border-color: var(--primary-blue);
-            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
         }
         
         textarea {
@@ -362,16 +400,16 @@
             gap: 1.5rem;
         }
         
-        /* Template Selector - Modern */
+        /* Template Selector - Modern Grid */
         .template-selector {
-            margin: 2.5rem 0;
+            margin: 3rem 0;
         }
         
         .templates {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
         
         .template {
@@ -381,13 +419,13 @@
             cursor: pointer;
             transition: all 0.3s;
             background: white;
-            box-shadow: 0 2px 8px var(--shadow);
+            box-shadow: var(--shadow-sm);
         }
         
         .template:hover, .template.active {
             border-color: var(--primary-blue);
             transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(26, 86, 219, 0.15);
+            box-shadow: var(--shadow-lg);
         }
         
         .template-preview {
@@ -411,10 +449,10 @@
         .resume-preview {
             background-color: white;
             border: 1px solid var(--medium-gray);
-            border-radius: 12px;
+            border-radius: 16px;
             min-height: 700px;
             padding: 2.5rem;
-            box-shadow: 0 8px 32px var(--shadow);
+            box-shadow: var(--shadow-lg);
             overflow: auto;
         }
         
@@ -426,7 +464,7 @@
         
         .resume-name {
             font-size: 2.2rem;
-            color: var(--dark-blue);
+            color: var(--dark-navy);
             margin-bottom: 0.5rem;
             font-weight: 700;
         }
@@ -458,36 +496,15 @@
         
         .section-heading {
             font-size: 1.3rem;
-            color: var(--dark-blue);
+            color: var(--dark-navy);
             padding-bottom: 0.5rem;
             border-bottom: 1px solid var(--medium-gray);
             margin-bottom: 1rem;
             font-weight: 600;
         }
         
-        .resume-item {
-            margin-bottom: 1.2rem;
-        }
-        
-        .item-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 0.3rem;
-        }
-        
-        .item-title {
-            font-weight: 600;
-            color: var(--dark-gray);
-        }
-        
-        .item-subtitle {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 0.5rem;
-        }
-        
         .btn-download {
-            background: var(--gradient-secondary);
+            background-color: var(--accent-teal);
             color: white;
             width: 100%;
             margin-top: 2rem;
@@ -495,7 +512,7 @@
             font-size: 1.1rem;
             font-weight: 600;
             border-radius: 10px;
-            box-shadow: 0 4px 16px rgba(14, 159, 110, 0.3);
+            box-shadow: var(--shadow-lg);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -503,69 +520,38 @@
         }
         
         .btn-download:hover {
+            background-color: #0f766e;
             transform: translateY(-3px);
-            box-shadow: 0 8px 24px rgba(14, 159, 110, 0.4);
+            box-shadow: var(--shadow-xl);
         }
         
-        /* Features Section - Streamline Inspired */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
+        /* Everything You Need Section */
+        .everything-section {
+            text-align: center;
+            padding: 5rem 0;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #EFF6FF 100%);
+            border-radius: 24px;
+            margin-bottom: 5rem;
         }
         
-        .feature-card {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 2.5rem;
-            box-shadow: 0 4px 20px var(--shadow);
-            transition: transform 0.3s, box-shadow 0.3s;
-            border: 1px solid var(--medium-gray);
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-        }
-        
-        .feature-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .everything-section h2 {
+            font-size: 2.8rem;
+            font-weight: 700;
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            color: white;
+            color: var(--dark-navy);
         }
         
-        .feature-card:nth-child(1) .feature-icon {
-            background: var(--gradient-primary);
-        }
-        
-        .feature-card:nth-child(2) .feature-icon {
-            background: var(--gradient-secondary);
-        }
-        
-        .feature-card:nth-child(3) .feature-icon {
-            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
-        }
-        
-        .feature-card:nth-child(4) .feature-icon {
-            background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
-        }
-        
-        .feature-card h3 {
-            color: var(--dark-blue);
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
+        .everything-section p {
+            color: #6B7280;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            line-height: 1.7;
         }
         
         /* Testimonial Section */
         .testimonial-section {
-            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            background-color: var(--white);
             padding: 4rem 0;
             border-radius: 16px;
             margin-bottom: 4rem;
@@ -579,16 +565,18 @@
         }
         
         .testimonial {
-            background-color: white;
-            padding: 2rem;
+            background-color: var(--light-gray);
+            padding: 2.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 16px var(--shadow);
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--primary-blue);
         }
         
         .testimonial-content {
             font-style: italic;
             margin-bottom: 1.5rem;
             color: #4B5563;
+            line-height: 1.7;
         }
         
         .testimonial-author {
@@ -601,7 +589,7 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--gradient-primary);
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-teal));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -610,7 +598,7 @@
         }
         
         .author-info h4 {
-            color: var(--dark-blue);
+            color: var(--dark-navy);
             margin-bottom: 0.2rem;
         }
         
@@ -619,68 +607,51 @@
             font-size: 0.9rem;
         }
         
-        /* Contact Section */
-        .contact-section {
-            background: var(--gradient-primary);
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-navy) 100%);
             color: white;
-            padding: 4rem 0;
-            border-radius: 16px;
+            padding: 5rem 0;
+            border-radius: 24px;
+            text-align: center;
             margin-bottom: 3rem;
         }
         
-        .contact-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
+        .cta-content h2 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
         }
         
-        .contact-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .contact-content p {
-            font-size: 1.1rem;
+        .cta-content p {
+            font-size: 1.2rem;
             opacity: 0.9;
             margin-bottom: 3rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .contact-method {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            backdrop-filter: blur(10px);
-        }
-        
-        .contact-method i {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .contact-method h3 {
-            margin-bottom: 0.8rem;
+        .btn-cta {
+            background-color: white;
+            color: var(--primary-blue);
             font-size: 1.2rem;
+            padding: 1.2rem 3rem;
+            border-radius: 10px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
         
-        .contact-method p {
-            margin-bottom: 0;
-            opacity: 0.8;
+        .btn-cta:hover {
+            background-color: var(--light-gray);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
         }
         
         /* Footer */
         footer {
-            background-color: var(--dark-blue);
+            background-color: var(--dark-navy);
             color: white;
             padding: 3rem 0 2rem;
         }
@@ -755,7 +726,7 @@
             border-radius: 16px;
             width: 90%;
             max-width: 500px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-xl);
         }
         
         .modal-header {
@@ -766,7 +737,7 @@
         }
         
         .modal-header h2 {
-            color: var(--dark-blue);
+            color: var(--dark-navy);
         }
         
         .close-modal {
@@ -790,7 +761,7 @@
                 gap: 1.5rem;
             }
             
-            .hero h2 {
+            .hero h1 {
                 font-size: 2.5rem;
             }
             
@@ -808,8 +779,12 @@
                 justify-content: center;
             }
             
-            .features {
+            .features-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .resume-builder-section {
+                padding: 2rem;
             }
         }
         
@@ -821,6 +796,15 @@
         
         .fade-in {
             animation: fadeIn 0.6s ease-out;
+        }
+        
+        /* Utility Classes */
+        .text-center {
+            text-align: center;
+        }
+        
+        .mb-4 {
+            margin-bottom: 2rem;
         }
     </style>
 </head>
@@ -834,15 +818,15 @@
                 </div>
                 <div class="logo-text">
                     <h1>9to5 University</h1>
-                    <div class="tagline">Professional Career Development</div>
+                    <div class="tagline">Career Success Platform</div>
                 </div>
             </a>
             <nav>
                 <ul>
+                    <li><a href="#features">Features</a></li>
                     <li><a href="#resume-builder">Resume Builder</a></li>
-                    <li><a href="#features">Career Resources</a></li>
                     <li><a href="#testimonials">Success Stories</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#cta">Get Started</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
@@ -855,10 +839,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content fade-in">
-            <h2>Streamline Your Career, Supercharge Your Success</h2>
-            <p>All-in-one platform to build, optimize, and deliver professional resumes — faster and smarter. Track your progress with beautiful dashboards that keep you on track.</p>
+            <h1>Streamline Your Career, Supercharge Your Success</h1>
+            <p>All-in-one platform to plan, collaborate, and deliver — faster and smarter. Build professional resumes, track your job search, and get career guidance in one place.</p>
             <button class="btn btn-primary" id="startBuildingBtn">
-                <i class="fas fa-rocket"></i> Build Your Resume Now
+                <i class="fas fa-rocket"></i> Get Started for Free
             </button>
             
             <div class="stats">
@@ -878,195 +862,35 @@
         </div>
     </section>
 
-    <!-- Main Content -->
+    <!-- Features Section - Streamline Inspired -->
     <main class="container">
-        <!-- Resume Builder Section -->
-        <section id="resume-builder">
-            <div class="section-title fade-in">
-                <h2>Professional Resume Builder</h2>
-                <p>Plan, collaborate, and deliver — faster and smarter. Everything you need to create a standout resume.</p>
-            </div>
-            
-            <div class="resume-builder fade-in">
-                <!-- Template Selector -->
-                <div class="template-selector">
-                    <h3>Choose Your Template</h3>
-                    <p>Select from our professionally designed templates to match your industry and style.</p>
-                    <div class="templates">
-                        <div class="template active" data-template="1">
-                            <div class="template-preview" style="background: white; color: #1E429F;">
-                                <div>
-                                    <h4>John Doe</h4>
-                                    <p>Software Developer</p>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p>Experience • Education • Skills</p>
-                                </div>
-                            </div>
-                            <div class="template-name">Classic Professional</div>
-                        </div>
-                        <div class="template" data-template="2">
-                            <div class="template-preview" style="background: #1E429F; color: white;">
-                                <div>
-                                    <h4>John Doe</h4>
-                                    <p>Software Developer</p>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p>Experience • Education • Skills</p>
-                                </div>
-                            </div>
-                            <div class="template-name">Modern Executive</div>
-                        </div>
-                        <div class="template" data-template="3">
-                            <div class="template-preview" style="background: #0E9F6E; color: white;">
-                                <div>
-                                    <h4>John Doe</h4>
-                                    <p>Software Developer</p>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p>Experience • Education • Skills</p>
-                                </div>
-                            </div>
-                            <div class="template-name">Creative Impact</div>
-                        </div>
-                        <div class="template" data-template="4">
-                            <div class="template-preview" style="background: #F8FAFC; color: #111827; border: 1px solid #E5E7EB;">
-                                <div>
-                                    <h4>John Doe</h4>
-                                    <p>Software Developer</p>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p>Experience • Education • Skills</p>
-                                </div>
-                            </div>
-                            <div class="template-name">Minimal Clean</div>
-                        </div>
-                        <div class="template" data-template="5">
-                            <div class="template-preview" style="background: linear-gradient(135deg, #1E293B 0%, #334155 100%); color: white;">
-                                <div>
-                                    <h4>Tshedimosho M.</h4>
-                                    <p>Multi-Industry Professional</p>
-                                </div>
-                                <div style="font-size: 0.9rem;">
-                                    <p>Retail • Manufacturing • Construction</p>
-                                </div>
-                            </div>
-                            <div class="template-name">Example CV</div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="builder-container">
-                    <!-- Form Section -->
-                    <div class="form-section">
-                        <div class="builder-header">
-                            <h3>Your Information</h3>
-                            <button class="btn" id="loadExampleBtn" style="background: var(--accent-teal); color: white;">
-                                <i class="fas fa-file-import"></i> Load Example CV
-                            </button>
-                        </div>
-                        <form id="resumeForm">
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="fullName">Full Name</label>
-                                    <input type="text" id="fullName" placeholder="John Doe" value="John Doe">
-                                </div>
-                                <div class="form-group">
-                                    <label for="jobTitle">Professional Title</label>
-                                    <input type="text" id="jobTitle" placeholder="Software Developer" value="Software Developer">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="summary">Professional Summary</label>
-                                <textarea id="summary" placeholder="Experienced professional with a passion for...">Experienced software developer with 5+ years of expertise in web technologies, dedicated to creating efficient and scalable solutions. Strong collaborator with excellent problem-solving skills.</textarea>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" placeholder="john@example.com" value="john.doe@example.com">
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone</label>
-                                    <input type="tel" id="phone" placeholder="(123) 456-7890" value="(123) 456-7890">
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="address">Location</label>
-                                <input type="text" id="address" placeholder="City, State" value="New York, NY">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="experience">Work Experience</label>
-                                <textarea id="experience" placeholder="Describe your work experience...">• Senior Developer at Tech Solutions Inc. (2020-Present)
-3 Led a team of 5 developers to create responsive web applications
-3 Improved application performance by 30% through code optimization
-
-• Web Developer at Digital Creations (2018-2020)
-3 Developed and maintained client websites using modern frameworks
-3 Collaborated with designers to implement UI/UX improvements</textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="education">Education</label>
-                                <textarea id="education" placeholder="List your educational background...">• Bachelor of Science in Computer Science
-University of Technology, 2014-2018
-GPA: 3.8/4.0
-
-• Web Development Certification
-Code Academy, 2019</textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="skills">Skills</label>
-                                <textarea id="skills" placeholder="List your key skills...">JavaScript, React, Node.js, HTML/CSS, Python, Git, Agile Methodologies, Team Leadership, Problem Solving</textarea>
-                            </div>
-                        </form>
-                    </div>
-                    
-                    <!-- Preview Section -->
-                    <div class="preview-section">
-                        <div class="builder-header">
-                            <h3>Live Preview</h3>
-                            <div style="font-size: 0.9rem; color: #6B7280;">Updates in real-time</div>
-                        </div>
-                        <div class="resume-preview" id="resumePreview">
-                            <!-- Resume content will be generated by JavaScript -->
-                        </div>
-                        <button class="btn btn-download" id="downloadBtn">
-                            <i class="fas fa-download"></i> Download as PDF
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section -->
         <section id="features">
             <div class="section-title fade-in">
-                <h2>Everything You Need for Career Success</h2>
-                <p>From resume building to career guidance, our features are built to keep you connected, organized, and moving forward.</p>
+                <h2>Plan, Collaborate, and Deliver — Faster and Smarter</h2>
+                <p>9to5 University provides everything you need to streamline your career journey and supercharge your job search success.</p>
             </div>
             
-            <div class="features">
+            <div class="features-grid">
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-comments"></i>
                     </div>
                     <h3>Real-Time Collaboration</h3>
-                    <p>Communicate seamlessly with career advisors and mentors. Get feedback on your resume in real-time, no matter where they are.</p>
-                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">Learn More</button>
+                    <p>Communicate seamlessly with career advisors and mentors in real-time, no matter where they are. Share files, chat, and get feedback effortlessly.</p>
+                    <div class="feature-highlight">
+                        Agile career tools, not deadlines. Make valuable progress fast, and flexible without the hassle. Start today.
+                    </div>
                 </div>
                 
                 <div class="feature-card fade-in">
                     <div class="feature-icon">
                         <i class="fas fa-tasks"></i>
                     </div>
-                    <h3>Task & Progress Tracking</h3>
-                    <p>Manage your job search, set deadlines, and visualize progress with beautiful dashboards that keep you on track.</p>
-                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">Explore Features</button>
+                    <h3>Task & Job Search Tracking</h3>
+                    <p>Manage your job applications, set deadlines, and visualize progress with beautiful dashboards that keep you on track.</p>
+                    <div class="feature-highlight">
+                        Stay organized. Easily track applications, interviews, and follow-ups in one centralized dashboard.
+                    </div>
                 </div>
                 
                 <div class="feature-card fade-in">
@@ -1074,26 +898,188 @@ Code Academy, 2019</textarea>
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Performance Insights</h3>
-                    <p>Measure your job search success with analytics that show you what's working and where you need improvement.</p>
-                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">View Analytics</button>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-hands-helping"></i>
+                    <p>Measure your job search effectiveness with analytics that show you what's working, and where you need improvement.</p>
+                    <div class="feature-highlight">
+                        Visualize trends, identify areas for improvement, and make data-driven decisions about your career strategy.
                     </div>
-                    <h3>Career Guidance</h3>
-                    <p>Connect with professional advisors, get interview coaching, and access resources for workplace issues.</p>
-                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">Get Help</button>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonials Section -->
+        <!-- Everything You Need Section -->
+        <section class="everything-section fade-in">
+            <div class="container">
+                <h2>Everything You Need to Work Smarter</h2>
+                <p>From resume building to real-time career guidance, our features are built to keep you connected, organized, and moving forward—together.</p>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3>Professional Resume Builder</h3>
+                        <p>Create stunning, ATS-friendly resumes with our intuitive builder and professional templates.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Career Guidance</h3>
+                        <p>Connect with professional advisors, get interview coaching, and access workplace resources.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Builder Section -->
+        <section id="resume-builder" class="resume-builder-section fade-in">
+            <div class="section-title">
+                <h2>Professional Resume Builder</h2>
+                <p>Create a standout resume in minutes with our intuitive builder and professional templates.</p>
+            </div>
+            
+            <!-- Template Selector -->
+            <div class="template-selector">
+                <h3 class="text-center mb-4">Choose Your Template</h3>
+                <div class="templates">
+                    <div class="template active" data-template="1">
+                        <div class="template-preview" style="background: white; color: #1E3A8A; border: 1px solid #E2E8F0;">
+                            <div>
+                                <h4>John Doe</h4>
+                                <p>Software Developer</p>
+                            </div>
+                            <div style="font-size: 0.9rem;">
+                                <p>Experience • Education • Skills</p>
+                            </div>
+                        </div>
+                        <div class="template-name">Classic</div>
+                    </div>
+                    <div class="template" data-template="2">
+                        <div class="template-preview" style="background: #1E3A8A; color: white;">
+                            <div>
+                                <h4>John Doe</h4>
+                                <p>Software Developer</p>
+                            </div>
+                            <div style="font-size: 0.9rem;">
+                                <p>Experience • Education • Skills</p>
+                            </div>
+                        </div>
+                        <div class="template-name">Modern</div>
+                    </div>
+                    <div class="template" data-template="3">
+                        <div class="template-preview" style="background: #0D9488; color: white;">
+                            <div>
+                                <h4>John Doe</h4>
+                                <p>Software Developer</p>
+                            </div>
+                            <div style="font-size: 0.9rem;">
+                                <p>Experience • Education • Skills</p>
+                            </div>
+                        </div>
+                        <div class="template-name">Creative</div>
+                    </div>
+                    <div class="template" data-template="4">
+                        <div class="template-preview" style="background: linear-gradient(135deg, #1E3A8A 0%, #0D9488 100%); color: white;">
+                            <div>
+                                <h4>Tshedimosho M.</h4>
+                                <p>Multi-Industry Professional</p>
+                            </div>
+                            <div style="font-size: 0.9rem;">
+                                <p>Retail • Manufacturing • Construction</p>
+                            </div>
+                        </div>
+                        <div class="template-name">Example CV</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="builder-container">
+                <!-- Form Section -->
+                <div class="form-section">
+                    <h3>Enter Your Information</h3>
+                    <button class="btn" id="loadExampleBtn" style="background: var(--accent-teal); color: white; margin: 1rem 0 2rem; width: 100%;">
+                        <i class="fas fa-file-import"></i> Load Tshedimosho Example CV
+                    </button>
+                    <form id="resumeForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fullName">Full Name</label>
+                                <input type="text" id="fullName" placeholder="John Doe" value="John Doe">
+                            </div>
+                            <div class="form-group">
+                                <label for="jobTitle">Professional Title</label>
+                                <input type="text" id="jobTitle" placeholder="Software Developer" value="Software Developer">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="summary">Professional Summary</label>
+                            <textarea id="summary" placeholder="Experienced professional with a passion for...">Experienced software developer with 5+ years of expertise in web technologies, dedicated to creating efficient and scalable solutions. Strong collaborator with excellent problem-solving skills.</textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="john@example.com" value="john.doe@example.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input type="tel" id="phone" placeholder="(123) 456-7890" value="(123) 456-7890">
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="address">Location</label>
+                            <input type="text" id="address" placeholder="City, State" value="New York, NY">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="experience">Work Experience</label>
+                            <textarea id="experience" placeholder="Describe your work experience...">• Senior Developer at Tech Solutions Inc. (2020-Present)
+- Led a team of 5 developers to create responsive web applications
+- Improved application performance by 30% through code optimization
+
+• Web Developer at Digital Creations (2018-2020)
+- Developed and maintained client websites using modern frameworks
+- Collaborated with designers to implement UI/UX improvements</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="education">Education</label>
+                            <textarea id="education" placeholder="List your educational background...">• Bachelor of Science in Computer Science
+University of Technology, 2014-2018
+GPA: 3.8/4.0
+
+• Web Development Certification
+Code Academy, 2019</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="skills">Skills</label>
+                            <textarea id="skills" placeholder="List your key skills...">JavaScript, React, Node.js, HTML/CSS, Python, Git, Agile Methodologies, Team Leadership, Problem Solving</textarea>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Preview Section -->
+                <div class="preview-section">
+                    <h3>Resume Preview</h3>
+                    <div class="resume-preview" id="resumePreview">
+                        <!-- Resume content will be generated by JavaScript -->
+                    </div>
+                    <button class="btn btn-download" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download as PDF
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonial Section -->
         <section id="testimonials" class="testimonial-section fade-in">
             <div class="section-title">
                 <h2>Proven Results, Real Impact</h2>
-                <p>See how professionals around the world are landing better jobs, communicating better, and getting more done.</p>
+                <p>See how professionals around the world are landing better jobs, communicating better, and getting more done with our all-in-one career platform.</p>
             </div>
             
             <div class="testimonials">
@@ -1138,29 +1124,14 @@ Code Academy, 2019</textarea>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section fade-in">
-            <div class="contact-content">
-                <h2>Get In Touch</h2>
-                <p>Have questions or need personalized assistance? Our team is here to help you streamline your career journey.</p>
-                
-                <div class="contact-methods">
-                    <div class="contact-method">
-                        <i class="fas fa-phone"></i>
-                        <h3>Call Us</h3>
-                        <p>079 487 4559</p>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fab fa-whatsapp"></i>
-                        <h3>WhatsApp</h3>
-                        <p>079 487 4559</p>
-                    </div>
-                    <div class="contact-method">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>magtecinvest@gmail.com</p>
-                    </div>
-                </div>
+        <!-- CTA Section -->
+        <section id="cta" class="cta-section fade-in">
+            <div class="cta-content">
+                <h2>Streamline Your Career Journey</h2>
+                <p>Join thousands of professionals who are working faster, communicating better, and getting more done with our all-in-one career platform.</p>
+                <button class="btn btn-cta" id="ctaButton">
+                    <i class="fas fa-play-circle"></i> Start Your Free Trial
+                </button>
             </div>
         </section>
     </main>
@@ -1225,7 +1196,7 @@ Code Academy, 2019</textarea>
                     <div class="logo-icon">9t5U</div>
                     <div>
                         <h3 style="color: white; margin-bottom: 0.5rem;">9to5 University</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8);">Professional Career Development Platform</p>
+                        <p style="color: rgba(255, 255, 255, 0.8);">Streamline Your Career Journey</p>
                     </div>
                 </div>
                 
@@ -1250,18 +1221,18 @@ Code Academy, 2019</textarea>
                 </div>
                 
                 <div class="footer-links">
-                    <h3>Connect</h3>
+                    <h3>Contact</h3>
                     <ul>
-                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fas fa-phone"></i> 079 487 4559</a></li>
+                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="#"><i class="fas fa-envelope"></i> magtecinvest@gmail.com</a></li>
+                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Boksburg, South Africa</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 9to5 University. All rights reserved. | Professional Resume Builder & Career Resources</p>
+                <p>&copy; 2023 9to5 University. All rights reserved. | Streamline Your Career, Supercharge Your Success</p>
             </div>
         </div>
     </footer>
@@ -1284,6 +1255,7 @@ Code Academy, 2019</textarea>
         const switchToLogin = document.getElementById('switchToLogin');
         const switchToSignup = document.getElementById('switchToSignup');
         const loadExampleBtn = document.getElementById('loadExampleBtn');
+        const ctaButton = document.getElementById('ctaButton');
         
         // Current template selection
         let currentTemplate = '1';
@@ -1341,10 +1313,9 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             const skills = document.getElementById('skills').value || 'No skills provided';
             
             // Apply template-specific styling
-            let templateStyle = '';
-            let nameColor = 'var(--dark-blue)';
+            let nameColor = 'var(--dark-navy)';
             let titleColor = 'var(--accent-teal)';
-            let headingColor = 'var(--dark-blue)';
+            let headingColor = 'var(--dark-navy)';
             let backgroundColor = 'white';
             let textColor = 'var(--dark-gray)';
             let borderColor = 'var(--primary-blue)';
@@ -1354,7 +1325,7 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
                     nameColor = 'white';
                     titleColor = '#F0E130';
                     headingColor = 'white';
-                    backgroundColor = '#1E429F';
+                    backgroundColor = '#1E3A8A';
                     textColor = 'white';
                     borderColor = '#F0E130';
                     break;
@@ -1362,23 +1333,15 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
                     nameColor = 'white';
                     titleColor = '#F0E130';
                     headingColor = 'white';
-                    backgroundColor = '#0E9F6E';
+                    backgroundColor = '#0D9488';
                     textColor = 'white';
                     borderColor = '#F0E130';
                     break;
                 case '4':
-                    nameColor = 'var(--dark-blue)';
-                    titleColor = 'var(--accent-teal)';
-                    headingColor = 'var(--dark-blue)';
-                    backgroundColor = '#F8FAFC';
-                    textColor = 'var(--dark-gray)';
-                    borderColor = 'var(--primary-blue)';
-                    break;
-                case '5':
                     nameColor = 'white';
                     titleColor = '#F0E130';
                     headingColor = 'white';
-                    backgroundColor = '#1E293B';
+                    backgroundColor = 'linear-gradient(135deg, #1E3A8A 0%, #0D9488 100%)';
                     textColor = 'white';
                     borderColor = '#F0E130';
                     break;
@@ -1386,7 +1349,7 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             
             // Generate resume preview HTML
             resumePreview.innerHTML = `
-                <div class="resume-content" style="background-color: ${backgroundColor}; color: ${textColor}; height: 100%; padding: 2rem;">
+                <div class="resume-content" style="background: ${backgroundColor}; color: ${textColor}; height: 100%; padding: 2rem; border-radius: 12px;">
                     <div class="resume-header" style="border-bottom-color: ${borderColor};">
                         <h1 class="resume-name" style="color: ${nameColor};">${fullName}</h1>
                         <h2 class="resume-title" style="color: ${titleColor};">${jobTitle}</h2>
@@ -1428,7 +1391,7 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
         function formatTextAsBullets(text) {
             return text.split('\n')
                 .map(line => {
-                    if (line.trim().startsWith('•') || line.trim().startsWith('3')) {
+                    if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
                         return `<p style="margin-bottom: 0.5rem; padding-left: 1rem; position: relative;">
                             <span style="position: absolute; left: 0;">•</span> ${line.substring(1).trim()}
                         </p>`;
@@ -1450,10 +1413,10 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             document.getElementById('education').value = tshedimoshoCV.education;
             document.getElementById('skills').value = tshedimoshoCV.skills;
             
-            // Switch to template 5 (the example template)
+            // Switch to template 4 (the example template)
             templates.forEach(t => t.classList.remove('active'));
-            document.querySelector('.template[data-template="5"]').classList.add('active');
-            currentTemplate = '5';
+            document.querySelector('.template[data-template="4"]').classList.add('active');
+            currentTemplate = '4';
             
             updateResumePreview();
             
@@ -1486,38 +1449,6 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             downloadBtn.disabled = true;
             
             try {
-                // Create a temporary element for PDF generation
-                const tempElement = document.createElement('div');
-                tempElement.style.width = '210mm';
-                tempElement.style.padding = '20mm';
-                tempElement.style.backgroundColor = 'white';
-                tempElement.style.color = 'black';
-                tempElement.style.fontFamily = 'Arial, sans-serif';
-                
-                // Clone the resume preview content
-                const resumeContent = document.querySelector('.resume-content').cloneNode(true);
-                
-                // Adjust styles for PDF
-                resumeContent.style.width = '100%';
-                resumeContent.style.boxSizing = 'border-box';
-                
-                // Remove any template-specific classes that might interfere
-                resumeContent.className = '';
-                
-                tempElement.appendChild(resumeContent);
-                document.body.appendChild(tempElement);
-                
-                // Use html2canvas to capture the element
-                const canvas = await html2canvas(tempElement, {
-                    scale: 2,
-                    useCORS: true,
-                    logging: false
-                });
-                
-                // Remove the temporary element
-                document.body.removeChild(tempElement);
-                
-                // Create PDF
                 const { jsPDF } = window.jspdf;
                 const pdf = new jsPDF({
                     orientation: 'portrait',
@@ -1525,15 +1456,94 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
                     format: 'a4'
                 });
                 
-                const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 210;
-                const imgHeight = canvas.height * imgWidth / canvas.width;
+                // Get resume data
+                const fullName = document.getElementById('fullName').value || 'John Doe';
+                const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
+                const summary = document.getElementById('summary').value || 'Experienced professional...';
+                const email = document.getElementById('email').value || 'john.doe@example.com';
+                const phone = document.getElementById('phone').value || '(123) 456-7890';
+                const address = document.getElementById('address').value || 'New York, NY';
+                const experience = document.getElementById('experience').value || 'No experience provided';
+                const education = document.getElementById('education').value || 'No education provided';
+                const skills = document.getElementById('skills').value || 'No skills provided';
                 
-                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                // Set styles
+                pdf.setFont("helvetica", "normal");
                 
-                // Download the PDF
-                const fullName = document.getElementById('fullName').value || 'my_resume';
-                const fileName = `9to5_university_resume_${fullName.replace(/\s+/g, '_')}.pdf`;
+                // Add header with gradient (simulated)
+                pdf.setFillColor(30, 58, 138); // Dark navy
+                pdf.rect(0, 0, 210, 40, 'F');
+                
+                pdf.setTextColor(255, 255, 255);
+                pdf.setFontSize(24);
+                pdf.text(fullName, 20, 25);
+                pdf.setFontSize(16);
+                pdf.text(jobTitle, 20, 35);
+                
+                // Contact info
+                pdf.setFontSize(10);
+                pdf.text(`Email: ${email} | Phone: ${phone} | Location: ${address}`, 20, 45);
+                
+                // Draw separator
+                pdf.setDrawColor(13, 148, 136); // Teal
+                pdf.setLineWidth(1);
+                pdf.line(20, 50, 190, 50);
+                
+                // Reset text color for content
+                pdf.setTextColor(0, 0, 0);
+                let yPosition = 60;
+                
+                // Professional Summary
+                pdf.setFontSize(14);
+                pdf.setTextColor(30, 58, 138);
+                pdf.text('PROFESSIONAL SUMMARY', 20, yPosition);
+                yPosition += 8;
+                pdf.setFontSize(11);
+                pdf.setTextColor(0, 0, 0);
+                const summaryLines = pdf.splitTextToSize(summary, 170);
+                pdf.text(summaryLines, 20, yPosition);
+                yPosition += summaryLines.length * 7 + 10;
+                
+                // Work Experience
+                pdf.setFontSize(14);
+                pdf.setTextColor(30, 58, 138);
+                pdf.text('WORK EXPERIENCE', 20, yPosition);
+                yPosition += 8;
+                pdf.setFontSize(11);
+                pdf.setTextColor(0, 0, 0);
+                const expLines = pdf.splitTextToSize(experience, 170);
+                pdf.text(expLines, 20, yPosition);
+                yPosition += expLines.length * 7 + 10;
+                
+                // Education
+                pdf.setFontSize(14);
+                pdf.setTextColor(30, 58, 138);
+                pdf.text('EDUCATION', 20, yPosition);
+                yPosition += 8;
+                pdf.setFontSize(11);
+                pdf.setTextColor(0, 0, 0);
+                const eduLines = pdf.splitTextToSize(education, 170);
+                pdf.text(eduLines, 20, yPosition);
+                yPosition += eduLines.length * 7 + 10;
+                
+                // Skills
+                pdf.setFontSize(14);
+                pdf.setTextColor(30, 58, 138);
+                pdf.text('SKILLS', 20, yPosition);
+                yPosition += 8;
+                pdf.setFontSize(11);
+                pdf.setTextColor(0, 0, 0);
+                const skillLines = pdf.splitTextToSize(skills, 170);
+                pdf.text(skillLines, 20, yPosition);
+                
+                // Add footer with branding
+                pdf.setFontSize(10);
+                pdf.setTextColor(100, 100, 100);
+                pdf.text('Created with 9to5 University Resume Builder', 20, 280);
+                pdf.text('Streamline Your Career, Supercharge Your Success', 20, 285);
+                
+                // Save the PDF
+                const fileName = `9to5_university_resume_${fullName.replace(/\s+/g, '_') || 'my_resume'}.pdf`;
                 pdf.save(fileName);
                 
                 downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
@@ -1545,70 +1555,7 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
                 console.error('Error generating PDF:', error);
                 downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
                 downloadBtn.disabled = false;
-                
-                // Fallback: Create a simple text-based PDF
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF();
-                
-                // Get resume data
-                const fullName = document.getElementById('fullName').value || 'John Doe';
-                const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
-                const summary = document.getElementById('summary').value || 'Experienced professional...';
-                const email = document.getElementById('email').value || 'john.doe@example.com';
-                const phone = document.getElementById('phone').value || '(123) 456-7890';
-                const experience = document.getElementById('experience').value || 'No experience provided';
-                const education = document.getElementById('education').value || 'No education provided';
-                const skills = document.getElementById('skills').value || 'No skills provided';
-                
-                // Add content to PDF
-                pdf.setFontSize(22);
-                pdf.text(fullName, 20, 20);
-                pdf.setFontSize(16);
-                pdf.text(jobTitle, 20, 30);
-                
-                pdf.setFontSize(12);
-                pdf.text(`Email: ${email} | Phone: ${phone}`, 20, 40);
-                
-                pdf.setFontSize(14);
-                pdf.text('PROFESSIONAL SUMMARY', 20, 50);
-                pdf.setFontSize(11);
-                pdf.text(summary, 20, 60, { maxWidth: 170 });
-                
-                let yPosition = 80;
-                
-                pdf.setFontSize(14);
-                pdf.text('WORK EXPERIENCE', 20, yPosition);
-                yPosition += 10;
-                pdf.setFontSize(11);
-                const expLines = pdf.splitTextToSize(experience, 170);
-                pdf.text(expLines, 20, yPosition);
-                yPosition += expLines.length * 7 + 10;
-                
-                pdf.setFontSize(14);
-                pdf.text('EDUCATION', 20, yPosition);
-                yPosition += 10;
-                pdf.setFontSize(11);
-                const eduLines = pdf.splitTextToSize(education, 170);
-                pdf.text(eduLines, 20, yPosition);
-                yPosition += eduLines.length * 7 + 10;
-                
-                pdf.setFontSize(14);
-                pdf.text('SKILLS', 20, yPosition);
-                yPosition += 10;
-                pdf.setFontSize(11);
-                const skillLines = pdf.splitTextToSize(skills, 170);
-                pdf.text(skillLines, 20, yPosition);
-                
-                // Add 9to5 University branding
-                pdf.setFontSize(10);
-                pdf.setTextColor(100, 100, 100);
-                pdf.text('Created with 9to5 University Resume Builder', 20, 280);
-                
-                // Save the PDF
-                const fileName = `9to5_university_resume_${fullName.replace(/\s+/g, '_') || 'my_resume'}.pdf`;
-                pdf.save(fileName);
-                
-                alert('Resume downloaded successfully!');
+                alert('Error generating PDF. Please try again.');
             }
         });
         
@@ -1656,6 +1603,11 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             document.getElementById('resume-builder').scrollIntoView({ behavior: 'smooth' });
         });
         
+        // CTA button click
+        ctaButton.addEventListener('click', () => {
+            accountModal.style.display = 'flex';
+        });
+        
         // Account form submission
         accountForm.addEventListener('submit', (e) => {
             e.preventDefault();
@@ -1670,14 +1622,13 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             }
             
             // In a real app, you would send this data to a server
-            // For demo, we'll just show a success message
             alert(`Account created successfully for ${name}! You can now save your resumes.`);
             accountModal.style.display = 'none';
             accountForm.reset();
             
             // Update login button to show user is logged in
             loginBtn.innerHTML = `<i class="fas fa-user"></i> ${name.split(' ')[0]}`;
-            loginBtn.style.background = 'var(--gradient-secondary)';
+            loginBtn.style.background = 'var(--accent-teal)';
             loginBtn.style.border = 'none';
             signupBtn.style.display = 'none';
         });
@@ -1689,7 +1640,6 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             const password = document.getElementById('loginPassword').value;
             
             // In a real app, you would validate credentials with a server
-            // For demo, we'll just show a success message
             const name = email.split('@')[0];
             alert(`Welcome back, ${name}!`);
             loginModal.style.display = 'none';
@@ -1697,17 +1647,9 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             
             // Update login button to show user is logged in
             loginBtn.innerHTML = `<i class="fas fa-user"></i> ${name}`;
-            loginBtn.style.background = 'var(--gradient-secondary)';
+            loginBtn.style.background = 'var(--accent-teal)';
             loginBtn.style.border = 'none';
             signupBtn.style.display = 'none';
-        });
-        
-        // Feature buttons functionality
-        document.querySelectorAll('.feature-card .btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const cardTitle = this.closest('.feature-card').querySelector('h3').textContent;
-                alert(`Thank you for your interest in "${cardTitle}". This feature would connect you to detailed resources in a full implementation.`);
-            });
         });
         
         // Smooth scrolling for navigation links
