@@ -1,1335 +1,1747 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CIR University | Prestigious Education & Career Development</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --primary-navy: #0a1a3d;
-      --secondary-gold: #c9a96e;
-      --accent-blue: #0066cc;
-      --accent-teal: #00a8a8;
-      --light-bg: #f8f7f3;
-      --white: #ffffff;
-      --text-dark: #2c3e50;
-      --text-light: #5d6d7e;
-      --shadow: 0 8px 30px rgba(10, 26, 61, 0.1);
-      --radius: 12px;
-      --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Montserrat', sans-serif;
-      line-height: 1.7;
-      color: var(--text-dark);
-      background-color: var(--light-bg);
-      overflow-x: hidden;
-    }
-
-    h1, h2, h3, h4, h5 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-    }
-
-    /* Prestigious University Logo */
-    .university-logo {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      text-decoration: none;
-    }
-
-    .logo-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary-navy) 0%, var(--accent-blue) 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      border: 3px solid var(--secondary-gold);
-      box-shadow: 0 4px 15px rgba(201, 169, 110, 0.3);
-    }
-
-    .logo-icon::before {
-      content: 'CIR';
-      font-family: 'Playfair Display', serif;
-      font-weight: 800;
-      font-size: 1.8rem;
-      color: var(--secondary-gold);
-      letter-spacing: 2px;
-    }
-
-    .logo-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo-main {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: var(--primary-navy);
-      letter-spacing: -0.5px;
-      line-height: 1;
-    }
-
-    .logo-subtitle {
-      font-size: 0.9rem;
-      color: var(--secondary-gold);
-      font-weight: 600;
-      letter-spacing: 3px;
-      margin-top: 0.3rem;
-      text-transform: uppercase;
-      position: relative;
-      padding-left: 10px;
-    }
-
-    .logo-subtitle::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 4px;
-      height: 4px;
-      background: var(--secondary-gold);
-      border-radius: 50%;
-    }
-
-    /* Header & Navigation */
-    header {
-      background: var(--white);
-      padding: 1.2rem 0;
-      box-shadow: var(--shadow);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      border-bottom: 2px solid var(--secondary-gold);
-    }
-
-    .header-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav {
-      display: flex;
-      gap: 2.5rem;
-      align-items: center;
-    }
-
-    .nav-link {
-      color: var(--primary-navy);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 0.5rem 0;
-      position: relative;
-      transition: var(--transition);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .nav-link:hover {
-      color: var(--secondary-gold);
-    }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--secondary-gold);
-      transition: var(--transition);
-    }
-
-    .nav-link:hover::after {
-      width: 100%;
-    }
-
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      color: var(--primary-navy);
-      font-size: 1.5rem;
-      cursor: pointer;
-    }
-
-    /* Hero Section */
-    .hero {
-      background: linear-gradient(rgba(10, 26, 61, 0.9), rgba(10, 26, 61, 0.85)),
-                  url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
-      background-size: cover;
-      background-position: center;
-      color: var(--white);
-      text-align: center;
-      padding: 6rem 2rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
-    }
-
-    .hero-content {
-      max-width: 900px;
-      margin: 0 auto;
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-      color: var(--white);
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
-
-    .hero h1 span {
-      color: var(--secondary-gold);
-      display: block;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      max-width: 700px;
-      margin: 0 auto 2.5rem;
-      opacity: 0.95;
-      line-height: 1.6;
-    }
-
-    .cta-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.8rem;
-      background: linear-gradient(135deg, var(--secondary-gold) 0%, #d4b47c 100%);
-      color: var(--primary-navy);
-      padding: 1.2rem 3rem;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.1rem;
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
-      box-shadow: 0 8px 25px rgba(201, 169, 110, 0.4);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .cta-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(201, 169, 110, 0.5);
-      color: var(--primary-navy);
-    }
-
-    .cta-button.secondary {
-      background: transparent;
-      border: 2px solid var(--secondary-gold);
-      color: var(--secondary-gold);
-      box-shadow: none;
-    }
-
-    .cta-button.secondary:hover {
-      background: var(--secondary-gold);
-      color: var(--primary-navy);
-    }
-
-    /* Main Content */
-    .container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem 6rem;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 4rem;
-      color: var(--primary-navy);
-      position: relative;
-      padding-bottom: 1.5rem;
-    }
-
-    .section-title::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
-      border-radius: 2px;
-    }
-
-    /* Features Grid - Streamline Style */
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-      gap: 2.5rem;
-      margin-bottom: 6rem;
-    }
-
-    .feature-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 3rem 2.5rem;
-      box-shadow: var(--shadow);
-      transition: var(--transition);
-      border-top: 5px solid var(--accent-teal);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card:nth-child(2) {
-      border-top-color: var(--secondary-gold);
-    }
-
-    .feature-card:nth-child(3) {
-      border-top-color: var(--accent-blue);
-    }
-
-    .feature-card:hover {
-      transform: translateY(-15px);
-      box-shadow: var(--hover-shadow);
-    }
-
-    .feature-icon {
-      font-size: 3rem;
-      color: var(--accent-teal);
-      margin-bottom: 1.5rem;
-      width: 80px;
-      height: 80px;
-      background: rgba(0, 168, 168, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .feature-card:nth-child(2) .feature-icon {
-      color: var(--secondary-gold);
-      background: rgba(201, 169, 110, 0.1);
-    }
-
-    .feature-card:nth-child(3) .feature-icon {
-      color: var(--accent-blue);
-      background: rgba(0, 102, 204, 0.1);
-    }
-
-    .feature-card h3 {
-      margin-bottom: 1.5rem;
-      color: var(--primary-navy);
-      font-size: 1.8rem;
-      line-height: 1.3;
-    }
-
-    .feature-card p {
-      color: var(--text-light);
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
-
-    .feature-tag {
-      display: inline-block;
-      background: var(--secondary-gold);
-      color: var(--primary-navy);
-      padding: 0.5rem 1.5rem;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      letter-spacing: 0.5px;
-      margin-top: 1rem;
-    }
-
-    /* Premium Section */
-    .premium-section {
-      background: linear-gradient(135deg, #fefaf0 0%, #f8f7f3 100%);
-      border-radius: var(--radius);
-      padding: 4rem;
-      margin: 6rem 0;
-      border: 2px solid var(--secondary-gold);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .premium-section::before {
-      content: 'PREMIUM ACCESS';
-      position: absolute;
-      top: 25px;
-      right: -35px;
-      background: var(--secondary-gold);
-      color: var(--primary-navy);
-      padding: 0.6rem 4rem;
-      font-weight: 800;
-      transform: rotate(45deg);
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-    }
-
-    .premium-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      gap: 2rem;
-    }
-
-    .price-tag {
-      background: var(--primary-navy);
-      color: var(--secondary-gold);
-      padding: 1rem 2.5rem;
-      border-radius: 50px;
-      font-weight: 800;
-      font-size: 1.8rem;
-      box-shadow: 0 5px 15px rgba(10, 26, 61, 0.2);
-      border: 2px solid var(--secondary-gold);
-    }
-
-    .premium-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2.5rem;
-      margin-bottom: 3rem;
-    }
-
-    .premium-feature {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      background: var(--white);
-      border-radius: var(--radius);
-      transition: var(--transition);
-      border: 1px solid transparent;
-    }
-
-    .premium-feature:hover {
-      border-color: var(--secondary-gold);
-      transform: translateX(10px);
-    }
-
-    .premium-feature i {
-      color: var(--secondary-gold);
-      font-size: 1.5rem;
-      margin-top: 0.25rem;
-      flex-shrink: 0;
-    }
-
-    /* Ethics Section */
-    .ethics-section {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 4rem;
-      margin: 6rem 0;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(201, 169, 110, 0.2);
-    }
-
-    .ethics-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      margin-top: 3rem;
-    }
-
-    .ethics-item {
-      text-align: center;
-      padding: 2rem;
-      background: var(--light-bg);
-      border-radius: var(--radius);
-      transition: var(--transition);
-    }
-
-    .ethics-item:hover {
-      transform: translateY(-10px);
-      background: var(--white);
-      box-shadow: var(--shadow);
-    }
-
-    .ethics-icon {
-      font-size: 3rem;
-      color: var(--secondary-gold);
-      margin-bottom: 1.5rem;
-    }
-
-    /* Download Button - Fully Functional */
-    .download-section {
-      text-align: center;
-      padding: 5rem 2rem;
-      background: linear-gradient(135deg, var(--primary-navy) 0%, #152642 100%);
-      border-radius: var(--radius);
-      margin: 6rem 0;
-      color: var(--white);
-    }
-
-    .download-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 1rem;
-      background: var(--accent-teal);
-      color: var(--white);
-      padding: 1.2rem 3rem;
-      border-radius: 50px;
-      font-weight: 700;
-      text-decoration: none;
-      font-size: 1.2rem;
-      transition: var(--transition);
-      margin-top: 2rem;
-      box-shadow: 0 8px 25px rgba(0, 168, 168, 0.4);
-    }
-
-    .download-button:hover {
-      background: var(--secondary-gold);
-      transform: translateY(-5px);
-      box-shadow: 0 15px 35px rgba(201, 169, 110, 0.4);
-    }
-
-    /* Payment Modal */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 26, 61, 0.95);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 2000;
-      display: none;
-      backdrop-filter: blur(5px);
-    }
-
-    .modal {
-      background: var(--white);
-      border-radius: var(--radius);
-      width: 90%;
-      max-width: 600px;
-      padding: 3rem;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-      position: relative;
-      border: 2px solid var(--secondary-gold);
-    }
-
-    .close-modal {
-      position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--text-light);
-      transition: var(--transition);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .close-modal:hover {
-      background: var(--light-bg);
-      color: var(--primary-navy);
-    }
-
-    .payment-options {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      margin: 2.5rem 0;
-    }
-
-    .payment-option {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      padding: 1.5rem;
-      border: 2px solid #eee;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: var(--transition);
-      background: var(--light-bg);
-    }
-
-    .payment-option:hover {
-      border-color: var(--secondary-gold);
-      background: #fefaf0;
-    }
-
-    .payment-option.selected {
-      border-color: var(--secondary-gold);
-      background: #fefaf0;
-      transform: scale(1.02);
-    }
-
-    .payment-icon {
-      font-size: 2rem;
-      color: var(--primary-navy);
-      width: 50px;
-      height: 50px;
-      background: var(--white);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--primary-navy);
-      color: var(--white);
-      padding: 5rem 0 2rem;
-      margin-top: 6rem;
-      border-top: 4px solid var(--secondary-gold);
-    }
-
-    .footer-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 2rem;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-    }
-
-    .footer-logo {
-      font-size: 2rem;
-      font-weight: 800;
-      margin-bottom: 1.5rem;
-      color: var(--secondary-gold);
-      font-family: 'Playfair Display', serif;
-    }
-
-    .footer-links h4 {
-      margin-bottom: 1.8rem;
-      color: var(--secondary-gold);
-      font-size: 1.2rem;
-      font-weight: 600;
-    }
-
-    .footer-links ul {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 1rem;
-    }
-
-    .footer-links a {
-      color: #ddd;
-      text-decoration: none;
-      transition: var(--transition);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .footer-links a:hover {
-      color: var(--secondary-gold);
-      padding-left: 8px;
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 3rem;
-      margin-top: 3rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: #aaa;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .hero h1 {
-        font-size: 2.8rem;
-      }
-      
-      .features-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      }
-    }
-
-    @media (max-width: 768px) {
-      .header-container {
-        flex-direction: column;
-        gap: 1.5rem;
-        text-align: center;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1.5rem;
-        display: none;
-      }
-
-      .mobile-menu-btn {
-        display: block;
-        position: absolute;
-        right: 2rem;
-        top: 50%;
-        transform: translateY(-50%);
-      }
-
-      .hero {
-        padding: 4rem 1.5rem;
-      }
-
-      .hero h1 {
-        font-size: 2.3rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .premium-section {
-        padding: 2.5rem 1.5rem;
-      }
-
-      .premium-header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .ethics-section, .modal {
-        padding: 2.5rem 1.5rem;
-      }
-
-      .logo-icon {
-        width: 50px;
-        height: 50px;
-      }
-
-      .logo-icon::before {
-        font-size: 1.5rem;
-      }
-
-      .logo-main {
-        font-size: 1.8rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero {
-        padding: 3rem 1rem;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      .cta-button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-      }
-
-      .section-title {
-        font-size: 1.8rem;
-      }
-
-      .feature-card {
-        padding: 2rem 1.5rem;
-      }
-
-      .download-button {
-        padding: 1rem 2rem;
-        font-size: 1rem;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>9to5 University - Professional Resume Builder</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <style>
+        /* Modern Theme Colors - Inspired by streamline image */
+        :root {
+            --primary-blue: #1A56DB;
+            --accent-teal: #0E9F6E;
+            --light-blue: #3F83F8;
+            --dark-blue: #1E429F;
+            --light-gray: #F9FAFB;
+            --medium-gray: #E5E7EB;
+            --dark-gray: #111827;
+            --white: #FFFFFF;
+            --shadow: rgba(0, 0, 0, 0.08);
+            --gradient-primary: linear-gradient(135deg, #1A56DB 0%, #3F83F8 100%);
+            --gradient-secondary: linear-gradient(135deg, #0E9F6E 0%, #3BD4A4 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+        }
+        
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header & Navigation - Modern Design */
+        header {
+            background-color: var(--white);
+            padding: 1.2rem 0;
+            box-shadow: 0 1px 3px var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            color: white;
+            font-weight: 800;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            letter-spacing: -0.5px;
+        }
+        
+        .logo-text .tagline {
+            font-size: 0.75rem;
+            color: var(--accent-teal);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        
+        nav a {
+            color: var(--dark-gray);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--primary-blue);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-blue);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .auth-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .btn {
+            padding: 0.7rem 1.8rem;
+            border-radius: 8px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        
+        .btn-login {
+            background-color: transparent;
+            border: 1px solid var(--medium-gray);
+            color: var(--dark-gray);
+        }
+        
+        .btn-signup {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(26, 86, 219, 0.2);
+        }
+        
+        .btn-login:hover {
+            background-color: var(--light-gray);
+        }
+        
+        .btn-signup:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(26, 86, 219, 0.3);
+        }
+        
+        /* Hero Section - Streamline Inspired */
+        .hero {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            padding: 5rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(26, 86, 219, 0.05) 0%, rgba(14, 159, 110, 0.05) 100%);
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+        
+        .hero-content {
+            max-width: 720px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero h2 {
+            font-size: 3.2rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--dark-blue);
+            letter-spacing: -1px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: #4B5563;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            font-size: 1.1rem;
+            padding: 1rem 2.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(26, 86, 219, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(26, 86, 219, 0.4);
+        }
+        
+        /* Stats Section */
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: block;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #6B7280;
+            font-weight: 500;
+        }
+        
+        /* Main Content */
+        main {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-blue);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .section-title p {
+            color: #6B7280;
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+        
+        /* Resume Builder Section - Modern Card */
+        .resume-builder {
+            background-color: var(--white);
+            border-radius: 16px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px var(--shadow);
+            margin-bottom: 4rem;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .builder-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+        }
+        
+        .builder-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+        
+        @media (max-width: 1024px) {
+            .builder-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .form-section {
+            background-color: var(--light-gray);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+        
+        .preview-section {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--dark-blue);
+            font-size: 0.95rem;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 0.9rem;
+            border: 1px solid var(--medium-gray);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.2s;
+            background-color: white;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.1);
+        }
+        
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: inherit;
+        }
+        
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        /* Template Selector - Modern */
+        .template-selector {
+            margin: 2.5rem 0;
+        }
+        
+        .templates {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .template {
+            border: 2px solid transparent;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: white;
+            box-shadow: 0 2px 8px var(--shadow);
+        }
+        
+        .template:hover, .template.active {
+            border-color: var(--primary-blue);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(26, 86, 219, 0.15);
+        }
+        
+        .template-preview {
+            height: 180px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 1.2rem;
+        }
+        
+        .template-name {
+            text-align: center;
+            padding: 0.8rem;
+            background-color: var(--light-gray);
+            font-weight: 600;
+            color: var(--dark-gray);
+            font-size: 0.9rem;
+        }
+        
+        /* Resume Preview */
+        .resume-preview {
+            background-color: white;
+            border: 1px solid var(--medium-gray);
+            border-radius: 12px;
+            min-height: 700px;
+            padding: 2.5rem;
+            box-shadow: 0 8px 32px var(--shadow);
+            overflow: auto;
+        }
+        
+        .resume-header {
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--primary-blue);
+        }
+        
+        .resume-name {
+            font-size: 2.2rem;
+            color: var(--dark-blue);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .resume-title {
+            font-size: 1.4rem;
+            color: var(--accent-teal);
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .resume-contact {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            font-size: 0.95rem;
+            color: #6B7280;
+        }
+        
+        .resume-contact span {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .resume-section {
+            margin-bottom: 1.8rem;
+        }
+        
+        .section-heading {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--medium-gray);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .resume-item {
+            margin-bottom: 1.2rem;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.3rem;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        .item-subtitle {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .btn-download {
+            background: var(--gradient-secondary);
+            color: white;
+            width: 100%;
+            margin-top: 2rem;
+            padding: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 10px;
+            box-shadow: 0 4px 16px rgba(14, 159, 110, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 24px rgba(14, 159, 110, 0.4);
+        }
+        
+        /* Features Section - Streamline Inspired */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .feature-card {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 20px var(--shadow);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--medium-gray);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+        }
+        
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: white;
+        }
+        
+        .feature-card:nth-child(1) .feature-icon {
+            background: var(--gradient-primary);
+        }
+        
+        .feature-card:nth-child(2) .feature-icon {
+            background: var(--gradient-secondary);
+        }
+        
+        .feature-card:nth-child(3) .feature-icon {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A78BFA 100%);
+        }
+        
+        .feature-card:nth-child(4) .feature-icon {
+            background: linear-gradient(135deg, #F59E0B 0%, #FBBF24 100%);
+        }
+        
+        .feature-card h3 {
+            color: var(--dark-blue);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        /* Testimonial Section */
+        .testimonial-section {
+            background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+            padding: 4rem 0;
+            border-radius: 16px;
+            margin-bottom: 4rem;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px var(--shadow);
+        }
+        
+        .testimonial-content {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: #4B5563;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .author-info h4 {
+            color: var(--dark-blue);
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #6B7280;
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 0;
+            border-radius: 16px;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .contact-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-content p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-method {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .contact-method i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        
+        .contact-method h3 {
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-method p {
+            margin-bottom: 0;
+            opacity: 0.8;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-blue);
+            color: white;
+            padding: 3rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .footer-logo .logo-icon {
+            width: 56px;
+            height: 56px;
+        }
+        
+        .footer-links h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .footer-links ul {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+        
+        /* Modal for Account Creation */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1001;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 3rem;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        
+        .modal-header h2 {
+            color: var(--dark-blue);
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #777;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1.5rem;
+            }
+            
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            
+            .builder-container {
+                gap: 2rem;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .auth-buttons {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+    </style>
 </head>
 <body>
-  <!-- Header & Navigation -->
-  <header>
-    <div class="header-container">
-      <a href="#home" class="university-logo">
-        <div class="logo-icon"></div>
-        <div class="logo-text">
-          <div class="logo-main">CIR University</div>
-          <div class="logo-subtitle">Excellence in Education</div>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <span>9t5U</span>
+                </div>
+                <div class="logo-text">
+                    <h1>9to5 University</h1>
+                    <div class="tagline">Professional Career Development</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#resume-builder">Resume Builder</a></li>
+                    <li><a href="#features">Career Resources</a></li>
+                    <li><a href="#testimonials">Success Stories</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-login" id="loginBtn">Login</button>
+                <button class="btn btn-signup" id="signupBtn">Get Started</button>
+            </div>
         </div>
-      </a>
-      <nav id="mainNav">
-        <a href="#home" class="nav-link">Home</a>
-        <a href="#features" class="nav-link">Features</a>
-        <a href="#premium" class="nav-link">Premium</a>
-        <a href="#ethics" class="nav-link">Our Ethics</a>
-        <a href="#download" class="nav-link">Resources</a>
-        <a href="#contact" class="nav-link">Contact</a>
-      </nav>
-      <button class="mobile-menu-btn" id="mobileMenuBtn">
-        <i class="fas fa-bars"></i>
-      </button>
-    </div>
-  </header>
+    </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <h1>Streamline Your Education<br><span>Supercharge Your Career</span></h1>
-      <p>All-in-one platform for career development, professional tools, and workplace rights guidance for South African students and professionals.</p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <a href="#features" class="cta-button">
-          <i class="fas fa-rocket"></i> Get Started Free
-        </a>
-        <a href="#download" class="cta-button secondary">
-          <i class="fas fa-download"></i> Download Resources
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Main Content -->
-  <div class="container">
-    <!-- Features Section -->
-    <section id="features">
-      <h2 class="section-title">Everything You Need for Career Success</h2>
-      <p style="text-align: center; margin-bottom: 4rem; color: var(--text-light); max-width: 900px; margin-left: auto; margin-right: auto; font-size: 1.1rem;">
-        From real-time collaboration to performance insights, our features are built to keep you connected, organized, and moving forward.
-      </p>
-      
-      <div class="features-grid">
-        <!-- Real-Time Collaboration -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-comments"></i>
-          </div>
-          <h3>Real-Time Collaboration</h3>
-          <p>Communicate seamlessly with mentors and peers in real-time, no matter where they are. Share files, chat, and video calls effortlessly.</p>
-          <p style="font-style: italic; color: var(--accent-teal);">Agile tools, not deadlines. Make valuable progress with teams, fast, and flexible without the hassle.</p>
-          <div class="feature-tag">Start today</div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content fade-in">
+            <h2>Streamline Your Career, Supercharge Your Success</h2>
+            <p>All-in-one platform to build, optimize, and deliver professional resumes — faster and smarter. Track your progress with beautiful dashboards that keep you on track.</p>
+            <button class="btn btn-primary" id="startBuildingBtn">
+                <i class="fas fa-rocket"></i> Build Your Resume Now
+            </button>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">10,000+</span>
+                    <span class="stat-label">Resumes Created</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">94%</span>
+                    <span class="stat-label">Success Rate</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">5.0</span>
+                    <span class="stat-label">User Rating</span>
+                </div>
+            </div>
         </div>
-        
-        <!-- Task & Project Tracking -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-tasks"></i>
-          </div>
-          <h3>Task & Project Tracking</h3>
-          <p>Manage academic projects, set deadlines, and visualize progress with beautiful dashboards that keep you on track.</p>
-          <p style="font-style: italic; color: var(--secondary-gold);">Stay organized with integrated planning tools that adapt to your workflow.</p>
-          <div class="feature-tag">Stay organized</div>
-        </div>
-        
-        <!-- Performance Insights -->
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>Performance Insights</h3>
-          <p>Measure your academic productivity with analytics that show you how well you're performing, what's working, and where you need improvement.</p>
-          <p style="font-style: italic; color: var(--accent-blue);">Visualize trends, identify areas for improvement, and make data-driven decisions.</p>
-          <div class="feature-tag">Optimize performance</div>
-        </div>
-      </div>
-
-      <!-- Built-In Team Chat -->
-      <div class="features-grid" style="margin-top: 4rem;">
-        <div class="feature-card" style="border-top-color: var(--accent-blue);">
-          <div class="feature-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <h3>Built-In Team Chat</h3>
-          <p>Easily connect with study groups, assign tasks, and track progress to keep everyone aligned and accountable.</p>
-          <div class="feature-tag">Real-time communication</div>
-        </div>
-        
-        <div class="feature-card" style="border-top-color: var(--accent-teal);">
-          <div class="feature-icon">
-            <i class="fas fa-user-check"></i>
-          </div>
-          <h3>Task Assignment</h3>
-          <p>Assign academic tasks, set deadlines, and visualize progress with beautiful dashboards that keep you on track.</p>
-          <div class="feature-tag">Proven Results, Real Impact</div>
-        </div>
-      </div>
     </section>
 
-    <!-- Download Section -->
-    <section class="download-section" id="download">
-      <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem; color: var(--white);">Download Premium Resources</h2>
-      <p style="max-width: 700px; margin: 0 auto 1rem; opacity: 0.9; font-size: 1.1rem;">
-        Get access to our exclusive career development toolkit, including professional templates, guides, and industry insights.
-      </p>
-      <p style="max-width: 700px; margin: 0 auto 2rem; opacity: 0.8;">
-        See how students around the world are learning faster, collaborating better, and achieving more with our all-in-one academic platform.
-      </p>
-      <a href="#" class="download-button" id="downloadButton">
-        <i class="fas fa-download"></i> Download Resource Pack (PDF)
-      </a>
-    </section>
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Resume Builder Section -->
+        <section id="resume-builder">
+            <div class="section-title fade-in">
+                <h2>Professional Resume Builder</h2>
+                <p>Plan, collaborate, and deliver — faster and smarter. Everything you need to create a standout resume.</p>
+            </div>
+            
+            <div class="resume-builder fade-in">
+                <!-- Template Selector -->
+                <div class="template-selector">
+                    <h3>Choose Your Template</h3>
+                    <p>Select from our professionally designed templates to match your industry and style.</p>
+                    <div class="templates">
+                        <div class="template active" data-template="1">
+                            <div class="template-preview" style="background: white; color: #1E429F;">
+                                <div>
+                                    <h4>John Doe</h4>
+                                    <p>Software Developer</p>
+                                </div>
+                                <div style="font-size: 0.9rem;">
+                                    <p>Experience • Education • Skills</p>
+                                </div>
+                            </div>
+                            <div class="template-name">Classic Professional</div>
+                        </div>
+                        <div class="template" data-template="2">
+                            <div class="template-preview" style="background: #1E429F; color: white;">
+                                <div>
+                                    <h4>John Doe</h4>
+                                    <p>Software Developer</p>
+                                </div>
+                                <div style="font-size: 0.9rem;">
+                                    <p>Experience • Education • Skills</p>
+                                </div>
+                            </div>
+                            <div class="template-name">Modern Executive</div>
+                        </div>
+                        <div class="template" data-template="3">
+                            <div class="template-preview" style="background: #0E9F6E; color: white;">
+                                <div>
+                                    <h4>John Doe</h4>
+                                    <p>Software Developer</p>
+                                </div>
+                                <div style="font-size: 0.9rem;">
+                                    <p>Experience • Education • Skills</p>
+                                </div>
+                            </div>
+                            <div class="template-name">Creative Impact</div>
+                        </div>
+                        <div class="template" data-template="4">
+                            <div class="template-preview" style="background: #F8FAFC; color: #111827; border: 1px solid #E5E7EB;">
+                                <div>
+                                    <h4>John Doe</h4>
+                                    <p>Software Developer</p>
+                                </div>
+                                <div style="font-size: 0.9rem;">
+                                    <p>Experience • Education • Skills</p>
+                                </div>
+                            </div>
+                            <div class="template-name">Minimal Clean</div>
+                        </div>
+                        <div class="template" data-template="5">
+                            <div class="template-preview" style="background: linear-gradient(135deg, #1E293B 0%, #334155 100%); color: white;">
+                                <div>
+                                    <h4>Tshedimosho M.</h4>
+                                    <p>Multi-Industry Professional</p>
+                                </div>
+                                <div style="font-size: 0.9rem;">
+                                    <p>Retail • Manufacturing • Construction</p>
+                                </div>
+                            </div>
+                            <div class="template-name">Example CV</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="builder-container">
+                    <!-- Form Section -->
+                    <div class="form-section">
+                        <div class="builder-header">
+                            <h3>Your Information</h3>
+                            <button class="btn" id="loadExampleBtn" style="background: var(--accent-teal); color: white;">
+                                <i class="fas fa-file-import"></i> Load Example CV
+                            </button>
+                        </div>
+                        <form id="resumeForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="fullName">Full Name</label>
+                                    <input type="text" id="fullName" placeholder="John Doe" value="John Doe">
+                                </div>
+                                <div class="form-group">
+                                    <label for="jobTitle">Professional Title</label>
+                                    <input type="text" id="jobTitle" placeholder="Software Developer" value="Software Developer">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="summary">Professional Summary</label>
+                                <textarea id="summary" placeholder="Experienced professional with a passion for...">Experienced software developer with 5+ years of expertise in web technologies, dedicated to creating efficient and scalable solutions. Strong collaborator with excellent problem-solving skills.</textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" placeholder="john@example.com" value="john.doe@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Phone</label>
+                                    <input type="tel" id="phone" placeholder="(123) 456-7890" value="(123) 456-7890">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Location</label>
+                                <input type="text" id="address" placeholder="City, State" value="New York, NY">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="experience">Work Experience</label>
+                                <textarea id="experience" placeholder="Describe your work experience...">• Senior Developer at Tech Solutions Inc. (2020-Present)
+3 Led a team of 5 developers to create responsive web applications
+3 Improved application performance by 30% through code optimization
 
-    <!-- Premium Section -->
-    <section class="premium-section" id="premium">
-      <div class="premium-header">
-        <h2 style="color: var(--primary-navy); margin: 0; font-size: 2.2rem;">Premium Access</h2>
-        <div class="price-tag">R29.99 Once-Off</div>
-      </div>
-      
-      <p style="margin-bottom: 3rem; color: var(--text-dark); font-size: 1.1rem;">
-        Support our educational platform and unlock enhanced professional tools. <strong>No subscription, no hidden fees.</strong>
-      </p>
-      
-      <div class="premium-grid">
-        <div class="premium-feature">
-          <i class="fas fa-graduation-cap"></i>
-          <div>
-            <h4 style="margin-bottom: 0.5rem;">Professional Templates</h4>
-            <p style="color: var(--text-light);">Aesthetic, industry-specific designs</p>
-          </div>
-        </div>
-        
-        <div class="premium-feature">
-          <i class="fas fa-file-pdf"></i>
-          <div>
-            <h4 style="margin-bottom: 0.5rem;">PDF Download</h4>
-            <p style="color: var(--text-light);">High-quality PDF exports</p>
-          </div>
-        </div>
-        
-        <div class="premium-feature">
-          <i class="fas fa-user-graduate"></i>
-          <div>
-            <h4 style="margin-bottom: 0.5rem;">Career Coach</h4>
-            <p style="color: var(--text-light);">Personalized coaching & interview prep</p>
-          </div>
-        </div>
-        
-        <div class="premium-feature">
-          <i class="fas fa-chart-line"></i>
-          <div>
-            <h4 style="margin-bottom: 0.5rem;">Industry Analytics</h4>
-            <p style="color: var(--text-light);">Market-specific career data</p>
-          </div>
-        </div>
-        
-        <div class="premium-feature">
-          <i class="fas fa-bell"></i>
-          <div>
-            <h4 style="margin-bottom: 0.5rem;">Smart Alerts</h4>
-            <p style="color: var(--text-light);">Personalized opportunity notifications</p>
-          </div>
-        </div>
-        
-        <div class="premium-feature">
-          <i class="fas fa-headset"></i>
-          <div>
-            <h4 style="margin-bottom: 0.5rem;">Priority Support</h4>
-            <p style="color: var(--text-light);">Direct academic support</p>
-          </div>
-        </div>
-      </div>
-      
-      <button class="cta-button" id="openPaymentModal" style="display: block; margin: 2rem auto 0;">
-        <i class="fas fa-crown"></i> Unlock Premium Access
-      </button>
-      
-      <div id="premiumContent" style="display: none; text-align: center; margin-top: 3rem; padding: 2.5rem; background: rgba(201, 169, 110, 0.1); border-radius: var(--radius); border: 2px solid var(--secondary-gold);">
-        <h3 style="color: var(--secondary-gold); margin-bottom: 1rem; font-size: 1.8rem;"><i class="fas fa-crown"></i> Premium Unlocked!</h3>
-        <p style="font-size: 1.1rem;">Thank you for supporting CIR University. You now have lifetime access to all premium features on this device.</p>
-        <a href="#download" style="display: inline-flex; align-items: center; gap: 0.5rem; margin-top: 1.5rem; color: var(--primary-navy); font-weight: 700; font-size: 1.1rem; text-decoration: none;">
-          Access Premium Resources <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-    </section>
+• Web Developer at Digital Creations (2018-2020)
+3 Developed and maintained client websites using modern frameworks
+3 Collaborated with designers to implement UI/UX improvements</textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="education">Education</label>
+                                <textarea id="education" placeholder="List your educational background...">• Bachelor of Science in Computer Science
+University of Technology, 2014-2018
+GPA: 3.8/4.0
 
-    <!-- Ethics Section -->
-    <section class="ethics-section" id="ethics">
-      <h2 class="section-title">Our Academic Ethics & Values</h2>
-      <p style="text-align: center; margin-bottom: 2rem; color: var(--text-light); max-width: 900px; margin-left: auto; margin-right: auto; font-size: 1.1rem;">
-        We believe access to quality education and career development resources should be available to every South African student.
-      </p>
-      
-      <div class="ethics-grid">
-        <div class="ethics-item">
-          <div class="ethics-icon">
-            <i class="fas fa-lock-open"></i>
-          </div>
-          <h3>Always Accessible</h3>
-          <p>Core educational resources will never be behind a paywall.</p>
-        </div>
-        
-        <div class="ethics-item">
-          <div class="ethics-icon">
-            <i class="fas fa-user-shield"></i>
-          </div>
-          <h3>Privacy First</h3>
-          <p>We never sell student data. Your information stays secure.</p>
-        </div>
-        
-        <div class="ethics-item">
-          <div class="ethics-icon">
-            <i class="fas fa-ad"></i>
-          </div>
-          <h3>Ad-Free Learning</h3>
-          <p>Premium users enjoy a completely distraction-free experience.</p>
-        </div>
-        
-        <div class="ethics-item">
-          <div class="ethics-icon">
-            <i class="fas fa-handshake"></i>
-          </div>
-          <h3>Transparent Pricing</h3>
-          <p>One-time payment, no subscriptions, no hidden fees.</p>
-        </div>
-      </div>
-    </section>
-  </div>
+• Web Development Certification
+Code Academy, 2019</textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="skills">Skills</label>
+                                <textarea id="skills" placeholder="List your key skills...">JavaScript, React, Node.js, HTML/CSS, Python, Git, Agile Methodologies, Team Leadership, Problem Solving</textarea>
+                            </div>
+                        </form>
+                    </div>
+                    
+                    <!-- Preview Section -->
+                    <div class="preview-section">
+                        <div class="builder-header">
+                            <h3>Live Preview</h3>
+                            <div style="font-size: 0.9rem; color: #6B7280;">Updates in real-time</div>
+                        </div>
+                        <div class="resume-preview" id="resumePreview">
+                            <!-- Resume content will be generated by JavaScript -->
+                        </div>
+                        <button class="btn btn-download" id="downloadBtn">
+                            <i class="fas fa-download"></i> Download as PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <!-- Payment Modal -->
-  <div class="modal-overlay" id="paymentModal">
-    <div class="modal">
-      <button class="close-modal" id="closeModal">&times;</button>
-      <h2 style="color: var(--primary-navy); margin-bottom: 1rem; font-size: 2rem;">Upgrade to Premium</h2>
-      <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">One-time payment of <strong style="color: var(--secondary-gold);">R29.99</strong> for lifetime access to premium features.</p>
-      
-      <div class="payment-options">
-        <div class="payment-option" data-method="card">
-          <div class="payment-icon">
-            <i class="fas fa-credit-card"></i>
-          </div>
-          <div>
-            <h4>Credit/Debit Card</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem;">Visa, Mastercard, Maestro</p>
-          </div>
+        <!-- Features Section -->
+        <section id="features">
+            <div class="section-title fade-in">
+                <h2>Everything You Need for Career Success</h2>
+                <p>From resume building to career guidance, our features are built to keep you connected, organized, and moving forward.</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Real-Time Collaboration</h3>
+                    <p>Communicate seamlessly with career advisors and mentors. Get feedback on your resume in real-time, no matter where they are.</p>
+                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">Learn More</button>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Task & Progress Tracking</h3>
+                    <p>Manage your job search, set deadlines, and visualize progress with beautiful dashboards that keep you on track.</p>
+                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">Explore Features</button>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Performance Insights</h3>
+                    <p>Measure your job search success with analytics that show you what's working and where you need improvement.</p>
+                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">View Analytics</button>
+                </div>
+                
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Career Guidance</h3>
+                    <p>Connect with professional advisors, get interview coaching, and access resources for workplace issues.</p>
+                    <button class="btn" style="background: var(--light-gray); color: var(--dark-blue); margin-top: 1.5rem;">Get Help</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonial-section fade-in">
+            <div class="section-title">
+                <h2>Proven Results, Real Impact</h2>
+                <p>See how professionals around the world are landing better jobs, communicating better, and getting more done.</p>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "9to5 University helped me create a resume that got me 5 interviews in 2 weeks. The templates are professional and the guidance was invaluable."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">SM</div>
+                        <div class="author-info">
+                            <h4>Sarah M.</h4>
+                            <p>Marketing Manager</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "The example CV feature saved me hours of work. I was able to customize Tshedimosho's comprehensive CV to highlight my own diverse experience."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">TJ</div>
+                        <div class="author-info">
+                            <h4>Thomas J.</h4>
+                            <p>Project Coordinator</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "As a career changer, the workplace guides and rights information gave me the confidence to negotiate my new position successfully."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">RK</div>
+                        <div class="author-info">
+                            <h4>Rebecca K.</h4>
+                            <p>Former Teacher, Now HR Specialist</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section fade-in">
+            <div class="contact-content">
+                <h2>Get In Touch</h2>
+                <p>Have questions or need personalized assistance? Our team is here to help you streamline your career journey.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>079 487 4559</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <p>079 487 4559</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>magtecinvest@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Account Creation Modal -->
+    <div class="modal" id="accountModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Create Your Account</h2>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="accountForm">
+                <div class="form-group">
+                    <label for="regName">Full Name</label>
+                    <input type="text" id="regName" required>
+                </div>
+                <div class="form-group">
+                    <label for="regEmail">Email Address</label>
+                    <input type="email" id="regEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Create Account</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem; color: #6B7280;">Already have an account? <a href="#" id="switchToLogin" style="color: var(--primary-blue);">Login here</a></p>
         </div>
-        
-        <div class="payment-option" data-method="payfast">
-          <div class="payment-icon">
-            <i class="fas fa-university"></i>
-          </div>
-          <div>
-            <h4>PayFast</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem;">Secure South African payments</p>
-          </div>
-        </div>
-        
-        <div class="payment-option" data-method="eft">
-          <div class="payment-icon">
-            <i class="fas fa-exchange-alt"></i>
-          </div>
-          <div>
-            <h4>Bank EFT</h4>
-            <p style="color: var(--text-light); font-size: 0.95rem;">Direct bank transfer</p>
-          </div>
-        </div>
-      </div>
-      
-      <button class="cta-button" id="confirmPayment" style="width: 100%; margin-top: 2rem; padding: 1.2rem;">
-        <i class="fas fa-lock"></i> Complete Payment - R29.99
-      </button>
-      
-      <p style="text-align: center; margin-top: 2rem; font-size: 0.95rem; color: var(--text-light);">
-        <i class="fas fa-shield-alt"></i> Secure payment · 30-day money-back guarantee
-      </p>
     </div>
-  </div>
 
-  <!-- Footer -->
-  <footer id="contact">
-    <div class="footer-container">
-      <div>
-        <div class="footer-logo">CIR University</div>
-        <p style="color: #ddd; margin-bottom: 1.5rem;">Empowering South African students with premium educational tools and ethical career resources.</p>
-        <p style="margin-top: 1rem; color: #ddd;"><i class="fas fa-envelope" style="color: var(--secondary-gold);"></i> admissions@ciruniversity.ac.za</p>
-        <p style="color: #ddd;"><i class="fas fa-phone" style="color: var(--secondary-gold);"></i> 087 654 4321</p>
-        <p style="color: #ddd; margin-top: 1rem;"><i class="fas fa-map-marker-alt" style="color: var(--secondary-gold);"></i> Johannesburg, South Africa</p>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
-          <li><a href="#features"><i class="fas fa-star"></i> Features</a></li>
-          <li><a href="#premium"><i class="fas fa-crown"></i> Premium</a></li>
-          <li><a href="#ethics"><i class="fas fa-scale-balanced"></i> Our Ethics</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="#download"><i class="fas fa-download"></i> Downloads</a></li>
-          <li><a href="#"><i class="fas fa-book"></i> Library</a></li>
-          <li><a href="#"><i class="fas fa-graduation-cap"></i> Courses</a></li>
-          <li><a href="#"><i class="fas fa-briefcase"></i> Careers</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-links">
-        <h4>Connect</h4>
-        <ul>
-          <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
-          <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
-          <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
-          <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
-        </ul>
-      </div>
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Login to Your Account</h2>
+                <button class="close-modal" id="closeLoginModal">&times;</button>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </form>
+            <p style="text-align: center; margin-top: 1rem; color: #6B7280;">Don't have an account? <a href="#" id="switchToSignup" style="color: var(--primary-blue);">Sign up here</a></p>
+        </div>
     </div>
-    
-    <div class="copyright">
-      <p>© 2026 CIR University. All rights reserved. | Registration No: 2026/123456/07</p>
-      <p style="margin-top: 0.5rem; font-size: 0.9rem;">Proudly serving South African students since 2026.</p>
-    </div>
-  </footer>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Check if user already has premium
-      const isPremium = localStorage.getItem('cirPremium') === 'true';
-      const premiumContent = document.getElementById('premiumContent');
-      const openPaymentModalBtn = document.getElementById('openPaymentModal');
-      
-      if (isPremium) {
-        premiumContent.style.display = 'block';
-        if (openPaymentModalBtn) openPaymentModalBtn.style.display = 'none';
-      }
-      
-      // Download Button Functionality
-      const downloadButton = document.getElementById('downloadButton');
-      if (downloadButton) {
-        downloadButton.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          // Check if premium is required for download
-          if (!isPremium) {
-            alert('Premium access required for resource downloads. Upgrade to premium to access our resource library.');
-            document.getElementById('openPaymentModal').click();
-            return;
-          }
-          
-          // Create and trigger download
-          const link = document.createElement('a');
-          link.href = 'https://ciruniversity.ac.za/resources/career-toolkit.pdf';
-          link.download = 'CIR_University_Career_Toolkit.pdf';
-          document.body.appendChild(link);
-          link.click();
-          document.body.removeChild(link);
-          
-          // Show success message
-          alert('Download started! Your career toolkit is now downloading.');
-        });
-      }
-      
-      // Payment modal functionality
-      const paymentModal = document.getElementById('paymentModal');
-      const closeModal = document.getElementById('closeModal');
-      const confirmPayment = document.getElementById('confirmPayment');
-      const paymentOptions = document.querySelectorAll('.payment-option');
-      let selectedMethod = 'card';
-      
-      // Select first payment option by default
-      if (paymentOptions.length > 0) {
-        paymentOptions[0].classList.add('selected');
-      }
-      
-      // Open modal
-      if (openPaymentModalBtn) {
-        openPaymentModalBtn.addEventListener('click', function() {
-          paymentModal.style.display = 'flex';
-          document.body.style.overflow = 'hidden';
-        });
-      }
-      
-      // Close modal
-      if (closeModal) {
-        closeModal.addEventListener('click', function() {
-          paymentModal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        });
-      }
-      
-      // Click outside modal to close
-      paymentModal.addEventListener('click', function(e) {
-        if (e.target === paymentModal) {
-          paymentModal.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-      });
-      
-      // Select payment method
-      paymentOptions.forEach(option => {
-        option.addEventListener('click', function() {
-          paymentOptions.forEach(opt => opt.classList.remove('selected'));
-          this.classList.add('selected');
-          selectedMethod = this.getAttribute('data-method');
-        });
-      });
-      
-      // Confirm payment
-      if (confirmPayment) {
-        confirmPayment.addEventListener('click', function() {
-          // In a real implementation, this would connect to a payment processor
-          // For demo purposes, we'll simulate successful payment
-          
-          // Show processing message
-          const originalText = confirmPayment.innerHTML;
-          confirmPayment.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Payment...';
-          confirmPayment.disabled = true;
-          
-          // Simulate API call
-          setTimeout(function() {
-            // Save premium status
-            localStorage.setItem('cirPremium', 'true');
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">9t5U</div>
+                    <div>
+                        <h3 style="color: white; margin-bottom: 0.5rem;">9to5 University</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8);">Professional Career Development Platform</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
+                    <ul>
+                        <li><a href="#">Resume Templates</a></li>
+                        <li><a href="#">Cover Letter Guide</a></li>
+                        <li><a href="#">Interview Prep</a></li>
+                        <li><a href="#">Career Blog</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Connect</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
             
-            // Close modal
-            paymentModal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            
-            // Reset button
-            confirmPayment.innerHTML = originalText;
-            confirmPayment.disabled = false;
-            
-            // Show success message
-            const successModal = document.createElement('div');
-            successModal.style.cssText = `
-              position: fixed;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              background: white;
-              padding: 3rem;
-              border-radius: 16px;
-              box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-              z-index: 3000;
-              text-align: center;
-              max-width: 500px;
-              width: 90%;
-              border: 3px solid var(--secondary-gold);
-            `;
-            successModal.innerHTML = `
-              <div style="font-size: 4rem; color: var(--secondary-gold); margin-bottom: 1rem;">
-                <i class="fas fa-check-circle"></i>
-              </div>
-              <h3 style="color: var(--primary-navy); margin-bottom: 1rem; font-size: 1.8rem;">Payment Successful!</h3>
-              <p style="color: var(--text-light); margin-bottom: 2rem; font-size: 1.1rem;">
-                Thank you for supporting CIR University. Premium features are now unlocked!
-              </p>
-              <button id="closeSuccess" style="
-                background: var(--secondary-gold);
-                color: var(--primary-navy);
-                border: none;
-                padding: 1rem 2rem;
-                border-radius: 50px;
-                font-weight: 700;
-                cursor: pointer;
-                font-size: 1rem;
-              ">
-                Continue to Resources
-              </button>
-            `;
-            document.body.appendChild(successModal);
-            document.body.style.overflow = 'hidden';
-            
-            // Close success modal
-            document.getElementById('closeSuccess').addEventListener('click', function() {
-              document.body.removeChild(successModal);
-              document.body.style.overflow = 'auto';
-              
-              // Refresh to show premium content
-              location.reload();
-            });
-          }, 2000);
-        });
-      }
-      
-      // Mobile menu toggle
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      const nav = document.getElementById('mainNav');
-      
-      if (mobileMenuBtn && nav) {
-        mobileMenuBtn.addEventListener('click', function() {
-          const isVisible = nav.style.display === 'flex';
-          nav.style.display = isVisible ? 'none' : 'flex';
-          nav.style.flexDirection = 'column';
-          nav.style.position = 'absolute';
-          nav.style.top = '100%';
-          nav.style.left = '0';
-          nav.style.right = '0';
-          nav.style.background = 'var(--white)';
-          nav.style.padding = '2rem';
-          nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.1)';
-          nav.style.gap = '1.5rem';
-        });
+            <div class="copyright">
+                <p>&copy; 2023 9to5 University. All rights reserved. | Professional Resume Builder & Career Resources</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // DOM Elements
+        const resumeForm = document.getElementById('resumeForm');
+        const resumePreview = document.getElementById('resumePreview');
+        const templates = document.querySelectorAll('.template');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const accountModal = document.getElementById('accountModal');
+        const loginModal = document.getElementById('loginModal');
+        const signupBtn = document.getElementById('signupBtn');
+        const loginBtn = document.getElementById('loginBtn');
+        const closeModal = document.getElementById('closeModal');
+        const closeLoginModal = document.getElementById('closeLoginModal');
+        const startBuildingBtn = document.getElementById('startBuildingBtn');
+        const accountForm = document.getElementById('accountForm');
+        const loginForm = document.getElementById('loginForm');
+        const switchToLogin = document.getElementById('switchToLogin');
+        const switchToSignup = document.getElementById('switchToSignup');
+        const loadExampleBtn = document.getElementById('loadExampleBtn');
         
-        // Adjust for window resize
-        window.addEventListener('resize', function() {
-          if (window.innerWidth > 768) {
-            nav.style.display = 'flex';
-            nav.style.flexDirection = 'row';
-            nav.style.position = 'static';
-            nav.style.background = 'transparent';
-            nav.style.padding = '0';
-            nav.style.boxShadow = 'none';
-          } else {
-            nav.style.display = 'none';
-          }
-        });
+        // Current template selection
+        let currentTemplate = '1';
         
-        // Initial state for mobile
-        if (window.innerWidth <= 768) {
-          nav.style.display = 'none';
-        }
-      }
-      
-      // Smooth scrolling for navigation links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          const targetId = this.getAttribute('href');
-          if (targetId === '#') return;
-          
-          const targetElement = document.querySelector(targetId);
-          if (targetElement) {
-            e.preventDefault();
+        // Tshedimosho Mlangeni Example CV Data
+        const tshedimoshoCV = {
+            fullName: 'Tshedimosho Mlangeni',
+            jobTitle: 'Multi-Industry Professional',
+            summary: 'I have worked in various industries which include manufacturing which was at Tiger brands and briefly at Uniliver, I have worked in construction as well assisting artisans in electrical, welding and mechanical fitting and currently I work in retail.',
+            email: 'mphelamlangeni@gmail.com',
+            phone: '079 487 4559',
+            address: 'Boksburg North, Boksburg, Gauteng, South Africa',
+            experience: `Food Lover's Market - Deli Assistant, Merchandiser (May 2022 - May 2024)
+• Assuring stock is available in shelves
+• Assuring there are none expired or outdated stock on shelves
+• Assuring products scan correctly
+• Cutting cold meat, cutting and grating cheese
+• Assuring our department is hygienic
+Reference: Emmanuel Mbembe - 0671333606
+
+Tiger Brands - Packer (May 2020 - Apr 2021)
+• Sorting products, confirming manufacturing date, shipment number
+• Assessing product quality of package or labeling quality
+• Operating a pellet jack to move pallets of products to storage
+• Measuring products weights
+Reference: Mtsaki (shift supervisor) - 0606200997
+
+JHL Group (PTY) LTD - Assistant (Nov 2013 - Feb 2020)
+• Operating Grinder and other tools
+• Carrying artisan's toolbox, preparing tools for artisan to use
+• Carrying errands to the tool store on behalf of artisan
+Reference: A Nell (Clerk Admin) - 0176380138`,
+            education: `Basic Education - Khataza High School (Matric)`,
+            skills: `• Computer Literate
+• Customer / Client Interaction
+• Social Media Marketing
+• Manufacturing Operations
+• Retail Merchandising
+• Construction Assistance
+• Electrical, Welding & Mechanical Fitting Support
+• Multilingual: Sepedi, Xitsonga, English, isiZulu, Setswana, Sesotho, siSwati`
+        };
+        
+        // Initialize the resume preview
+        function updateResumePreview() {
+            // Get form values
+            const fullName = document.getElementById('fullName').value || 'John Doe';
+            const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
+            const summary = document.getElementById('summary').value || 'Experienced professional...';
+            const email = document.getElementById('email').value || 'john.doe@example.com';
+            const phone = document.getElementById('phone').value || '(123) 456-7890';
+            const address = document.getElementById('address').value || 'New York, NY';
+            const experience = document.getElementById('experience').value || 'No experience provided';
+            const education = document.getElementById('education').value || 'No education provided';
+            const skills = document.getElementById('skills').value || 'No skills provided';
             
-            window.scrollTo({
-              top: targetElement.offsetTop - 100,
-              behavior: 'smooth'
-            });
+            // Apply template-specific styling
+            let templateStyle = '';
+            let nameColor = 'var(--dark-blue)';
+            let titleColor = 'var(--accent-teal)';
+            let headingColor = 'var(--dark-blue)';
+            let backgroundColor = 'white';
+            let textColor = 'var(--dark-gray)';
+            let borderColor = 'var(--primary-blue)';
             
-            // Close mobile menu if open
-            if (window.innerWidth <= 768 && nav) {
-              nav.style.display = 'none';
+            switch(currentTemplate) {
+                case '2':
+                    nameColor = 'white';
+                    titleColor = '#F0E130';
+                    headingColor = 'white';
+                    backgroundColor = '#1E429F';
+                    textColor = 'white';
+                    borderColor = '#F0E130';
+                    break;
+                case '3':
+                    nameColor = 'white';
+                    titleColor = '#F0E130';
+                    headingColor = 'white';
+                    backgroundColor = '#0E9F6E';
+                    textColor = 'white';
+                    borderColor = '#F0E130';
+                    break;
+                case '4':
+                    nameColor = 'var(--dark-blue)';
+                    titleColor = 'var(--accent-teal)';
+                    headingColor = 'var(--dark-blue)';
+                    backgroundColor = '#F8FAFC';
+                    textColor = 'var(--dark-gray)';
+                    borderColor = 'var(--primary-blue)';
+                    break;
+                case '5':
+                    nameColor = 'white';
+                    titleColor = '#F0E130';
+                    headingColor = 'white';
+                    backgroundColor = '#1E293B';
+                    textColor = 'white';
+                    borderColor = '#F0E130';
+                    break;
             }
-          }
+            
+            // Generate resume preview HTML
+            resumePreview.innerHTML = `
+                <div class="resume-content" style="background-color: ${backgroundColor}; color: ${textColor}; height: 100%; padding: 2rem;">
+                    <div class="resume-header" style="border-bottom-color: ${borderColor};">
+                        <h1 class="resume-name" style="color: ${nameColor};">${fullName}</h1>
+                        <h2 class="resume-title" style="color: ${titleColor};">${jobTitle}</h2>
+                        <div class="resume-contact">
+                            <span><i class="fas fa-envelope"></i> ${email}</span>
+                            <span><i class="fas fa-phone"></i> ${phone}</span>
+                            <span><i class="fas fa-map-marker-alt"></i> ${address}</span>
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor};">PROFESSIONAL SUMMARY</h3>
+                        <p>${summary.replace(/\n/g, '<br>')}</p>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor};">WORK EXPERIENCE</h3>
+                        <div class="resume-item">
+                            ${formatTextAsBullets(experience)}
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor};">EDUCATION</h3>
+                        <div class="resume-item">
+                            ${formatTextAsBullets(education)}
+                        </div>
+                    </div>
+                    
+                    <div class="resume-section">
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor};">SKILLS</h3>
+                        <p>${skills.replace(/\n/g, '<br>')}</p>
+                    </div>
+                </div>
+            `;
+        }
+        
+        // Format text with bullet points
+        function formatTextAsBullets(text) {
+            return text.split('\n')
+                .map(line => {
+                    if (line.trim().startsWith('•') || line.trim().startsWith('3')) {
+                        return `<p style="margin-bottom: 0.5rem; padding-left: 1rem; position: relative;">
+                            <span style="position: absolute; left: 0;">•</span> ${line.substring(1).trim()}
+                        </p>`;
+                    }
+                    return `<p style="margin-bottom: 0.5rem;">${line}</p>`;
+                })
+                .join('');
+        }
+        
+        // Load Tshedimosho example CV
+        function loadTshedimoshoExample() {
+            document.getElementById('fullName').value = tshedimoshoCV.fullName;
+            document.getElementById('jobTitle').value = tshedimoshoCV.jobTitle;
+            document.getElementById('summary').value = tshedimoshoCV.summary;
+            document.getElementById('email').value = tshedimoshoCV.email;
+            document.getElementById('phone').value = tshedimoshoCV.phone;
+            document.getElementById('address').value = tshedimoshoCV.address;
+            document.getElementById('experience').value = tshedimoshoCV.experience;
+            document.getElementById('education').value = tshedimoshoCV.education;
+            document.getElementById('skills').value = tshedimoshoCV.skills;
+            
+            // Switch to template 5 (the example template)
+            templates.forEach(t => t.classList.remove('active'));
+            document.querySelector('.template[data-template="5"]').classList.add('active');
+            currentTemplate = '5';
+            
+            updateResumePreview();
+            
+            // Show notification
+            alert('Tshedimosho Mlangeni example CV loaded! You can now customize this template for your own use.');
+        }
+        
+        // Template selection
+        templates.forEach(template => {
+            template.addEventListener('click', () => {
+                templates.forEach(t => t.classList.remove('active'));
+                template.classList.add('active');
+                currentTemplate = template.getAttribute('data-template');
+                updateResumePreview();
+            });
         });
-      });
-    });
-  </script>
+        
+        // Load example from button
+        loadExampleBtn.addEventListener('click', loadTshedimoshoExample);
+        
+        // Update preview on form input
+        resumeForm.addEventListener('input', updateResumePreview);
+        
+        // Initialize preview on page load
+        document.addEventListener('DOMContentLoaded', updateResumePreview);
+        
+        // Download as PDF
+        downloadBtn.addEventListener('click', async () => {
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating PDF...';
+            downloadBtn.disabled = true;
+            
+            try {
+                // Create a temporary element for PDF generation
+                const tempElement = document.createElement('div');
+                tempElement.style.width = '210mm';
+                tempElement.style.padding = '20mm';
+                tempElement.style.backgroundColor = 'white';
+                tempElement.style.color = 'black';
+                tempElement.style.fontFamily = 'Arial, sans-serif';
+                
+                // Clone the resume preview content
+                const resumeContent = document.querySelector('.resume-content').cloneNode(true);
+                
+                // Adjust styles for PDF
+                resumeContent.style.width = '100%';
+                resumeContent.style.boxSizing = 'border-box';
+                
+                // Remove any template-specific classes that might interfere
+                resumeContent.className = '';
+                
+                tempElement.appendChild(resumeContent);
+                document.body.appendChild(tempElement);
+                
+                // Use html2canvas to capture the element
+                const canvas = await html2canvas(tempElement, {
+                    scale: 2,
+                    useCORS: true,
+                    logging: false
+                });
+                
+                // Remove the temporary element
+                document.body.removeChild(tempElement);
+                
+                // Create PDF
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+                
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 210;
+                const imgHeight = canvas.height * imgWidth / canvas.width;
+                
+                pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+                
+                // Download the PDF
+                const fullName = document.getElementById('fullName').value || 'my_resume';
+                const fileName = `9to5_university_resume_${fullName.replace(/\s+/g, '_')}.pdf`;
+                pdf.save(fileName);
+                
+                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
+                downloadBtn.disabled = false;
+                
+                // Show success message
+                alert('Resume downloaded successfully!');
+            } catch (error) {
+                console.error('Error generating PDF:', error);
+                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
+                downloadBtn.disabled = false;
+                
+                // Fallback: Create a simple text-based PDF
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                
+                // Get resume data
+                const fullName = document.getElementById('fullName').value || 'John Doe';
+                const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
+                const summary = document.getElementById('summary').value || 'Experienced professional...';
+                const email = document.getElementById('email').value || 'john.doe@example.com';
+                const phone = document.getElementById('phone').value || '(123) 456-7890';
+                const experience = document.getElementById('experience').value || 'No experience provided';
+                const education = document.getElementById('education').value || 'No education provided';
+                const skills = document.getElementById('skills').value || 'No skills provided';
+                
+                // Add content to PDF
+                pdf.setFontSize(22);
+                pdf.text(fullName, 20, 20);
+                pdf.setFontSize(16);
+                pdf.text(jobTitle, 20, 30);
+                
+                pdf.setFontSize(12);
+                pdf.text(`Email: ${email} | Phone: ${phone}`, 20, 40);
+                
+                pdf.setFontSize(14);
+                pdf.text('PROFESSIONAL SUMMARY', 20, 50);
+                pdf.setFontSize(11);
+                pdf.text(summary, 20, 60, { maxWidth: 170 });
+                
+                let yPosition = 80;
+                
+                pdf.setFontSize(14);
+                pdf.text('WORK EXPERIENCE', 20, yPosition);
+                yPosition += 10;
+                pdf.setFontSize(11);
+                const expLines = pdf.splitTextToSize(experience, 170);
+                pdf.text(expLines, 20, yPosition);
+                yPosition += expLines.length * 7 + 10;
+                
+                pdf.setFontSize(14);
+                pdf.text('EDUCATION', 20, yPosition);
+                yPosition += 10;
+                pdf.setFontSize(11);
+                const eduLines = pdf.splitTextToSize(education, 170);
+                pdf.text(eduLines, 20, yPosition);
+                yPosition += eduLines.length * 7 + 10;
+                
+                pdf.setFontSize(14);
+                pdf.text('SKILLS', 20, yPosition);
+                yPosition += 10;
+                pdf.setFontSize(11);
+                const skillLines = pdf.splitTextToSize(skills, 170);
+                pdf.text(skillLines, 20, yPosition);
+                
+                // Add 9to5 University branding
+                pdf.setFontSize(10);
+                pdf.setTextColor(100, 100, 100);
+                pdf.text('Created with 9to5 University Resume Builder', 20, 280);
+                
+                // Save the PDF
+                const fileName = `9to5_university_resume_${fullName.replace(/\s+/g, '_') || 'my_resume'}.pdf`;
+                pdf.save(fileName);
+                
+                alert('Resume downloaded successfully!');
+            }
+        });
+        
+        // Modal functionality
+        signupBtn.addEventListener('click', () => {
+            accountModal.style.display = 'flex';
+        });
+        
+        loginBtn.addEventListener('click', () => {
+            loginModal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            accountModal.style.display = 'none';
+        });
+        
+        closeLoginModal.addEventListener('click', () => {
+            loginModal.style.display = 'none';
+        });
+        
+        switchToLogin.addEventListener('click', (e) => {
+            e.preventDefault();
+            accountModal.style.display = 'none';
+            loginModal.style.display = 'flex';
+        });
+        
+        switchToSignup.addEventListener('click', (e) => {
+            e.preventDefault();
+            loginModal.style.display = 'none';
+            accountModal.style.display = 'flex';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (e) => {
+            if (e.target === accountModal) {
+                accountModal.style.display = 'none';
+            }
+            if (e.target === loginModal) {
+                loginModal.style.display = 'none';
+            }
+        });
+        
+        // Scroll to resume builder
+        startBuildingBtn.addEventListener('click', () => {
+            document.getElementById('resume-builder').scrollIntoView({ behavior: 'smooth' });
+        });
+        
+        // Account form submission
+        accountForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('regName').value;
+            const email = document.getElementById('regEmail').value;
+            const password = document.getElementById('regPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            
+            if (password !== confirmPassword) {
+                alert('Passwords do not match!');
+                return;
+            }
+            
+            // In a real app, you would send this data to a server
+            // For demo, we'll just show a success message
+            alert(`Account created successfully for ${name}! You can now save your resumes.`);
+            accountModal.style.display = 'none';
+            accountForm.reset();
+            
+            // Update login button to show user is logged in
+            loginBtn.innerHTML = `<i class="fas fa-user"></i> ${name.split(' ')[0]}`;
+            loginBtn.style.background = 'var(--gradient-secondary)';
+            loginBtn.style.border = 'none';
+            signupBtn.style.display = 'none';
+        });
+        
+        // Login form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            // In a real app, you would validate credentials with a server
+            // For demo, we'll just show a success message
+            const name = email.split('@')[0];
+            alert(`Welcome back, ${name}!`);
+            loginModal.style.display = 'none';
+            loginForm.reset();
+            
+            // Update login button to show user is logged in
+            loginBtn.innerHTML = `<i class="fas fa-user"></i> ${name}`;
+            loginBtn.style.background = 'var(--gradient-secondary)';
+            loginBtn.style.border = 'none';
+            signupBtn.style.display = 'none';
+        });
+        
+        // Feature buttons functionality
+        document.querySelectorAll('.feature-card .btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cardTitle = this.closest('.feature-card').querySelector('h3').textContent;
+                alert(`Thank you for your interest in "${cardTitle}". This feature would connect you to detailed resources in a full implementation.`);
+            });
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = href.substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+        
+        // Fade in elements on scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all elements with fade-in class
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
