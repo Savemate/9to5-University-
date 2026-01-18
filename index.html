@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9to5 University - Prestigious Career Development</title>
+    <title>9to5 University - Professional Resume Builder & Workplace Resources</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -29,28 +29,23 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Georgia', 'Times New Roman', serif;
         }
         
         body {
             background-color: var(--light-bg);
             color: var(--text-dark);
-            line-height: 1.7;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        .academic-font {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
         }
         
         .container {
             width: 100%;
-            max-width: 1280px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 20px;
         }
         
-        /* Header & Navigation - Prestigious Academic Style */
+        /* Header & Navigation */
         header {
             background-color: var(--white);
             padding: 1rem 0;
@@ -86,7 +81,6 @@
             font-weight: 800;
             font-size: 1.8rem;
             border: 3px solid var(--secondary-gold);
-            font-family: 'Georgia', serif;
         }
         
         .logo-text {
@@ -99,7 +93,6 @@
             font-weight: 700;
             color: var(--primary-navy);
             letter-spacing: -0.5px;
-            font-family: 'Georgia', serif;
         }
         
         .logo-text .tagline {
@@ -113,7 +106,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
         
         nav a {
@@ -158,7 +151,6 @@
             cursor: pointer;
             transition: all 0.2s ease;
             font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
         }
         
         .btn-login {
@@ -183,9 +175,9 @@
             box-shadow: var(--shadow-md);
         }
         
-        /* Hero Section - Prestigious Academic */
+        /* Hero Section */
         .hero {
-            padding: 6rem 0;
+            padding: 5rem 0;
             background: linear-gradient(135deg, var(--light-bg) 0%, #f0efe7 100%);
             position: relative;
             overflow: hidden;
@@ -203,22 +195,21 @@
         }
         
         .hero-content {
-            max-width: 720px;
+            max-width: 800px;
             position: relative;
             z-index: 1;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 700;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             color: var(--primary-navy);
-            font-family: 'Georgia', serif;
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--text-light);
             margin-bottom: 2.5rem;
             max-width: 600px;
@@ -242,66 +233,22 @@
             box-shadow: var(--shadow-lg);
         }
         
-        /* Stats Section - Gold Accents */
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 5rem;
-            margin-top: 4rem;
-            flex-wrap: wrap;
-            padding-top: 3rem;
-            border-top: 1px solid rgba(201, 169, 110, 0.3);
-        }
-        
-        .stat-item {
-            text-align: center;
-            position: relative;
-        }
-        
-        .stat-item::before {
-            content: '';
-            position: absolute;
-            top: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 3px;
-            background-color: var(--secondary-gold);
-        }
-        
-        .stat-number {
-            font-size: 2.8rem;
-            font-weight: 700;
-            color: var(--primary-navy);
-            display: block;
-            font-family: 'Georgia', serif;
-        }
-        
-        .stat-label {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        
         /* Main Content */
         main {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
             color: var(--primary-navy);
-            font-family: 'Georgia', serif;
         }
         
         .section-title::after {
@@ -319,88 +266,16 @@
             color: var(--text-light);
             max-width: 700px;
             margin: 2rem auto 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             line-height: 1.7;
         }
         
-        /* Features Grid - Academic Card Style */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 5rem;
-        }
-        
-        .feature-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-md);
-            border-top: 5px solid var(--secondary-gold);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            color: var(--primary-navy);
-            background-color: var(--gold-light);
-            border: 2px solid var(--secondary-gold);
-        }
-        
-        .feature-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
-            font-family: 'Georgia', serif;
-        }
-        
-        .feature-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        
-        .feature-highlight {
-            background-color: var(--navy-light);
-            padding: 1.2rem;
-            border-radius: 6px;
-            border-left: 4px solid var(--accent-blue);
-            font-weight: 500;
-            color: var(--primary-navy);
-            margin-top: 1.5rem;
-            font-style: italic;
-        }
-        
-        /* Resume Builder Section - Academic Style */
+        /* Resume Builder Section */
         .resume-builder-section {
             background-color: var(--white);
             border-radius: 12px;
-            padding: 4rem;
-            margin-bottom: 5rem;
+            padding: 3rem;
+            margin-bottom: 4rem;
             box-shadow: var(--shadow-md);
             border: 1px solid rgba(201, 169, 110, 0.2);
             position: relative;
@@ -420,8 +295,8 @@
         .builder-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 2.5rem;
+            margin-top: 2rem;
         }
         
         @media (max-width: 1024px) {
@@ -433,13 +308,11 @@
         .form-section {
             background-color: var(--light-bg);
             border-radius: 8px;
-            padding: 2.5rem;
+            padding: 2rem;
             border: 1px solid rgba(201, 169, 110, 0.3);
         }
         
         .preview-section {
-            position: sticky;
-            top: 100px;
             height: fit-content;
         }
         
@@ -457,13 +330,12 @@
         
         input, textarea, select {
             width: 100%;
-            padding: 0.9rem;
+            padding: 0.8rem;
             border: 1px solid #d1c4a3;
             border-radius: 6px;
             font-size: 1rem;
             transition: all 0.2s;
             background-color: var(--white);
-            font-family: 'Inter', sans-serif;
         }
         
         input:focus, textarea:focus, select:focus {
@@ -475,7 +347,6 @@
         textarea {
             min-height: 120px;
             resize: vertical;
-            font-family: 'Inter', sans-serif;
         }
         
         .form-row {
@@ -484,16 +355,16 @@
             gap: 1.5rem;
         }
         
-        /* Template Selector - Academic Style */
+        /* Template Selector */
         .template-selector {
-            margin: 3rem 0;
+            margin: 2rem 0;
         }
         
         .templates {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 2rem;
+            margin-top: 1.5rem;
         }
         
         .template {
@@ -514,7 +385,7 @@
         }
         
         .template-preview {
-            height: 180px;
+            height: 160px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -537,10 +408,11 @@
             border: 1px solid #d1c4a3;
             border-radius: 8px;
             min-height: 700px;
-            padding: 2.5rem;
+            padding: 2rem;
             box-shadow: var(--shadow-lg);
             overflow: auto;
             border-top: 5px solid var(--secondary-gold);
+            font-family: 'Arial', sans-serif;
         }
         
         .resume-header {
@@ -550,15 +422,14 @@
         }
         
         .resume-name {
-            font-size: 2.2rem;
+            font-size: 28px;
             color: var(--primary-navy);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.3rem;
             font-weight: 700;
-            font-family: 'Georgia', serif;
         }
         
         .resume-title {
-            font-size: 1.4rem;
+            font-size: 20px;
             color: var(--accent-teal);
             margin-bottom: 0.8rem;
             font-weight: 600;
@@ -568,7 +439,7 @@
             display: flex;
             flex-wrap: wrap;
             gap: 1.5rem;
-            font-size: 0.95rem;
+            font-size: 14px;
             color: var(--text-light);
         }
         
@@ -579,17 +450,16 @@
         }
         
         .resume-section {
-            margin-bottom: 1.8rem;
+            margin-bottom: 1.5rem;
         }
         
         .section-heading {
-            font-size: 1.3rem;
+            font-size: 18px;
             color: var(--primary-navy);
             padding-bottom: 0.5rem;
             border-bottom: 1px solid rgba(201, 169, 110, 0.3);
             margin-bottom: 1rem;
             font-weight: 600;
-            font-family: 'Georgia', serif;
         }
         
         .btn-download {
@@ -614,125 +484,71 @@
             box-shadow: var(--shadow-lg);
         }
         
-        /* Everything You Need Section - Gold Accent */
-        .everything-section {
-            text-align: center;
-            padding: 5rem 0;
-            background: linear-gradient(135deg, var(--navy-light) 0%, var(--gold-light) 100%);
-            border-radius: 12px;
-            margin-bottom: 5rem;
-            border: 1px solid rgba(201, 169, 110, 0.3);
-            position: relative;
+        /* Resources Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 4rem;
         }
         
-        .everything-section::before {
+        .resource-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow-md);
+            border-top: 5px solid var(--secondary-gold);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resource-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
+            width: 100%;
             height: 5px;
             background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
-            border-radius: 12px 12px 0 0;
         }
         
-        .everything-section h2 {
-            font-size: 2.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: var(--primary-navy);
-            font-family: 'Georgia', serif;
+        .resource-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
         }
         
-        .everything-section p {
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto 3rem;
-            font-size: 1.2rem;
-            line-height: 1.7;
-        }
-        
-        /* Testimonial Section - Academic Style */
-        .testimonial-section {
-            background-color: var(--white);
-            padding: 4rem;
-            border-radius: 12px;
-            margin-bottom: 4rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(201, 169, 110, 0.2);
-        }
-        
-        .testimonials {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .testimonial {
-            background-color: var(--light-bg);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: var(--shadow-sm);
-            border-left: 4px solid var(--secondary-gold);
-            position: relative;
-        }
-        
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            font-size: 4rem;
-            color: var(--secondary-gold);
-            opacity: 0.3;
-            font-family: 'Georgia', serif;
-        }
-        
-        .testimonial-content {
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            color: var(--text-dark);
-            line-height: 1.7;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
+        .resource-icon {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary-navy), var(--accent-teal));
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            color: var(--primary-navy);
+            background-color: var(--gold-light);
             border: 2px solid var(--secondary-gold);
         }
         
-        .author-info h4 {
+        .resource-card h3 {
+            font-size: 1.5rem;
             color: var(--primary-navy);
-            margin-bottom: 0.2rem;
-            font-family: 'Georgia', serif;
+            margin-bottom: 1rem;
         }
         
-        .author-info p {
+        .resource-card p {
             color: var(--text-light);
-            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
         }
         
-        /* CTA Section - Gold & Navy */
-        .cta-section {
+        /* Contact Section */
+        .contact-section {
             background: linear-gradient(135deg, var(--primary-navy) 0%, #0c2045 100%);
             color: white;
-            padding: 5rem 0;
+            padding: 4rem 0;
             border-radius: 12px;
             text-align: center;
             margin-bottom: 3rem;
@@ -741,7 +557,7 @@
             overflow: hidden;
         }
         
-        .cta-section::before {
+        .contact-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -751,14 +567,13 @@
             background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
         }
         
-        .cta-content h2 {
-            font-size: 2.8rem;
+        .contact-content h2 {
+            font-size: 2.5rem;
             margin-bottom: 1.5rem;
-            font-family: 'Georgia', serif;
         }
         
-        .cta-content p {
-            font-size: 1.2rem;
+        .contact-content p {
+            font-size: 1.1rem;
             opacity: 0.9;
             margin-bottom: 3rem;
             max-width: 700px;
@@ -766,26 +581,36 @@
             margin-right: auto;
         }
         
-        .btn-cta {
-            background-color: var(--secondary-gold);
-            color: var(--primary-navy);
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-method {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid rgba(201, 169, 110, 0.3);
+        }
+        
+        .contact-method i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-gold);
+        }
+        
+        .contact-method h3 {
+            margin-bottom: 0.8rem;
             font-size: 1.2rem;
-            padding: 1.2rem 3rem;
-            border-radius: 6px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            border: 2px solid var(--secondary-gold);
         }
         
-        .btn-cta:hover {
-            background-color: #b8944d;
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(201, 169, 110, 0.3);
+        .contact-method p {
+            margin-bottom: 0;
+            opacity: 0.8;
         }
         
-        /* Footer - Navy with Gold Accents */
+        /* Footer */
         footer {
             background-color: var(--primary-navy);
             color: white;
@@ -816,7 +641,6 @@
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             color: var(--secondary-gold);
-            font-family: 'Georgia', serif;
         }
         
         .footer-links ul {
@@ -843,53 +667,6 @@
             border-top: 1px solid rgba(201, 169, 110, 0.2);
             color: rgba(255, 255, 255, 0.7);
             font-size: 0.9rem;
-        }
-        
-        /* Modal for Account Creation - Academic Style */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 26, 61, 0.9);
-            z-index: 1001;
-            align-items: center;
-            justify-content: center;
-            backdrop-filter: blur(5px);
-        }
-        
-        .modal-content {
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: var(--shadow-xl);
-            border-top: 5px solid var(--secondary-gold);
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.3);
-        }
-        
-        .modal-header h2 {
-            color: var(--primary-navy);
-            font-family: 'Georgia', serif;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-light);
         }
         
         /* Responsive Design */
@@ -923,7 +700,7 @@
                 justify-content: center;
             }
             
-            .features-grid {
+            .resources-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -931,48 +708,66 @@
                 padding: 2rem;
             }
             
-            .stats {
-                gap: 3rem;
+            .resume-preview {
+                min-height: 600px;
+                padding: 1.5rem;
+            }
+            
+            .resume-name {
+                font-size: 24px;
+            }
+            
+            .resume-title {
+                font-size: 18px;
             }
         }
         
-        /* Animations */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .templates {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+            
+            .resource-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        /* Print Styles for PDF */
+        @media print {
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            
+            .no-print {
+                display: none !important;
+            }
+        }
+        
+        /* Utility Classes */
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+        
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-        
-        /* Utility Classes */
         .text-center {
             text-align: center;
         }
         
         .mb-4 {
             margin-bottom: 2rem;
-        }
-        
-        .gold-border {
-            border-color: var(--secondary-gold);
-        }
-        
-        .navy-text {
-            color: var(--primary-navy);
-        }
-        
-        .gold-text {
-            color: var(--secondary-gold);
-        }
-        
-        .teal-text {
-            color: var(--accent-teal);
-        }
-        
-        .blue-text {
-            color: var(--accent-blue);
         }
     </style>
 </head>
@@ -985,21 +780,21 @@
                     <span>9t5U</span>
                 </div>
                 <div class="logo-text">
-                    <h1 class="academic-font">9to5 University</h1>
-                    <div class="tagline">Prestigious Career Development</div>
+                    <h1>9to5 University</h1>
+                    <div class="tagline">Professional Career Resources</div>
                 </div>
             </a>
             <nav>
                 <ul>
-                    <li><a href="#features">Features</a></li>
                     <li><a href="#resume-builder">Resume Builder</a></li>
-                    <li><a href="#testimonials">Success Stories</a></li>
-                    <li><a href="#cta">Enroll Now</a></li>
+                    <li><a href="#workplace-guide">Workplace Guide</a></li>
+                    <li><a href="#workers-rights">Workers' Rights</a></li>
+                    <li><a href="#contact">Get Help</a></li>
                 </ul>
             </nav>
             <div class="auth-buttons">
                 <button class="btn btn-login" id="loginBtn">Login</button>
-                <button class="btn btn-signup" id="signupBtn">Apply Now</button>
+                <button class="btn btn-signup" id="signupBtn">Create Account</button>
             </div>
         </div>
     </header>
@@ -1007,145 +802,62 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content fade-in">
-            <h1 class="academic-font">Excellence in Career Development</h1>
-            <p>Join the prestigious tradition of 9to5 University, where academic excellence meets professional success. Build your future with our comprehensive career platform.</p>
+            <h1>Professional Resume Builder & Workplace Resources</h1>
+            <p>Create standout resumes with our professional builder. Access workplace guides, resolve issues, and understand your rights. Everything you need for career success.</p>
             <button class="btn btn-primary" id="startBuildingBtn">
-                <i class="fas fa-graduation-cap"></i> Begin Your Journey
+                <i class="fas fa-file-alt"></i> Build Your Resume Now
             </button>
-            
-            <div class="stats">
-                <div class="stat-item">
-                    <span class="stat-number academic-font">10,000+</span>
-                    <span class="stat-label">Successful Graduates</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number academic-font">94%</span>
-                    <span class="stat-label">Career Placement Rate</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-number academic-font">5.0</span>
-                    <span class="stat-label">Academic Excellence Rating</span>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Main Content -->
     <main class="container">
-        <section id="features">
-            <div class="section-title fade-in">
-                <h2 class="academic-font">Academic Excellence Meets Modern Innovation</h2>
-                <p>Our platform combines traditional academic rigor with cutting-edge technology to provide the ultimate career development experience.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <h3 class="academic-font">Professional Development</h3>
-                    <p>Access comprehensive career guidance, resume building, and interview preparation from industry experts and academic advisors.</p>
-                    <div class="feature-highlight">
-                        Traditional mentorship meets modern career coaching for unparalleled success.
-                    </div>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3 class="academic-font">Modern Platform</h3>
-                    <p>Utilize our cutting-edge digital platform for resume building, job tracking, and career progression analytics.</p>
-                    <div class="feature-highlight">
-                        Streamline your career journey with intuitive tools and real-time progress tracking.
-                    </div>
-                </div>
-                
-                <div class="feature-card fade-in">
-                    <div class="feature-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3 class="academic-font">Industry Connections</h3>
-                    <p>Connect with our extensive network of employers, alumni, and industry professionals across multiple sectors.</p>
-                    <div class="feature-highlight">
-                        Leverage our prestigious network for unparalleled career opportunities and growth.
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Everything You Need Section -->
-        <section class="everything-section fade-in">
-            <div class="container">
-                <h2 class="academic-font">Comprehensive Career Preparation</h2>
-                <p>From traditional resume building to modern digital networking, we provide everything you need for career success in today's competitive market.</p>
-                
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-file-alt"></i>
-                        </div>
-                        <h3 class="academic-font">Academic Resume Templates</h3>
-                        <p>Choose from professionally designed templates that meet the highest academic and industry standards.</p>
-                    </div>
-                    
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-network-wired"></i>
-                        </div>
-                        <h3 class="academic-font">Digital Networking</h3>
-                        <p>Connect with professionals, alumni, and potential employers through our exclusive networking platform.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Resume Builder Section -->
         <section id="resume-builder" class="resume-builder-section fade-in">
             <div class="section-title">
-                <h2 class="academic-font">Prestigious Resume Builder</h2>
-                <p>Create academic and professional resumes that stand out with our university-approved templates and guidance.</p>
+                <h2>Professional Resume Builder</h2>
+                <p>Create a professional resume in minutes with our easy-to-use builder</p>
             </div>
             
             <!-- Template Selector -->
             <div class="template-selector">
-                <h3 class="text-center mb-4">Select Your Template</h3>
+                <h3 class="text-center mb-4">Choose Your Template</h3>
                 <div class="templates">
                     <div class="template active" data-template="1">
                         <div class="template-preview" style="background: var(--white); color: var(--primary-navy); border: 1px solid #d1c4a3;">
                             <div>
-                                <h4>Classic Academic</h4>
-                                <p>Traditional & Professional</p>
+                                <h4>John Smith</h4>
+                                <p>Software Developer</p>
                             </div>
                             <div style="font-size: 0.9rem;">
-                                <p>Ivy League Style</p>
+                                <p>Experience • Skills</p>
                             </div>
                         </div>
-                        <div class="template-name">Classic Academic</div>
+                        <div class="template-name">Classic Professional</div>
                     </div>
                     <div class="template" data-template="2">
                         <div class="template-preview" style="background: var(--primary-navy); color: var(--secondary-gold);">
                             <div>
-                                <h4>Executive Gold</h4>
-                                <p>Prestigious & Authoritative</p>
+                                <h4>John Smith</h4>
+                                <p>Software Developer</p>
                             </div>
                             <div style="font-size: 0.9rem;">
-                                <p>Leadership Style</p>
+                                <p>Experience • Skills</p>
                             </div>
                         </div>
-                        <div class="template-name">Executive Gold</div>
+                        <div class="template-name">Executive</div>
                     </div>
                     <div class="template" data-template="3">
                         <div class="template-preview" style="background: var(--accent-teal); color: var(--white);">
                             <div>
-                                <h4>Modern Professional</h4>
-                                <p>Contemporary & Clean</p>
+                                <h4>John Smith</h4>
+                                <p>Software Developer</p>
                             </div>
                             <div style="font-size: 0.9rem;">
-                                <p>Industry Standard</p>
+                                <p>Experience • Skills</p>
                             </div>
                         </div>
-                        <div class="template-name">Modern Professional</div>
+                        <div class="template-name">Modern</div>
                     </div>
                     <div class="template" data-template="4">
                         <div class="template-preview" style="background: linear-gradient(135deg, var(--primary-navy) 0%, #0c2045 100%); color: var(--secondary-gold);">
@@ -1154,7 +866,7 @@
                                 <p>Multi-Industry Professional</p>
                             </div>
                             <div style="font-size: 0.9rem;">
-                                <p>Comprehensive Example</p>
+                                <p>Retail • Manufacturing</p>
                             </div>
                         </div>
                         <div class="template-name">Example CV</div>
@@ -1165,206 +877,164 @@
             <div class="builder-container">
                 <!-- Form Section -->
                 <div class="form-section">
-                    <h3 class="academic-font navy-text">Academic Information</h3>
-                    <button class="btn" id="loadExampleBtn" style="background: var(--secondary-gold); color: var(--primary-navy); margin: 1rem 0 2rem; width: 100%; border: 2px solid var(--secondary-gold);">
-                        <i class="fas fa-book-open"></i> Load Academic Example CV
+                    <h3>Your Information</h3>
+                    <button class="btn" id="loadExampleBtn" style="background: var(--secondary-gold); color: var(--primary-navy); margin: 1rem 0 1.5rem; width: 100%; border: 2px solid var(--secondary-gold);">
+                        <i class="fas fa-file-import"></i> Load Example CV
                     </button>
                     <form id="resumeForm">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="fullName">Full Name</label>
-                                <input type="text" id="fullName" placeholder="John A. Smith" value="John A. Smith">
+                                <input type="text" id="fullName" placeholder="John Smith" value="John Smith">
                             </div>
                             <div class="form-group">
                                 <label for="jobTitle">Professional Title</label>
-                                <input type="text" id="jobTitle" placeholder="Senior Software Developer" value="Senior Software Developer">
+                                <input type="text" id="jobTitle" placeholder="Software Developer" value="Software Developer">
                             </div>
                         </div>
                         
                         <div class="form-group">
-                            <label for="summary">Academic & Professional Summary</label>
-                            <textarea id="summary" placeholder="Detail your academic achievements and professional experience...">Distinguished software developer with 7+ years of experience and advanced degrees in Computer Science. Published researcher with 3 peer-reviewed publications. Dedicated to creating innovative solutions and mentoring junior developers.</textarea>
+                            <label for="summary">Professional Summary</label>
+                            <textarea id="summary" placeholder="Describe your professional background and skills...">Experienced software developer with 5+ years of expertise in web technologies, dedicated to creating efficient and scalable solutions. Strong collaborator with excellent problem-solving skills.</textarea>
                         </div>
                         
                         <div class="form-row">
                             <div class="form-group">
-                                <label for="email">Academic Email</label>
-                                <input type="email" id="email" placeholder="john.smith@alumni.edu" value="john.smith@alumni.edu">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" placeholder="john@example.com" value="john.smith@example.com">
                             </div>
                             <div class="form-group">
-                                <label for="phone">Contact Number</label>
+                                <label for="phone">Phone</label>
                                 <input type="tel" id="phone" placeholder="(123) 456-7890" value="(123) 456-7890">
                             </div>
                         </div>
                         
                         <div class="form-group">
                             <label for="address">Location</label>
-                            <input type="text" id="address" placeholder="City, State, Country" value="Boston, MA, USA">
+                            <input type="text" id="address" placeholder="City, State" value="New York, NY">
                         </div>
                         
                         <div class="form-group">
-                            <label for="experience">Academic & Professional Experience</label>
-                            <textarea id="experience" placeholder="Detail your professional and academic experience...">• Senior Developer at Tech Innovations Inc. (2020-Present)
-- Led a team of 8 developers in creating enterprise solutions
-- Published research on machine learning applications
-- Mentored 3 junior developers to senior positions
+                            <label for="experience">Work Experience</label>
+                            <textarea id="experience" placeholder="Detail your work experience...">Senior Developer at Tech Solutions Inc. (2020-Present)
+• Led a team of 5 developers to create responsive web applications
+• Improved application performance by 30% through code optimization
+• Collaborated with cross-functional teams to deliver projects on time
 
-• Research Assistant, MIT Computer Science (2018-2020)
-- Conducted groundbreaking research in AI algorithms
-- Co-authored 3 peer-reviewed publications
-- Presented findings at international conferences</textarea>
+Web Developer at Digital Creations (2018-2020)
+• Developed and maintained client websites using modern frameworks
+• Implemented UI/UX improvements that increased user engagement by 25%
+• Provided technical support and troubleshooting for client issues</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label for="education">Academic Credentials</label>
-                            <textarea id="education" placeholder="List your academic achievements...">• Ph.D. in Computer Science
-Massachusetts Institute of Technology, 2018
-Dissertation: "Advanced Algorithms for Machine Learning"
+                            <label for="education">Education</label>
+                            <textarea id="education" placeholder="List your education...">Bachelor of Science in Computer Science
+University of Technology, 2014-2018
+• GPA: 3.8/4.0
+• Relevant Coursework: Data Structures, Algorithms, Web Development
 
-• Master of Science in Software Engineering
-Stanford University, 2014
-Thesis: "Scalable Web Architecture Design"
-
-• Bachelor of Science in Computer Science
-Harvard University, 2012
-Magna Cum Laude, GPA: 3.9/4.0</textarea>
+Web Development Certification
+Code Academy, 2019
+• Focus: Front-end Development, React, Node.js</textarea>
                         </div>
                         
                         <div class="form-group">
-                            <label for="skills">Academic & Technical Skills</label>
-                            <textarea id="skills" placeholder="Detail your academic and technical proficiencies...">• Research & Publications: 3 peer-reviewed papers, 2 conference presentations
-• Technical Expertise: JavaScript, React, Node.js, Python, Machine Learning, AI
-• Academic: Peer Review, Grant Writing, Research Methodology, Statistical Analysis
-• Languages: English (Native), Spanish (Fluent), French (Intermediate)</textarea>
+                            <label for="skills">Skills</label>
+                            <textarea id="skills" placeholder="List your key skills...">• JavaScript, React, Node.js, HTML/CSS, Python
+• Git, Agile Methodologies, Scrum
+• Team Leadership, Problem Solving
+• Communication, Project Management
+• Responsive Web Design, API Integration</textarea>
                         </div>
                     </form>
                 </div>
                 
                 <!-- Preview Section -->
                 <div class="preview-section">
-                    <h3 class="academic-font navy-text">Academic Preview</h3>
+                    <h3>Resume Preview</h3>
                     <div class="resume-preview" id="resumePreview">
                         <!-- Resume content will be generated by JavaScript -->
                     </div>
                     <button class="btn btn-download" id="downloadBtn">
-                        <i class="fas fa-download"></i> Download Academic CV
+                        <i class="fas fa-download"></i> Download as PDF
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- Testimonial Section -->
-        <section id="testimonials" class="testimonial-section fade-in">
+        <!-- Resources Section -->
+        <section id="resources" class="fade-in">
             <div class="section-title">
-                <h2 class="academic-font">Distinguished Alumni Success</h2>
-                <p>Our graduates have achieved remarkable success across industries worldwide, leveraging their 9to5 University preparation.</p>
+                <h2>Workplace Resources & Support</h2>
+                <p>Essential tools and information for navigating workplace challenges</p>
             </div>
             
-            <div class="testimonials">
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        "The academic rigor and professional preparation at 9to5 University gave me the foundation to excel in my consulting career. The resume builder alone helped me secure interviews with top firms."
+            <div class="resources-grid">
+                <div id="workplace-guide" class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">SM</div>
-                        <div class="author-info">
-                            <h4 class="academic-font">Dr. Sarah M.</h4>
-                            <p>Senior Consultant, McKinsey & Company</p>
-                        </div>
-                    </div>
+                    <h3>Workplace Guide</h3>
+                    <p>Learn how to navigate workplace dynamics, resolve conflicts, communicate effectively, and build professional relationships for career success.</p>
+                    <button class="btn" style="background: var(--accent-blue); color: white; width: 100%;">Access Guide</button>
                 </div>
                 
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        "As a career changer from academia to industry, 9to5 University provided the bridge I needed. The Tshedimosho example CV was particularly helpful in translating my diverse experience."
+                <div id="workplace-issues" class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-hands-helping"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">TJ</div>
-                        <div class="author-info">
-                            <h4 class="academic-font">Prof. Thomas J.</h4>
-                            <p>Former Academic, Now Tech Director at Google</p>
-                        </div>
-                    </div>
+                    <h3>Resolve Workplace Issues</h3>
+                    <p>Step-by-step guidance on addressing common workplace challenges, conflicts, harassment, discrimination, and finding constructive solutions.</p>
+                    <button class="btn" style="background: var(--accent-teal); color: white; width: 100%;">Get Solutions</button>
                 </div>
                 
-                <div class="testimonial">
-                    <div class="testimonial-content">
-                        "The combination of traditional academic values with modern career tools is what sets 9to5 University apart. I've recommended it to all my graduate students."
+                <div id="workers-rights" class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-scale-balanced"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">RK</div>
-                        <div class="author-info">
-                            <h4 class="academic-font">Dr. Rebecca K.</h4>
-                            <p>Department Chair, Stanford University</p>
-                        </div>
+                    <h3>Workers' Rights</h3>
+                    <p>Understand your legal rights in the workplace, including fair treatment, safety regulations, appropriate grievance procedures, and labor laws.</p>
+                    <button class="btn" style="background: var(--secondary-gold); color: var(--primary-navy); width: 100%;">Learn Your Rights</button>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-phone-alt"></i>
                     </div>
+                    <h3>Find Assistance</h3>
+                    <p>Connect with professional advisors, legal help, support services, and reporting channels for workplace issues and career development.</p>
+                    <button class="btn" style="background: var(--primary-navy); color: white; width: 100%;">Find Help</button>
                 </div>
             </div>
         </section>
 
-        <!-- CTA Section -->
-        <section id="cta" class="cta-section fade-in">
-            <div class="cta-content">
-                <h2 class="academic-font">Begin Your Academic Career Journey</h2>
-                <p>Join our prestigious community of scholars and professionals. Elevate your career with our comprehensive development platform.</p>
-                <button class="btn btn-cta" id="ctaButton">
-                    <i class="fas fa-graduation-cap"></i> Enroll Now
-                </button>
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section fade-in">
+            <div class="contact-content">
+                <h2>Need Help? Contact Us</h2>
+                <p>Have questions or need assistance with workplace issues? Our team is here to help you navigate challenges and find solutions.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>079 487 4559</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <p>079 487 4559</p>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>magtecinvest@gmail.com</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
-
-    <!-- Account Creation Modal -->
-    <div class="modal" id="accountModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="academic-font">Apply for Enrollment</h2>
-                <button class="close-modal" id="closeModal">&times;</button>
-            </div>
-            <form id="accountForm">
-                <div class="form-group">
-                    <label for="regName">Full Name</label>
-                    <input type="text" id="regName" required>
-                </div>
-                <div class="form-group">
-                    <label for="regEmail">Academic Email</label>
-                    <input type="email" id="regEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="regPassword">Create Password</label>
-                    <input type="password" id="regPassword" required>
-                </div>
-                <div class="form-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input type="password" id="confirmPassword" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--secondary-gold); color: var(--primary-navy); border: 2px solid var(--secondary-gold);">Submit Application</button>
-            </form>
-            <p style="text-align: center; margin-top: 1rem; color: var(--text-light);">Already enrolled? <a href="#" id="switchToLogin" style="color: var(--accent-blue);">Access Portal</a></p>
-        </div>
-    </div>
-
-    <!-- Login Modal -->
-    <div class="modal" id="loginModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 class="academic-font">Academic Portal Access</h2>
-                <button class="close-modal" id="closeLoginModal">&times;</button>
-            </div>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginEmail">Academic Email</label>
-                    <input type="email" id="loginEmail" required>
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" required>
-                </div>
-                <button type="submit" class="btn btn-primary" style="width: 100%; background: var(--secondary-gold); color: var(--primary-navy); border: 2px solid var(--secondary-gold);">Access Portal</button>
-            </form>
-            <p style="text-align: center; margin-top: 1rem; color: var(--text-light);">New to 9to5 University? <a href="#" id="switchToSignup" style="color: var(--accent-blue);">Apply Now</a></p>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -1373,45 +1043,44 @@ Magna Cum Laude, GPA: 3.9/4.0</textarea>
                 <div class="footer-logo">
                     <div class="logo-icon">9t5U</div>
                     <div>
-                        <h3 class="academic-font" style="color: var(--secondary-gold); margin-bottom: 0.5rem;">9to5 University</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8);">Excellence in Career Development Since 2010</p>
+                        <h3 style="color: var(--secondary-gold); margin-bottom: 0.5rem;">9to5 University</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8);">Professional Career Resources & Support</p>
                     </div>
                 </div>
                 
                 <div class="footer-links">
-                    <h3 class="academic-font">Academic Resources</h3>
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#resume-builder">Resume Builder</a></li>
+                        <li><a href="#workplace-guide">Workplace Guide</a></li>
+                        <li><a href="#workers-rights">Workers' Rights</a></li>
+                        <li><a href="#contact">Get Help</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Resources</h3>
                     <ul>
                         <li><a href="#">Resume Templates</a></li>
-                        <li><a href="#">Cover Letter Guide</a></li>
-                        <li><a href="#">Interview Preparation</a></li>
-                        <li><a href="#">Research Publications</a></li>
+                        <li><a href="#">Workplace Templates</a></li>
+                        <li><a href="#">Legal Resources</a></li>
+                        <li><a href="#">Support Services</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
-                    <h3 class="academic-font">University</h3>
+                    <h3>Contact</h3>
                     <ul>
-                        <li><a href="#">About Our Faculty</a></li>
-                        <li><a href="#">Academic Calendar</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
-                        <li><a href="#">Academic Integrity</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3 class="academic-font">Contact Admissions</h3>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-phone"></i> 079 487 4559</a></li>
-                        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-                        <li><a href="#"><i class="fas fa-envelope"></i> admissions@9to5university.edu</a></li>
-                        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Academic Square, Boksburg</a></li>
+                        <li><a href="#">079 487 4559</a></li>
+                        <li><a href="#">WhatsApp</a></li>
+                        <li><a href="#">magtecinvest@gmail.com</a></li>
+                        <li><a href="#">South Africa</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 9to5 University. All rights reserved. | Prestigious Career Development Platform</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.5);">Accredited by the International Career Development Association</p>
+                <p>&copy; 2023 9to5 University. All rights reserved. | Professional Resume Builder & Workplace Resources</p>
             </div>
         </div>
     </footer>
@@ -1422,19 +1091,10 @@ Magna Cum Laude, GPA: 3.9/4.0</textarea>
         const resumePreview = document.getElementById('resumePreview');
         const templates = document.querySelectorAll('.template');
         const downloadBtn = document.getElementById('downloadBtn');
-        const accountModal = document.getElementById('accountModal');
-        const loginModal = document.getElementById('loginModal');
         const signupBtn = document.getElementById('signupBtn');
         const loginBtn = document.getElementById('loginBtn');
-        const closeModal = document.getElementById('closeModal');
-        const closeLoginModal = document.getElementById('closeLoginModal');
         const startBuildingBtn = document.getElementById('startBuildingBtn');
-        const accountForm = document.getElementById('accountForm');
-        const loginForm = document.getElementById('loginForm');
-        const switchToLogin = document.getElementById('switchToLogin');
-        const switchToSignup = document.getElementById('switchToSignup');
         const loadExampleBtn = document.getElementById('loadExampleBtn');
-        const ctaButton = document.getElementById('ctaButton');
         
         // Current template selection
         let currentTemplate = '1';
@@ -1443,50 +1103,50 @@ Magna Cum Laude, GPA: 3.9/4.0</textarea>
         const tshedimoshoCV = {
             fullName: 'Tshedimosho Mlangeni',
             jobTitle: 'Multi-Industry Professional',
-            summary: 'I have worked in various industries which include manufacturing which was at Tiger brands and briefly at Uniliver, I have worked in construction as well assisting artisans in electrical, welding and mechanical fitting and currently I work in retail.',
+            summary: 'Experienced professional with diverse background in retail, manufacturing, and construction. Strong work ethic with expertise in customer service, operations, and technical assistance across multiple industries.',
             email: 'mphelamlangeni@gmail.com',
             phone: '079 487 4559',
             address: 'Boksburg North, Boksburg, Gauteng, South Africa',
             experience: `Food Lover's Market - Deli Assistant, Merchandiser (May 2022 - May 2024)
-• Assuring stock is available in shelves
-• Assuring there are none expired or outdated stock on shelves
-• Assuring products scan correctly
-• Cutting cold meat, cutting and grating cheese
-• Assuring our department is hygienic
-Reference: Emmanuel Mbembe - 0671333606
+• Managed shelf stock availability and product placement
+• Conducted regular quality checks to remove expired products
+• Operated deli equipment for food preparation and service
+• Maintained high standards of hygiene and cleanliness
+• Ensured accurate product pricing and scanning
 
 Tiger Brands - Packer (May 2020 - Apr 2021)
-• Sorting products, confirming manufacturing date, shipment number
-• Assessing product quality of package or labeling quality
-• Operating a pellet jack to move pallets of products to storage
-• Measuring products weights
-Reference: Mtsaki (shift supervisor) - 0606200997
+• Sorted products and verified manufacturing details
+• Conducted quality assessments of packaging and labeling
+• Operated pellet jacks for product transportation
+• Monitored and recorded product weights for quality control
 
 JHL Group (PTY) LTD - Assistant (Nov 2013 - Feb 2020)
-• Operating Grinder and other tools
-• Carrying artisan's toolbox, preparing tools for artisan to use
-• Carrying errands to the tool store on behalf of artisan
-Reference: A Nell (Clerk Admin) - 0176380138`,
-            education: `Basic Education - Khataza High School (Matric)`,
-            skills: `• Computer Literate
-• Customer / Client Interaction
-• Social Media Marketing
-• Manufacturing Operations
-• Retail Merchandising
-• Construction Assistance
-• Electrical, Welding & Mechanical Fitting Support
-• Multilingual: Sepedi, Xitsonga, English, isiZulu, Setswana, Sesotho, siSwati`
+• Assisted artisans with electrical, welding, and mechanical fitting tasks
+• Operated grinders and various construction tools
+• Managed tool inventory and preparation for daily tasks
+• Coordinated supply runs and material procurement`,
+            education: `Matric Certificate - Khataza High School
+• Completed basic education with focus on practical skills
+• Participated in technical and vocational training programs`,
+            skills: `• Computer Literacy & Office Software
+• Customer Service & Client Interaction
+• Retail Operations & Merchandising
+• Manufacturing & Quality Control
+• Construction Assistance & Tool Operation
+• Electrical, Welding & Mechanical Support
+• Multilingual: Sepedi, Xitsonga, English, isiZulu, Setswana, Sesotho, siSwati
+• Team Collaboration & Communication`
         };
         
         // Initialize the resume preview
         function updateResumePreview() {
             // Get form values
-            const fullName = document.getElementById('fullName').value || 'John A. Smith';
-            const jobTitle = document.getElementById('jobTitle').value || 'Senior Software Developer';
-            const summary = document.getElementById('summary').value || 'Academic professional...';
-            const email = document.getElementById('email').value || 'john.smith@alumni.edu';
+            const fullName = document.getElementById('fullName').value || 'John Smith';
+            const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
+            const summary = document.getElementById('summary').value || 'Professional summary...';
+            const email = document.getElementById('email').value || 'john.smith@example.com';
             const phone = document.getElementById('phone').value || '(123) 456-7890';
-            const address = document.getElementById('address').value || 'Boston, MA, USA';
+            const address = document.getElementById('address').value || 'New York, NY';
             const experience = document.getElementById('experience').value || 'No experience provided';
             const education = document.getElementById('education').value || 'No education provided';
             const skills = document.getElementById('skills').value || 'No skills provided';
@@ -1528,45 +1188,39 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             
             // Generate resume preview HTML
             resumePreview.innerHTML = `
-                <div class="resume-content" style="background: ${backgroundColor}; color: ${textColor}; height: 100%; padding: 2rem; border-radius: 6px;">
+                <div class="resume-content" style="background: ${backgroundColor}; color: ${textColor}; height: 100%; padding: 2rem; font-family: Arial, sans-serif;">
                     <div class="resume-header" style="border-bottom-color: ${borderColor};">
-                        <h1 class="resume-name academic-font" style="color: ${nameColor};">${fullName}</h1>
-                        <h2 class="resume-title" style="color: ${titleColor};">${jobTitle}</h2>
-                        <div class="resume-contact">
+                        <h1 class="resume-name" style="color: ${nameColor}; font-size: 28px; margin-bottom: 5px;">${fullName}</h1>
+                        <h2 class="resume-title" style="color: ${titleColor}; font-size: 20px; margin-bottom: 15px;">${jobTitle}</h2>
+                        <div class="resume-contact" style="font-size: 14px;">
                             <span><i class="fas fa-envelope"></i> ${email}</span>
                             <span><i class="fas fa-phone"></i> ${phone}</span>
                             <span><i class="fas fa-map-marker-alt"></i> ${address}</span>
                         </div>
                     </div>
                     
-                    <div class="resume-section">
-                        <h3 class="section-heading academic-font" style="color: ${headingColor}; border-bottom-color: ${borderColor};">ACADEMIC & PROFESSIONAL SUMMARY</h3>
-                        <p>${summary.replace(/\n/g, '<br>')}</p>
+                    <div class="resume-section" style="margin-bottom: 20px;">
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor}; font-size: 18px;">PROFESSIONAL SUMMARY</h3>
+                        <p style="font-size: 14px; line-height: 1.5;">${summary.replace(/\n/g, '<br>')}</p>
                     </div>
                     
-                    <div class="resume-section">
-                        <h3 class="section-heading academic-font" style="color: ${headingColor}; border-bottom-color: ${borderColor};">ACADEMIC & PROFESSIONAL EXPERIENCE</h3>
-                        <div class="resume-item">
+                    <div class="resume-section" style="margin-bottom: 20px;">
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor}; font-size: 18px;">WORK EXPERIENCE</h3>
+                        <div style="font-size: 14px; line-height: 1.5;">
                             ${formatTextAsBullets(experience)}
                         </div>
                     </div>
                     
-                    <div class="resume-section">
-                        <h3 class="section-heading academic-font" style="color: ${headingColor}; border-bottom-color: ${borderColor};">ACADEMIC CREDENTIALS</h3>
-                        <div class="resume-item">
+                    <div class="resume-section" style="margin-bottom: 20px;">
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor}; font-size: 18px;">EDUCATION</h3>
+                        <div style="font-size: 14px; line-height: 1.5;">
                             ${formatTextAsBullets(education)}
                         </div>
                     </div>
                     
                     <div class="resume-section">
-                        <h3 class="section-heading academic-font" style="color: ${headingColor}; border-bottom-color: ${borderColor};">ACADEMIC & TECHNICAL SKILLS</h3>
-                        <p>${skills.replace(/\n/g, '<br>')}</p>
-                    </div>
-                    
-                    <div class="resume-section" style="margin-top: 2rem; padding-top: 1rem; border-top: 1px dashed ${borderColor};">
-                        <p style="font-size: 0.9rem; text-align: center; color: ${headingColor}; opacity: 0.8;">
-                            Prepared with 9to5 University Academic CV Builder
-                        </p>
+                        <h3 class="section-heading" style="color: ${headingColor}; border-bottom-color: ${borderColor}; font-size: 18px;">SKILLS</h3>
+                        <p style="font-size: 14px; line-height: 1.5;">${skills.replace(/\n/g, '<br>')}</p>
                     </div>
                 </div>
             `;
@@ -1576,12 +1230,10 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
         function formatTextAsBullets(text) {
             return text.split('\n')
                 .map(line => {
-                    if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
-                        return `<p style="margin-bottom: 0.5rem; padding-left: 1.2rem; position: relative;">
-                            <span style="position: absolute; left: 0; color: var(--secondary-gold);">•</span> ${line.substring(1).trim()}
-                        </p>`;
+                    if (line.trim().startsWith('•')) {
+                        return `<p style="margin-bottom: 8px; padding-left: 20px; text-indent: -20px;">${line}</p>`;
                     }
-                    return `<p style="margin-bottom: 0.5rem;">${line}</p>`;
+                    return `<p style="margin-bottom: 8px;">${line}</p>`;
                 })
                 .join('');
         }
@@ -1606,7 +1258,7 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
             updateResumePreview();
             
             // Show notification
-            alert('Academic example CV loaded! This comprehensive example demonstrates diverse industry experience suitable for academic applications.');
+            alert('Example CV loaded! Customize the information for your own resume.');
         }
         
         // Template selection
@@ -1628,9 +1280,9 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
         // Initialize preview on page load
         document.addEventListener('DOMContentLoaded', updateResumePreview);
         
-        // Download as PDF
+        // Download as PDF with perfect A4 formatting
         downloadBtn.addEventListener('click', async () => {
-            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Generating Academic CV...';
+            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
             downloadBtn.disabled = true;
             
             try {
@@ -1638,239 +1290,234 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
                 const pdf = new jsPDF({
                     orientation: 'portrait',
                     unit: 'mm',
-                    format: 'a4'
+                    format: 'a4',
+                    hotfixes: ["px_scaling"]
                 });
                 
                 // Get resume data
-                const fullName = document.getElementById('fullName').value || 'John A. Smith';
-                const jobTitle = document.getElementById('jobTitle').value || 'Senior Software Developer';
-                const summary = document.getElementById('summary').value || 'Academic professional...';
-                const email = document.getElementById('email').value || 'john.smith@alumni.edu';
+                const fullName = document.getElementById('fullName').value || 'John Smith';
+                const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
+                const summary = document.getElementById('summary').value || 'Professional summary...';
+                const email = document.getElementById('email').value || 'john.smith@example.com';
                 const phone = document.getElementById('phone').value || '(123) 456-7890';
-                const address = document.getElementById('address').value || 'Boston, MA, USA';
+                const address = document.getElementById('address').value || 'New York, NY';
                 const experience = document.getElementById('experience').value || 'No experience provided';
                 const education = document.getElementById('education').value || 'No education provided';
                 const skills = document.getElementById('skills').value || 'No skills provided';
                 
-                // Set styles
+                // Set margins and starting position
+                const margin = 20;
+                let yPos = margin;
+                const pageWidth = 210;
+                const contentWidth = pageWidth - (margin * 2);
+                
+                // Set font
+                pdf.setFont("helvetica");
+                
+                // Header with name and title
+                pdf.setFontSize(24);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61); // Navy
+                pdf.text(fullName, margin, yPos);
+                yPos += 10;
+                
+                pdf.setFontSize(18);
                 pdf.setFont("helvetica", "normal");
+                pdf.setTextColor(0, 168, 168); // Teal
+                pdf.text(jobTitle, margin, yPos);
+                yPos += 10;
                 
-                // Add academic header with gold accent
-                pdf.setFillColor(10, 26, 61); // Primary navy
-                pdf.rect(0, 0, 210, 45, 'F');
-                
-                // Add gold accent line
-                pdf.setFillColor(201, 169, 110); // Secondary gold
-                pdf.rect(0, 45, 210, 3, 'F');
-                
-                // Name in gold
-                pdf.setTextColor(201, 169, 110);
-                pdf.setFontSize(26);
-                pdf.setFont("times", "bold");
-                pdf.text(fullName, 20, 28);
-                
-                // Title in white
-                pdf.setTextColor(255, 255, 255);
-                pdf.setFontSize(16);
-                pdf.setFont("helvetica", "normal");
-                pdf.text(jobTitle, 20, 38);
-                
-                // Contact info in light text
-                pdf.setFontSize(10);
-                pdf.setTextColor(200, 200, 200);
-                pdf.text(`Email: ${email} | Phone: ${phone} | Location: ${address}`, 20, 52);
-                
-                // Draw academic separator
-                pdf.setDrawColor(201, 169, 110);
-                pdf.setLineWidth(0.5);
-                pdf.line(20, 56, 190, 56);
-                
-                let yPosition = 65;
-                
-                // Academic Summary
-                pdf.setFontSize(14);
-                pdf.setTextColor(10, 26, 61);
-                pdf.setFont("times", "bold");
-                pdf.text('ACADEMIC & PROFESSIONAL SUMMARY', 20, yPosition);
-                yPosition += 8;
+                // Contact info
                 pdf.setFontSize(11);
-                pdf.setTextColor(0, 0, 0);
-                pdf.setFont("helvetica", "normal");
-                const summaryLines = pdf.splitTextToSize(summary, 170);
-                pdf.text(summaryLines, 20, yPosition);
-                yPosition += summaryLines.length * 6 + 12;
-                
-                // Draw gold accent
-                pdf.setDrawColor(201, 169, 110);
-                pdf.setLineWidth(0.5);
-                pdf.line(20, yPosition - 5, 50, yPosition - 5);
-                
-                // Academic & Professional Experience
-                pdf.setFontSize(14);
-                pdf.setTextColor(10, 26, 61);
-                pdf.setFont("times", "bold");
-                pdf.text('ACADEMIC & PROFESSIONAL EXPERIENCE', 20, yPosition);
-                yPosition += 8;
-                pdf.setFontSize(11);
-                pdf.setTextColor(0, 0, 0);
-                pdf.setFont("helvetica", "normal");
-                const expLines = pdf.splitTextToSize(experience, 170);
-                pdf.text(expLines, 20, yPosition);
-                yPosition += expLines.length * 6 + 12;
-                
-                // Draw gold accent
-                pdf.setDrawColor(201, 169, 110);
-                pdf.setLineWidth(0.5);
-                pdf.line(20, yPosition - 5, 50, yPosition - 5);
-                
-                // Academic Credentials
-                pdf.setFontSize(14);
-                pdf.setTextColor(10, 26, 61);
-                pdf.setFont("times", "bold");
-                pdf.text('ACADEMIC CREDENTIALS', 20, yPosition);
-                yPosition += 8;
-                pdf.setFontSize(11);
-                pdf.setTextColor(0, 0, 0);
-                pdf.setFont("helvetica", "normal");
-                const eduLines = pdf.splitTextToSize(education, 170);
-                pdf.text(eduLines, 20, yPosition);
-                yPosition += eduLines.length * 6 + 12;
-                
-                // Draw gold accent
-                pdf.setDrawColor(201, 169, 110);
-                pdf.setLineWidth(0.5);
-                pdf.line(20, yPosition - 5, 50, yPosition - 5);
-                
-                // Academic & Technical Skills
-                pdf.setFontSize(14);
-                pdf.setTextColor(10, 26, 61);
-                pdf.setFont("times", "bold");
-                pdf.text('ACADEMIC & TECHNICAL SKILLS', 20, yPosition);
-                yPosition += 8;
-                pdf.setFontSize(11);
-                pdf.setTextColor(0, 0, 0);
-                pdf.setFont("helvetica", "normal");
-                const skillLines = pdf.splitTextToSize(skills, 170);
-                pdf.text(skillLines, 20, yPosition);
-                
-                // Add academic footer with gold
-                pdf.setFontSize(9);
                 pdf.setTextColor(100, 100, 100);
-                pdf.text('Prepared with 9to5 University Academic CV Builder', 20, 280);
-                pdf.setTextColor(201, 169, 110);
-                pdf.text('Excellence in Career Development', 20, 285);
+                const contactInfo = `Email: ${email} | Phone: ${phone} | Location: ${address}`;
+                pdf.text(contactInfo, margin, yPos);
+                yPos += 15;
+                
+                // Draw separator line
+                pdf.setDrawColor(201, 169, 110); // Gold
+                pdf.setLineWidth(0.5);
+                pdf.line(margin, yPos, pageWidth - margin, yPos);
+                yPos += 10;
+                
+                // Professional Summary
+                pdf.setFontSize(16);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61); // Navy
+                pdf.text("PROFESSIONAL SUMMARY", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                pdf.setTextColor(0, 0, 0);
+                const summaryLines = pdf.splitTextToSize(summary, contentWidth);
+                pdf.text(summaryLines, margin, yPos);
+                yPos += (summaryLines.length * 6) + 15;
+                
+                // Check for page break
+                if (yPos > 250) {
+                    pdf.addPage();
+                    yPos = margin;
+                }
+                
+                // Work Experience
+                pdf.setFontSize(16);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61);
+                pdf.text("WORK EXPERIENCE", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                pdf.setTextColor(0, 0, 0);
+                const expLines = pdf.splitTextToSize(experience, contentWidth);
+                pdf.text(expLines, margin, yPos);
+                yPos += (expLines.length * 6) + 15;
+                
+                // Check for page break
+                if (yPos > 250) {
+                    pdf.addPage();
+                    yPos = margin;
+                }
+                
+                // Education
+                pdf.setFontSize(16);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61);
+                pdf.text("EDUCATION", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                pdf.setTextColor(0, 0, 0);
+                const eduLines = pdf.splitTextToSize(education, contentWidth);
+                pdf.text(eduLines, margin, yPos);
+                yPos += (eduLines.length * 6) + 15;
+                
+                // Check for page break
+                if (yPos > 250) {
+                    pdf.addPage();
+                    yPos = margin;
+                }
+                
+                // Skills
+                pdf.setFontSize(16);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61);
+                pdf.text("SKILLS", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                pdf.setTextColor(0, 0, 0);
+                const skillLines = pdf.splitTextToSize(skills, contentWidth);
+                pdf.text(skillLines, margin, yPos);
+                
+                // Footer with branding
+                pdf.setFontSize(9);
+                pdf.setTextColor(150, 150, 150);
+                pdf.text("Created with 9to5 University Resume Builder", margin, 285);
                 
                 // Save the PDF
-                const fileName = `9to5_University_CV_${fullName.replace(/\s+/g, '_') || 'academic_cv'}.pdf`;
+                const fileName = `Resume_${fullName.replace(/\s+/g, '_')}.pdf`;
                 pdf.save(fileName);
                 
-                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Academic CV';
+                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
                 downloadBtn.disabled = false;
                 
                 // Show success message
-                alert('Academic CV downloaded successfully! Your document meets prestigious university standards.');
+                alert('Your professional resume has been downloaded successfully!');
             } catch (error) {
                 console.error('Error generating PDF:', error);
-                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download Academic CV';
+                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
                 downloadBtn.disabled = false;
-                alert('Error generating PDF. Please try again.');
+                
+                // Fallback: Create a simpler PDF
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF();
+                
+                // Get resume data
+                const fullName = document.getElementById('fullName').value || 'John Smith';
+                const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
+                const summary = document.getElementById('summary').value || 'Professional summary...';
+                const email = document.getElementById('email').value || 'john.smith@example.com';
+                const phone = document.getElementById('phone').value || '(123) 456-7890';
+                const experience = document.getElementById('experience').value || 'No experience provided';
+                const education = document.getElementById('education').value || 'No education provided';
+                const skills = document.getElementById('skills').value || 'No skills provided';
+                
+                // Add content to PDF
+                pdf.setFontSize(22);
+                pdf.text(fullName, 20, 20);
+                pdf.setFontSize(16);
+                pdf.text(jobTitle, 20, 30);
+                
+                pdf.setFontSize(12);
+                pdf.text(`Email: ${email} | Phone: ${phone}`, 20, 40);
+                
+                pdf.setFontSize(14);
+                pdf.text('PROFESSIONAL SUMMARY', 20, 50);
+                pdf.setFontSize(11);
+                const summaryLines = pdf.splitTextToSize(summary, 170);
+                pdf.text(summaryLines, 20, 60);
+                
+                let yPosition = 80;
+                
+                pdf.setFontSize(14);
+                pdf.text('WORK EXPERIENCE', 20, yPosition);
+                yPosition += 10;
+                pdf.setFontSize(11);
+                const expLines = pdf.splitTextToSize(experience, 170);
+                pdf.text(expLines, 20, yPosition);
+                yPosition += expLines.length * 6 + 10;
+                
+                pdf.setFontSize(14);
+                pdf.text('EDUCATION', 20, yPosition);
+                yPosition += 10;
+                pdf.setFontSize(11);
+                const eduLines = pdf.splitTextToSize(education, 170);
+                pdf.text(eduLines, 20, yPosition);
+                yPosition += eduLines.length * 6 + 10;
+                
+                pdf.setFontSize(14);
+                pdf.text('SKILLS', 20, yPosition);
+                yPosition += 10;
+                pdf.setFontSize(11);
+                const skillLines = pdf.splitTextToSize(skills, 170);
+                pdf.text(skillLines, 20, yPosition);
+                
+                // Add footer
+                pdf.setFontSize(10);
+                pdf.text('Created with 9to5 University Resume Builder', 20, 280);
+                
+                // Save the PDF
+                const fileName = `Resume_${fullName.replace(/\s+/g, '_')}.pdf`;
+                pdf.save(fileName);
+                
+                alert('Resume downloaded successfully!');
             }
         });
         
-        // Modal functionality
-        signupBtn.addEventListener('click', () => {
-            accountModal.style.display = 'flex';
-        });
-        
-        loginBtn.addEventListener('click', () => {
-            loginModal.style.display = 'flex';
-        });
-        
-        closeModal.addEventListener('click', () => {
-            accountModal.style.display = 'none';
-        });
-        
-        closeLoginModal.addEventListener('click', () => {
-            loginModal.style.display = 'none';
-        });
-        
-        switchToLogin.addEventListener('click', (e) => {
-            e.preventDefault();
-            accountModal.style.display = 'none';
-            loginModal.style.display = 'flex';
-        });
-        
-        switchToSignup.addEventListener('click', (e) => {
-            e.preventDefault();
-            loginModal.style.display = 'none';
-            accountModal.style.display = 'flex';
-        });
-        
-        // Close modal when clicking outside
-        window.addEventListener('click', (e) => {
-            if (e.target === accountModal) {
-                accountModal.style.display = 'none';
-            }
-            if (e.target === loginModal) {
-                loginModal.style.display = 'none';
-            }
-        });
-        
-        // Scroll to resume builder
+        // Button functionality
         startBuildingBtn.addEventListener('click', () => {
             document.getElementById('resume-builder').scrollIntoView({ behavior: 'smooth' });
         });
         
-        // CTA button click
-        ctaButton.addEventListener('click', () => {
-            accountModal.style.display = 'flex';
+        // Resource card buttons
+        document.querySelectorAll('.resource-card .btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const cardTitle = this.closest('.resource-card').querySelector('h3').textContent;
+                alert(`Thank you for your interest in "${cardTitle}". This would open detailed resources in a full implementation.`);
+            });
         });
         
-        // Account form submission
-        accountForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('regName').value;
-            const email = document.getElementById('regEmail').value;
-            const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('confirmPassword').value;
-            
-            if (password !== confirmPassword) {
-                alert('Passwords do not match!');
-                return;
-            }
-            
-            // In a real app, you would send this data to a server
-            alert(`Thank you for your application, ${name}! Our admissions committee will review your submission.`);
-            accountModal.style.display = 'none';
-            accountForm.reset();
-            
-            // Update login button to show user is logged in
-            loginBtn.innerHTML = `<i class="fas fa-user-graduate"></i> ${name.split(' ')[0]}`;
-            loginBtn.style.background = 'var(--accent-teal)';
-            loginBtn.style.border = 'none';
-            loginBtn.style.color = 'white';
-            signupBtn.style.display = 'none';
+        // Auth buttons (simple demo)
+        signupBtn.addEventListener('click', () => {
+            alert('Account creation feature would open in a full implementation. For now, you can use the resume builder without an account.');
         });
         
-        // Login form submission
-        loginForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const email = document.getElementById('loginEmail').value;
-            const password = document.getElementById('loginPassword').value;
-            
-            // In a real app, you would validate credentials with a server
-            const name = email.split('@')[0];
-            const academicName = name.charAt(0).toUpperCase() + name.slice(1);
-            alert(`Welcome back, ${academicName}! Accessing your academic portal...`);
-            loginModal.style.display = 'none';
-            loginForm.reset();
-            
-            // Update login button to show user is logged in
-            loginBtn.innerHTML = `<i class="fas fa-user-graduate"></i> ${academicName}`;
-            loginBtn.style.background = 'var(--accent-teal)';
-            loginBtn.style.border = 'none';
-            loginBtn.style.color = 'white';
-            signupBtn.style.display = 'none';
+        loginBtn.addEventListener('click', () => {
+            alert('Login feature would open in a full implementation. For now, you can use the resume builder without logging in.');
         });
         
         // Smooth scrolling for navigation links
@@ -1904,17 +1551,6 @@ Reference: A Nell (Clerk Admin) - 0176380138`,
         // Observe all elements with fade-in class
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
-        });
-        
-        // Add academic seal to logo on hover
-        const logoIcon = document.querySelector('.logo-icon');
-        logoIcon.addEventListener('mouseenter', () => {
-            logoIcon.style.transform = 'scale(1.1) rotate(5deg)';
-            logoIcon.style.transition = 'transform 0.3s ease';
-        });
-        
-        logoIcon.addEventListener('mouseleave', () => {
-            logoIcon.style.transform = 'scale(1) rotate(0deg)';
         });
     </script>
 </body>
