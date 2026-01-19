@@ -2,944 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9to5 University - Professional Resume Builder & Workplace Resources</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>9to5 University - Professional Career Resources</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
-        /* Prestigious Academic Color Palette */
-        :root {
-            --primary-navy: #0a1a3d;
-            --secondary-gold: #c9a96e;
-            --accent-blue: #0066cc;
-            --accent-teal: #00a8a8;
-            --light-bg: #f8f7f3;
-            --white: #ffffff;
-            --text-dark: #2c3e50;
-            --text-light: #5d6d7e;
-            --gold-light: rgba(201, 169, 110, 0.1);
-            --navy-light: rgba(10, 26, 61, 0.05);
-            --shadow-sm: 0 2px 4px rgba(10, 26, 61, 0.08);
-            --shadow-md: 0 4px 12px rgba(10, 26, 61, 0.12);
-            --shadow-lg: 0 8px 24px rgba(10, 26, 61, 0.16);
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background-color: var(--light-bg);
-            color: var(--text-dark);
-            line-height: 1.6;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header & Navigation */
-        header {
-            background-color: var(--white);
-            padding: 1rem 0;
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 3px solid var(--secondary-gold);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            text-decoration: none;
-        }
-        
-        .logo-icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 56px;
-            height: 56px;
-            background-color: var(--primary-navy);
-            border-radius: 50%;
-            color: var(--secondary-gold);
-            font-weight: 800;
-            font-size: 1.8rem;
-            border: 3px solid var(--secondary-gold);
-        }
-        
-        .logo-text {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .logo-text h1 {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary-navy);
-            letter-spacing: -0.5px;
-        }
-        
-        .logo-text .tagline {
-            font-size: 0.85rem;
-            color: var(--accent-teal);
-            font-weight: 500;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-        
-        nav a {
-            color: var(--primary-navy);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.2s;
-            padding: 0.5rem 0;
-            position: relative;
-        }
-        
-        nav a:hover {
-            color: var(--secondary-gold);
-        }
-        
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--secondary-gold);
-            transition: width 0.3s;
-        }
-        
-        nav a:hover::after {
-            width: 100%;
-        }
-        
-        .auth-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .btn {
-            padding: 0.7rem 1.8rem;
-            border-radius: 6px;
-            border: none;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 0.95rem;
-        }
-        
-        .btn-login {
-            background-color: transparent;
-            border: 2px solid var(--primary-navy);
-            color: var(--primary-navy);
-        }
-        
-        .btn-signup {
-            background-color: var(--secondary-gold);
-            color: var(--primary-navy);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .btn-login:hover {
-            background-color: var(--navy-light);
-        }
-        
-        .btn-signup:hover {
-            background-color: #b8944d;
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Hero Section */
-        .hero {
-            padding: 5rem 0;
-            background: linear-gradient(135deg, var(--light-bg) 0%, #f0efe7 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40%;
-            height: 100%;
-            background: linear-gradient(135deg, var(--gold-light) 0%, transparent 100%);
-            clip-path: polygon(100% 0, 0 0, 100% 100%);
-        }
-        
-        .hero-content {
-            max-width: 800px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .hero h1 {
-            font-size: 3.2rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--primary-navy);
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            margin-bottom: 2.5rem;
-            max-width: 600px;
-        }
-        
-        .btn-primary {
-            background-color: var(--accent-blue);
-            color: white;
-            font-size: 1.1rem;
-            padding: 1rem 2.5rem;
-            border-radius: 6px;
-            box-shadow: var(--shadow-md);
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-        }
-        
-        .btn-primary:hover {
-            background-color: #0052a3;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Main Content */
-        main {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        
-        .section-title h2 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            color: var(--primary-navy);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 100px;
-            height: 4px;
-            background-color: var(--secondary-gold);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title p {
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 2rem auto 0;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        
-        /* Resume Builder Section */
-        .resume-builder-section {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 3rem;
-            margin-bottom: 4rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(201, 169, 110, 0.2);
-            position: relative;
-        }
-        
-        .resume-builder-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
-            border-radius: 12px 12px 0 0;
-        }
-        
-        .builder-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-        
-        @media (max-width: 1024px) {
-            .builder-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
-        .form-section {
-            background-color: var(--light-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            border: 1px solid rgba(201, 169, 110, 0.3);
-        }
-        
-        .preview-section {
-            height: fit-content;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--primary-navy);
-            font-size: 0.95rem;
-        }
-        
-        input, textarea, select {
-            width: 100%;
-            padding: 0.8rem;
-            border: 1px solid #d1c4a3;
-            border-radius: 6px;
-            font-size: 1rem;
-            transition: all 0.2s;
-            background-color: var(--white);
-        }
-        
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
-        }
-        
-        textarea {
-            min-height: 120px;
-            resize: vertical;
-        }
-        
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-        
-        /* Template Selector - UNIQUE TEMPLATES */
-        .template-selector {
-            margin: 2rem 0;
-        }
-        
-        .templates {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .template {
-            border: 2px solid transparent;
-            border-radius: 8px;
-            overflow: hidden;
-            cursor: pointer;
-            transition: all 0.3s;
-            background: white;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid rgba(201, 169, 110, 0.3);
-        }
-        
-        .template:hover, .template.active {
-            border-color: var(--secondary-gold);
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .template-preview {
-            height: 160px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 1.2rem;
-        }
-        
-        .template-name {
-            text-align: center;
-            padding: 0.8rem;
-            background-color: var(--navy-light);
-            font-weight: 600;
-            color: var(--primary-navy);
-            font-size: 0.9rem;
-            border-top: 1px solid rgba(201, 169, 110, 0.3);
-        }
-        
-        /* Template 1 - Classic */
-        .template-1 {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border-left: 4px solid var(--secondary-gold);
-        }
-        
-        /* Template 2 - Modern */
-        .template-2 {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #1a2d5a 100%);
-            color: white;
-        }
-        
-        /* Template 3 - Creative */
-        .template-3 {
-            background: linear-gradient(135deg, var(--accent-teal) 0%, #00c9c9 100%);
-            color: white;
-            border-right: 4px solid var(--secondary-gold);
-        }
-        
-        /* Template 4 - Professional */
-        .template-4 {
-            background: linear-gradient(135deg, #ffffff 0%, #e8f4f8 100%);
-            border-top: 4px solid var(--secondary-gold);
-        }
-        
-        /* Template 5 - Minimal */
-        .template-5 {
-            background: linear-gradient(135deg, #2c3e50 0%, #4a6572 100%);
-            color: white;
-            border-bottom: 4px solid var(--secondary-gold);
-        }
-        
-        /* Resume Preview */
-        .resume-preview {
-            background-color: white;
-            border: 1px solid #d1c4a3;
-            border-radius: 8px;
-            min-height: 700px;
-            padding: 2rem;
-            box-shadow: var(--shadow-lg);
-            overflow: auto;
-            border-top: 5px solid var(--secondary-gold);
-            font-family: 'Arial', sans-serif;
-        }
-        
-        .resume-header {
-            padding-bottom: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid var(--secondary-gold);
-        }
-        
-        .resume-name {
-            font-size: 28px;
-            color: var(--primary-navy);
-            margin-bottom: 0.3rem;
-            font-weight: 700;
-        }
-        
-        .resume-title {
-            font-size: 20px;
-            color: var(--accent-teal);
-            margin-bottom: 0.8rem;
-            font-weight: 600;
-        }
-        
-        .resume-contact {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            font-size: 14px;
-            color: var(--text-light);
-        }
-        
-        .resume-contact span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        
-        .resume-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .section-heading {
-            font-size: 18px;
-            color: var(--primary-navy);
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(201, 169, 110, 0.3);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        
-        .btn-download {
-            background-color: var(--accent-teal);
-            color: white;
-            width: 100%;
-            margin-top: 2rem;
-            padding: 1.2rem;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 6px;
-            box-shadow: var(--shadow-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-        
-        .btn-download:hover {
-            background-color: #008888;
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        /* Resources Grid */
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            margin-bottom: 4rem;
-        }
-        
-        .resource-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            padding: 2.5rem;
-            box-shadow: var(--shadow-md);
-            border-top: 5px solid var(--secondary-gold);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .resource-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
-        }
-        
-        .resource-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .resource-icon {
-            width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            color: var(--primary-navy);
-            background-color: var(--gold-light);
-            border: 2px solid var(--secondary-gold);
-        }
-        
-        .resource-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
-        }
-        
-        .resource-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-        
-        /* Content Modals */
-        .content-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(10, 26, 61, 0.95);
-            z-index: 1001;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            overflow-y: auto;
-        }
-        
-        .modal-content {
-            background-color: var(--white);
-            padding: 3rem;
-            border-radius: 12px;
-            width: 100%;
-            max-width: 800px;
-            max-height: 90vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-xl);
-            border-top: 5px solid var(--secondary-gold);
-        }
-        
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 2rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid var(--gold-light);
-        }
-        
-        .modal-header h2 {
-            color: var(--primary-navy);
-            font-size: 2rem;
-        }
-        
-        .close-modal {
-            background: none;
-            border: none;
-            font-size: 1.8rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: color 0.2s;
-        }
-        
-        .close-modal:hover {
-            color: var(--primary-navy);
-        }
-        
-        .modal-body {
-            color: var(--text-dark);
-            line-height: 1.7;
-        }
-        
-        .modal-body h3 {
-            color: var(--primary-navy);
-            margin: 1.5rem 0 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .modal-body ul, .modal-body ol {
-            margin-left: 1.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .modal-body li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .contact-info-box {
-            background-color: var(--gold-light);
-            border-left: 4px solid var(--secondary-gold);
-            padding: 1.5rem;
-            border-radius: 6px;
-            margin: 1.5rem 0;
-        }
-        
-        .contact-info-box h4 {
-            color: var(--primary-navy);
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Workers Rights Section */
-        .rights-content {
-            background-color: var(--white);
-            border-radius: 12px;
-            padding: 3rem;
-            margin-bottom: 4rem;
-            box-shadow: var(--shadow-md);
-            border: 1px solid rgba(201, 169, 110, 0.2);
-        }
-        
-        .rights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .rights-card {
-            background-color: var(--light-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            border-left: 4px solid var(--accent-blue);
-            transition: transform 0.3s;
-        }
-        
-        .rights-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .rights-card h3 {
-            color: var(--primary-navy);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        
-        .rights-card p {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-        }
-        
-        /* Contact Section */
-        .contact-section {
-            background: linear-gradient(135deg, var(--primary-navy) 0%, #0c2045 100%);
-            color: white;
-            padding: 4rem 0;
-            border-radius: 12px;
-            text-align: center;
-            margin-bottom: 3rem;
-            border: 1px solid var(--secondary-gold);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .contact-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--secondary-gold), var(--accent-teal));
-        }
-        
-        .contact-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .contact-content p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-bottom: 3rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .contact-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-        
-        .contact-method {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 8px;
-            border: 1px solid rgba(201, 169, 110, 0.3);
-        }
-        
-        .contact-method i {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-gold);
-        }
-        
-        .contact-method h3 {
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-        }
-        
-        .contact-method p {
-            margin-bottom: 0;
-            opacity: 0.8;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--primary-navy);
-            color: white;
-            padding: 3rem 0 2rem;
-            border-top: 3px solid var(--secondary-gold);
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        
-        .footer-logo .logo-icon {
-            width: 56px;
-            height: 56px;
-            border: 2px solid var(--secondary-gold);
-        }
-        
-        .footer-links h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: var(--secondary-gold);
-        }
-        
-        .footer-links ul {
-            list-style: none;
-        }
-        
-        .footer-links li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-links a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--secondary-gold);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(201, 169, 110, 0.2);
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 1.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .builder-container {
-                gap: 2rem;
-            }
-            
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            
-            .auth-buttons {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .resources-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .resume-builder-section {
-                padding: 2rem;
-            }
-            
-            .resume-preview {
-                min-height: 600px;
-                padding: 1.5rem;
-            }
-            
-            .resume-name {
-                font-size: 24px;
-            }
-            
-            .resume-title {
-                font-size: 18px;
-            }
-            
-            .modal-content {
-                padding: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .templates {
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            }
-            
-            .resource-card {
-                padding: 1.5rem;
-            }
-        }
-        
-        /* Print Styles for PDF */
-        @media print {
-            body {
-                background: white !important;
-                color: black !important;
-            }
-            
-            .no-print {
-                display: none !important;
-            }
-        }
-        
-        /* Utility Classes */
-        .fade-in {
-            animation: fadeIn 0.6s ease-out;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .text-center {
-            text-align: center;
-        }
-        
-        .mb-4 {
-            margin-bottom: 2rem;
-        }
+        /* CSS will be added separately */
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
     <header>
         <div class="container header-content">
-            <a href="#" class="logo">
+            <a href="index.html" class="logo">
                 <div class="logo-icon">
                     <span>9t5U</span>
                 </div>
@@ -948,17 +22,53 @@
                     <div class="tagline">Professional Career Resources</div>
                 </div>
             </a>
-            <nav>
-                <ul>
-                    <li><a href="#resume-builder">Resume Builder</a></li>
-                    <li><a href="#workplace-guide">Workplace Guide</a></li>
-                    <li><a href="#workers-rights">Workers' Rights</a></li>
-                    <li><a href="#contact">Get Help</a></li>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navigation with Dropdown -->
+            <nav id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="resume-builder.html" class="dropdown-toggle">
+                            Resume Builder <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="resume-builder.html">Build New Resume</a>
+                            <a href="resume-builder.html#templates">Templates</a>
+                            <a href="resume-builder.html#examples">Examples</a>
+                        </div>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#resources" class="dropdown-toggle">
+                            Resources <i class="fas fa-chevron-down"></i>
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="#workplace-guide">Workplace Guide</a>
+                            <a href="#workers-rights">Workers' Rights</a>
+                            <a href="#legal-assistance">Legal Assistance</a>
+                        </div>
+                    </li>
+                    <li><a href="#contact">Contact Us</a></li>
                 </ul>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-login" id="loginBtn">Login</button>
+                    <button class="btn btn-signup" id="signupBtn">Sign Up</button>
+                </div>
             </nav>
-            <div class="auth-buttons">
-                <button class="btn btn-login" id="loginBtn">Login</button>
-                <button class="btn btn-signup" id="signupBtn">Create Account</button>
+        </div>
+        
+        <!-- Header Ticker/Toddler -->
+        <div class="header-ticker">
+            <div class="ticker-content">
+                <span><i class="fas fa-bullhorn"></i> Professional Resume Builder Now Available!</span>
+                <span><i class="fas fa-graduation-cap"></i> Free Workplace Resources & Guides</span>
+                <span><i class="fas fa-phone-alt"></i> Need Help? Call: 079 487 4559</span>
+                <span><i class="fas fa-file-pdf"></i> Download PDF Templates Instantly</span>
             </div>
         </div>
     </header>
@@ -966,181 +76,69 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container hero-content fade-in">
-            <h1>Professional Resume Builder & Workplace Resources</h1>
-            <p>Create standout resumes with our professional builder. Access workplace guides, resolve issues, and understand your rights. Everything you need for career success.</p>
-            <button class="btn btn-primary" id="startBuildingBtn">
-                <i class="fas fa-file-alt"></i> Build Your Resume Now
-            </button>
+            <h1>Professional Career Resources & Support</h1>
+            <p>Build standout resumes, understand your workplace rights, and access professional guidance. Everything you need for career success in one place.</p>
+            <div class="hero-buttons">
+                <a href="resume-builder.html" class="btn btn-primary">
+                    <i class="fas fa-file-alt"></i> Build Your Resume
+                </a>
+                <a href="#resources" class="btn btn-secondary">
+                    <i class="fas fa-book-open"></i> Explore Resources
+                </a>
+            </div>
         </div>
     </section>
 
     <!-- Main Content -->
     <main class="container">
-        <!-- Resume Builder Section -->
-        <section id="resume-builder" class="resume-builder-section fade-in">
+        <!-- Features Section -->
+        <section class="features-section fade-in">
             <div class="section-title">
-                <h2>Professional Resume Builder</h2>
-                <p>Create a professional resume in minutes with our easy-to-use builder</p>
+                <h2>Everything You Need for Career Success</h2>
+                <p>Comprehensive tools and resources designed for professionals</p>
             </div>
             
-            <!-- Template Selector -->
-            <div class="template-selector">
-                <h3 class="text-center mb-4">Choose Your Template</h3>
-                <div class="templates">
-                    <div class="template active" data-template="1">
-                        <div class="template-preview template-1">
-                            <div>
-                                <h4 style="color: var(--primary-navy);">JOHN SMITH</h4>
-                                <p style="color: var(--accent-teal);">Software Developer</p>
-                            </div>
-                            <div style="font-size: 0.9rem; color: var(--text-light);">
-                                <p>Clean • Professional • Classic</p>
-                            </div>
-                        </div>
-                        <div class="template-name">Classic Professional</div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
                     </div>
-                    <div class="template" data-template="2">
-                        <div class="template-preview template-2">
-                            <div>
-                                <h4 style="color: white;">JOHN SMITH</h4>
-                                <p style="color: var(--secondary-gold);">Software Developer</p>
-                            </div>
-                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                                <p>Modern • Bold • Executive</p>
-                            </div>
-                        </div>
-                        <div class="template-name">Modern Executive</div>
-                    </div>
-                    <div class="template" data-template="3">
-                        <div class="template-preview template-3">
-                            <div>
-                                <h4 style="color: white;">JOHN SMITH</h4>
-                                <p style="color: var(--secondary-gold);">Software Developer</p>
-                            </div>
-                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                                <p>Creative • Unique • Standout</p>
-                            </div>
-                        </div>
-                        <div class="template-name">Creative Design</div>
-                    </div>
-                    <div class="template" data-template="4">
-                        <div class="template-preview template-4">
-                            <div>
-                                <h4 style="color: var(--primary-navy);">John Smith</h4>
-                                <p style="color: var(--accent-teal);">Software Developer</p>
-                            </div>
-                            <div style="font-size: 0.9rem; color: var(--text-light);">
-                                <p>Simple • Clean • Effective</p>
-                            </div>
-                        </div>
-                        <div class="template-name">Minimal Professional</div>
-                    </div>
-                    <div class="template" data-template="5">
-                        <div class="template-preview template-5">
-                            <div>
-                                <h4 style="color: white;">TSHEDIMOSHO M.</h4>
-                                <p style="color: var(--secondary-gold);">Multi-Industry Professional</p>
-                            </div>
-                            <div style="font-size: 0.9rem; color: rgba(255,255,255,0.8);">
-                                <p>Example • Comprehensive</p>
-                            </div>
-                        </div>
-                        <div class="template-name">Example CV</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="builder-container">
-                <!-- Form Section -->
-                <div class="form-section">
-                    <h3>Your Information</h3>
-                    <button class="btn" id="loadExampleBtn" style="background: var(--secondary-gold); color: var(--primary-navy); margin: 1rem 0 1.5rem; width: 100%; border: 2px solid var(--secondary-gold);">
-                        <i class="fas fa-file-import"></i> Load Example CV
-                    </button>
-                    <form id="resumeForm">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fullName">Full Name</label>
-                                <input type="text" id="fullName" placeholder="John Smith" value="John Smith">
-                            </div>
-                            <div class="form-group">
-                                <label for="jobTitle">Professional Title</label>
-                                <input type="text" id="jobTitle" placeholder="Software Developer" value="Software Developer">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="summary">Professional Summary</label>
-                            <textarea id="summary" placeholder="Describe your professional background and skills...">Experienced software developer with 5+ years of expertise in web technologies, dedicated to creating efficient and scalable solutions. Strong collaborator with excellent problem-solving skills.</textarea>
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" placeholder="john@example.com" value="john.smith@example.com">
-                            </div>
-                            <div class="form-group">
-                                <label for="phone">Phone</label>
-                                <input type="tel" id="phone" placeholder="(123) 456-7890" value="(123) 456-7890">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="address">Location</label>
-                            <input type="text" id="address" placeholder="City, State" value="New York, NY">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="experience">Work Experience</label>
-                            <textarea id="experience" placeholder="Detail your work experience...">Senior Developer at Tech Solutions Inc. (2020-Present)
-• Led a team of 5 developers to create responsive web applications
-• Improved application performance by 30% through code optimization
-• Collaborated with cross-functional teams to deliver projects on time
-
-Web Developer at Digital Creations (2018-2020)
-• Developed and maintained client websites using modern frameworks
-• Implemented UI/UX improvements that increased user engagement by 25%
-• Provided technical support and troubleshooting for client issues</textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="education">Education</label>
-                            <textarea id="education" placeholder="List your education...">Bachelor of Science in Computer Science
-University of Technology, 2014-2018
-• GPA: 3.8/4.0
-• Relevant Coursework: Data Structures, Algorithms, Web Development
-
-Web Development Certification
-Code Academy, 2019
-• Focus: Front-end Development, React, Node.js</textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="skills">Skills</label>
-                            <textarea id="skills" placeholder="List your key skills...">• JavaScript, React, Node.js, HTML/CSS, Python
-• Git, Agile Methodologies, Scrum
-• Team Leadership, Problem Solving
-• Communication, Project Management
-• Responsive Web Design, API Integration</textarea>
-                        </div>
-                    </form>
+                    <h3>Professional Resume Builder</h3>
+                    <p>Create polished, ATS-friendly resumes with our intuitive builder. Multiple templates, easy editing, and instant PDF download.</p>
+                    <a href="resume-builder.html" class="feature-link">Start Building →</a>
                 </div>
                 
-                <!-- Preview Section -->
-                <div class="preview-section">
-                    <h3>Resume Preview</h3>
-                    <div class="resume-preview" id="resumePreview">
-                        <!-- Resume content will be generated by JavaScript -->
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
                     </div>
-                    <button class="btn btn-download" id="downloadBtn">
-                        <i class="fas fa-download"></i> Download as PDF
-                    </button>
+                    <h3>Workers' Rights Guide</h3>
+                    <p>Understand your legal rights, fair treatment standards, and how to address workplace issues effectively.</p>
+                    <a href="#workers-rights" class="feature-link">Learn Your Rights →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Workplace Support</h3>
+                    <p>Get guidance on workplace conflicts, communication strategies, and professional relationship building.</p>
+                    <a href="#workplace-guide" class="feature-link">Get Support →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Direct Assistance</h3>
+                    <p>Connect with professional advisors and legal help for workplace issues and career development.</p>
+                    <a href="#contact" class="feature-link">Contact Us →</a>
                 </div>
             </div>
         </section>
 
         <!-- Resources Section -->
-        <section id="resources" class="fade-in">
+        <section id="resources" class="resources-section fade-in">
             <div class="section-title">
                 <h2>Workplace Resources & Support</h2>
                 <p>Essential tools and information for navigating workplace challenges</p>
@@ -1152,63 +150,26 @@ Code Academy, 2019
                         <i class="fas fa-book-open"></i>
                     </div>
                     <h3>Workplace Guide</h3>
-                    <p>Learn how to navigate workplace dynamics, resolve conflicts, communicate effectively, and build professional relationships for career success.</p>
-                    <button class="btn open-modal-btn" data-modal="workplaceGuideModal" style="background: var(--accent-blue); color: white; width: 100%;">Access Guide</button>
-                </div>
-                
-                <div id="workplace-issues" class="resource-card">
-                    <div class="resource-icon">
-                        <i class="fas fa-hands-helping"></i>
-                    </div>
-                    <h3>Resolve Workplace Issues</h3>
-                    <p>Step-by-step guidance on addressing common workplace challenges, conflicts, harassment, discrimination, and finding constructive solutions.</p>
-                    <button class="btn open-modal-btn" data-modal="workplaceIssuesModal" style="background: var(--accent-teal); color: white; width: 100%;">Get Solutions</button>
+                    <p>Learn how to navigate workplace dynamics, resolve conflicts, communicate effectively, and build professional relationships.</p>
+                    <button class="btn open-modal-btn" data-modal="workplaceGuideModal">Access Guide</button>
                 </div>
                 
                 <div id="workers-rights" class="resource-card">
                     <div class="resource-icon">
                         <i class="fas fa-scale-balanced"></i>
                     </div>
-                    <h3>Workers' Rights & Labour Law</h3>
-                    <p>Understand your legal rights in the workplace, including fair treatment, safety regulations, appropriate grievance procedures, and labor laws.</p>
-                    <button class="btn open-modal-btn" data-modal="workersRightsModal" style="background: var(--secondary-gold); color: var(--primary-navy); width: 100%;">Learn Your Rights</button>
+                    <h3>Workers' Rights</h3>
+                    <p>Understand your legal rights in the workplace, including fair treatment, safety regulations, and labor laws.</p>
+                    <button class="btn open-modal-btn" data-modal="workersRightsModal">Learn Your Rights</button>
                 </div>
                 
-                <div class="resource-card">
+                <div id="legal-assistance" class="resource-card">
                     <div class="resource-icon">
-                        <i class="fas fa-phone-alt"></i>
+                        <i class="fas fa-gavel"></i>
                     </div>
-                    <h3>Find Assistance & Report</h3>
-                    <p>Connect with professional advisors, legal help, support services, and reporting channels for workplace issues and career development.</p>
-                    <button class="btn open-modal-btn" data-modal="assistanceModal" style="background: var(--primary-navy); color: white; width: 100%;">Find Help</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- Workers Rights Detailed Section -->
-        <section id="workers-rights-detailed" class="rights-content fade-in">
-            <div class="section-title">
-                <h2>Workers' Rights & Labour Resources</h2>
-                <p>Essential information about your rights and where to get help in South Africa</p>
-            </div>
-            
-            <div class="rights-grid">
-                <div class="rights-card">
-                    <h3>Basic Employment Rights</h3>
-                    <p>Every worker in South Africa has fundamental rights protected by law, including fair labor practices, safe working conditions, and protection against unfair discrimination.</p>
-                    <button class="btn open-modal-btn" data-modal="basicRightsModal" style="background: var(--accent-blue); color: white; width: 100%;">Learn More</button>
-                </div>
-                
-                <div class="rights-card">
-                    <h3>CCMA - Commission for Conciliation, Mediation and Arbitration</h3>
-                    <p>The CCMA helps resolve workplace disputes. They provide conciliation, mediation, and arbitration services for unfair dismissals, unfair labour practices, and more.</p>
-                    <button class="btn open-modal-btn" data-modal="ccmaModal" style="background: var(--accent-teal); color: white; width: 100%;">CCMA Information</button>
-                </div>
-                
-                <div class="rights-card">
-                    <h3>Department of Employment and Labour</h3>
-                    <p>The government department responsible for developing labour policies, inspecting workplaces, and ensuring compliance with labour laws and regulations.</p>
-                    <button class="btn open-modal-btn" data-modal="labourDeptModal" style="background: var(--secondary-gold); color: var(--primary-navy); width: 100%;">Department Details</button>
+                    <h3>Legal Assistance</h3>
+                    <p>Connect with legal help, support services, and reporting channels for workplace issues.</p>
+                    <button class="btn open-modal-btn" data-modal="legalAssistanceModal">Find Help</button>
                 </div>
             </div>
         </section>
@@ -1216,32 +177,83 @@ Code Academy, 2019
         <!-- Contact Section -->
         <section id="contact" class="contact-section fade-in">
             <div class="contact-content">
-                <h2>Need Help? Contact Us</h2>
-                <p>Have questions or need assistance with workplace issues? Our team is here to help you navigate challenges and find solutions.</p>
+                <h2>Need Immediate Assistance?</h2>
+                <p>Our team is available to help you navigate workplace challenges and find solutions.</p>
                 
                 <div class="contact-methods">
                     <div class="contact-method">
                         <i class="fas fa-phone"></i>
                         <h3>Call Us</h3>
                         <p>079 487 4559</p>
+                        <small>Mon-Fri, 8am-6pm</small>
                     </div>
                     <div class="contact-method">
                         <i class="fab fa-whatsapp"></i>
                         <h3>WhatsApp</h3>
                         <p>079 487 4559</p>
+                        <small>24/7 Support</small>
                     </div>
                     <div class="contact-method">
                         <i class="fas fa-envelope"></i>
                         <h3>Email</h3>
                         <p>magtecinvest@gmail.com</p>
+                        <small>Response within 24h</small>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Content Modals -->
-    <!-- Workplace Guide Modal -->
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">9t5U</div>
+                    <div>
+                        <h3>9to5 University</h3>
+                        <p>Professional Career Resources & Support</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resume-builder.html">Resume Builder</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 9to5 University. All rights reserved.</p>
+                <p>This information is for guidance only. Consult legal professionals for specific advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
     <div id="workplaceGuideModal" class="content-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1287,45 +299,6 @@ Code Academy, 2019
         </div>
     </div>
 
-    <!-- Workplace Issues Modal -->
-    <div id="workplaceIssuesModal" class="content-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Resolving Workplace Issues</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h3>Step-by-Step Resolution Guide</h3>
-                
-                <h4>Common Workplace Issues</h4>
-                <ul>
-                    <li><strong>Harassment:</strong> Unwelcome conduct that violates dignity</li>
-                    <li><strong>Discrimination:</strong> Unfair treatment based on protected characteristics</li>
-                    <li><strong>Bullying:</strong> Repeated unreasonable behavior that creates risk</li>
-                    <li><strong>Unfair Treatment:</strong> Inequitable application of policies</li>
-                    <li><strong>Wage Disputes:</strong> Issues with payment or benefits</li>
-                </ul>
-                
-                <h4>Resolution Process</h4>
-                <ol>
-                    <li><strong>Document Everything:</strong> Keep records of incidents, dates, and witnesses</li>
-                    <li><strong>Internal Resolution:</strong> Approach your supervisor or HR department</li>
-                    <li><strong>Formal Complaint:</strong> Submit a written complaint if informal resolution fails</li>
-                    <li><strong>External Help:</strong> Contact CCMA or Department of Labour if needed</li>
-                    <li><strong>Legal Action:</strong> Consider legal counsel for serious violations</li>
-                </ol>
-                
-                <h4>Timeframes for Action</h4>
-                <ul>
-                    <li>Unfair dismissal: 30 days to refer to CCMA</li>
-                    <li>Unfair labour practice: 90 days to refer to CCMA</li>
-                    <li>Discrimination: 6 months to refer to CCMA or Equality Court</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Workers Rights Modal -->
     <div id="workersRightsModal" class="content-modal">
         <div class="modal-content">
             <div class="modal-header">
@@ -1363,106 +336,7 @@ Code Academy, 2019
         </div>
     </div>
 
-    <!-- CCMA Modal -->
-    <div id="ccmaModal" class="content-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>CCMA - Commission for Conciliation, Mediation and Arbitration</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h3>About the CCMA</h3>
-                <p>The Commission for Conciliation, Mediation and Arbitration (CCMA) is an independent dispute resolution body established in terms of the Labour Relations Act, 1995.</p>
-                
-                <h4>Services Provided</h4>
-                <ul>
-                    <li><strong>Conciliation:</strong> Attempt to resolve disputes through facilitated discussion</li>
-                    <li><strong>Mediation:</strong> Assisted negotiation with a neutral third party</li>
-                    <li><strong>Arbitration:</strong> Binding decision by a commissioner</li>
-                    <li><strong>Advisory Awards:</strong> Non-binding recommendations</li>
-                    <li><strong>Dispute Prevention:</strong> Training and advisory services</li>
-                </ul>
-                
-                <h4>Types of Disputes Handled</h4>
-                <ul>
-                    <li>Unfair dismissals</li>
-                    <li>Unfair labour practices</li>
-                    <li>Mutual interest disputes</li>
-                    <li>Discrimination disputes</li>
-                    <li>Severance pay disputes</li>
-                    <li>Organizational rights disputes</li>
-                </ul>
-                
-                <h4>Contact Information</h4>
-                <div class="contact-info-box">
-                    <p><strong>National Call Centre:</strong> 0861 16 16 16</p>
-                    <p><strong>Email:</strong> info@ccma.org.za</p>
-                    <p><strong>Website:</strong> www.ccma.org.za</p>
-                    <p><strong>Operating Hours:</strong> Monday-Friday, 8:00-16:30</p>
-                </div>
-                
-                <h4>How to Refer a Dispute</h4>
-                <ol>
-                    <li>Complete CCMA Form 7.11</li>
-                    <li>Submit within required timeframes (30 days for dismissals)</li>
-                    <li>Pay applicable fees (if any)</li>
-                    <li>Attend scheduled hearings</li>
-                </ol>
-            </div>
-        </div>
-    </div>
-
-    <!-- Department of Labour Modal -->
-    <div id="labourDeptModal" class="content-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Department of Employment and Labour</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h3>Government Labour Services</h3>
-                
-                <h4>Key Functions</h4>
-                <ul>
-                    <li><strong>Labour Inspection:</strong> Workplace compliance inspections</li>
-                    <li><strong>Dispute Resolution:</strong> Assistance with labour disputes</li>
-                    <li><strong>Employment Services:</strong> Job placement and career counseling</li>
-                    <li><strong>Unemployment Insurance Fund (UIF):</strong> Unemployment benefits</li>
-                    <li><strong>Compensation Fund:</strong> Workplace injury compensation</li>
-                </ul>
-                
-                <h4>Services Available</h4>
-                <ul>
-                    <li>Free labour law advice</li>
-                    <li>Workplace inspections and compliance certificates</li>
-                    <li>Assistance with employment contracts</li>
-                    <li>Guidance on minimum wage compliance</li>
-                    <li>Help with UIF claims and benefits</li>
-                </ul>
-                
-                <h4>Contact Information</h4>
-                <div class="contact-info-box">
-                    <p><strong>National Call Centre:</strong> 0860 666 663</p>
-                    <p><strong>UIF Call Centre:</strong> 012 337 1680</p>
-                    <p><strong>Compensation Fund:</strong> 0860 105 350</li>
-                    <p><strong>Website:</strong> www.labour.gov.za</p>
-                    <p><strong>Email:</strong> info@labour.gov.za</p>
-                </div>
-                
-                <h4>Provincial Offices</h4>
-                <ul>
-                    <li><strong>Gauteng:</strong> 011 853 0300</li>
-                    <li><strong>Western Cape:</strong> 021 441 8000</li>
-                    <li><strong>KwaZulu-Natal:</strong> 031 336 1500</li>
-                    <li><strong>Eastern Cape:</strong> 043 702 7500</li>
-                    <li><strong>Free State:</strong> 051 505 6200</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Assistance Modal -->
-    <div id="assistanceModal" class="content-modal">
+    <div id="legalAssistanceModal" class="content-modal">
         <div class="modal-content">
             <div class="modal-header">
                 <h2>Find Assistance & Report Issues</h2>
@@ -1492,810 +366,84 @@ Code Academy, 2019
                     <li><strong>Trade Unions:</strong> Join a union for collective representation</li>
                     <li><strong>Community Advice Offices:</strong> Local community-based advice</li>
                 </ul>
-                
-                <h4>Reporting Channels</h4>
-                <ol>
-                    <li>Internal company procedures (HR department)</li>
-                    <li>CCMA for labour disputes</li>
-                    <li>Department of Employment and Labour for violations</li>
-                    <li>South African Police Service for criminal matters</li>
-                    <li>Equality Court for discrimination cases</li>
-                </ol>
             </div>
         </div>
     </div>
-
-    <!-- Basic Rights Modal -->
-    <div id="basicRightsModal" class="content-modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Basic Employment Rights</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <h3>Fundamental Worker Rights in South Africa</h3>
-                
-                <h4>Constitutional Rights</h4>
-                <ul>
-                    <li>Right to fair labour practices</li>
-                    <li>Right to form and join trade unions</li>
-                    <li>Right to engage in collective bargaining</li>
-                    <li>Right to strike</li>
-                    <li>Protection against unfair discrimination</li>
-                </ul>
-                
-                <h4>Minimum Conditions of Employment</h4>
-                <ul>
-                    <li><strong>Working Time:</strong> Maximum 45 hours per week</li>
-                    <li><strong>Overtime:</strong> Maximum 10 hours overtime per week</li>
-                    <li><strong>Breaks:</strong> Meal breaks of at least 60 minutes after 5 hours work</li>
-                    <li><strong>Rest Periods:</strong> Daily rest of 12 hours, weekly rest of 36 hours</li>
-                    <li><strong>Annual Leave:</strong> 21 consecutive days per year</li>
-                    <li><strong>Sick Leave:</strong> 30 days in 36-month cycle</li>
-                    <li><strong>Maternity Leave:</strong> 4 consecutive months</li>
-                </ul>
-                
-                <h4>Protection Against Unfair Treatment</h4>
-                <ul>
-                    <li>Protection against unfair dismissal</li>
-                    <li>Protection against unfair labour practices</li>
-                    <li>Equal pay for work of equal value</li>
-                    <li>Safe working environment</li>
-                    <li>Protection of personal information</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <div class="logo-icon">9t5U</div>
-                    <div>
-                        <h3 style="color: var(--secondary-gold); margin-bottom: 0.5rem;">9to5 University</h3>
-                        <p style="color: rgba(255, 255, 255, 0.8);">Professional Career Resources & Support</p>
-                    </div>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Services</h3>
-                    <ul>
-                        <li><a href="#resume-builder">Resume Builder</a></li>
-                        <li><a href="#workplace-guide">Workplace Guide</a></li>
-                        <li><a href="#workers-rights">Workers' Rights</a></li>
-                        <li><a href="#contact">Get Help</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Resources</h3>
-                    <ul>
-                        <li><a href="#" class="open-modal-btn" data-modal="ccmaModal">CCMA Information</a></li>
-                        <li><a href="#" class="open-modal-btn" data-modal="labourDeptModal">Labour Department</a></li>
-                        <li><a href="#" class="open-modal-btn" data-modal="basicRightsModal">Basic Rights</a></li>
-                        <li><a href="#" class="open-modal-btn" data-modal="assistanceModal">Support Services</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Contact</h3>
-                    <ul>
-                        <li><a href="tel:0794874559">079 487 4559</a></li>
-                        <li><a href="https://wa.me/27794874559">WhatsApp</a></li>
-                        <li><a href="mailto:magtecinvest@gmail.com">magtecinvest@gmail.com</a></li>
-                        <li><a href="#">South Africa</a></li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="copyright">
-                <p>&copy; 2023 9to5 University. All rights reserved. | Professional Resume Builder & Workplace Resources</p>
-                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: rgba(255, 255, 255, 0.5);">This information is for guidance only. Consult legal professionals for specific advice.</p>
-            </div>
-        </div>
-    </footer>
 
     <script>
+        // Main JavaScript for Home Page
+        
         // DOM Elements
-        const resumeForm = document.getElementById('resumeForm');
-        const resumePreview = document.getElementById('resumePreview');
-        const templates = document.querySelectorAll('.template');
-        const downloadBtn = document.getElementById('downloadBtn');
-        const signupBtn = document.getElementById('signupBtn');
-        const loginBtn = document.getElementById('loginBtn');
-        const startBuildingBtn = document.getElementById('startBuildingBtn');
-        const loadExampleBtn = document.getElementById('loadExampleBtn');
-        const contentModals = document.querySelectorAll('.content-modal');
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
         const openModalBtns = document.querySelectorAll('.open-modal-btn');
         const closeModalBtns = document.querySelectorAll('.close-modal');
-        
-        // Current template selection
-        let currentTemplate = '1';
-        
-        // Tshedimosho Mlangeni Example CV Data
-        const tshedimoshoCV = {
-            fullName: 'Tshedimosho Mlangeni',
-            jobTitle: 'Multi-Industry Professional',
-            summary: 'Experienced professional with diverse background in retail, manufacturing, and construction. Strong work ethic with expertise in customer service, operations, and technical assistance across multiple industries.',
-            email: 'mphelamlangeni@gmail.com',
-            phone: '079 487 4559',
-            address: 'Boksburg North, Boksburg, Gauteng, South Africa',
-            experience: `Food Lover's Market - Deli Assistant, Merchandiser (May 2022 - May 2024)
-• Managed shelf stock availability and product placement
-• Conducted regular quality checks to remove expired products
-• Operated deli equipment for food preparation and service
-• Maintained high standards of hygiene and cleanliness
-• Ensured accurate product pricing and scanning
+        const contentModals = document.querySelectorAll('.content-modal');
+        const loginBtn = document.getElementById('loginBtn');
+        const signupBtn = document.getElementById('signupBtn');
 
-Tiger Brands - Packer (May 2020 - Apr 2021)
-• Sorted products and verified manufacturing details
-• Conducted quality assessments of packaging and labeling
-• Operated pellet jacks for product transportation
-• Monitored and recorded product weights for quality control
-
-JHL Group (PTY) LTD - Assistant (Nov 2013 - Feb 2020)
-• Assisted artisans with electrical, welding, and mechanical fitting tasks
-• Operated grinders and various construction tools
-• Managed tool inventory and preparation for daily tasks
-• Coordinated supply runs and material procurement`,
-            education: `Matric Certificate - Khataza High School
-• Completed basic education with focus on practical skills
-• Participated in technical and vocational training programs`,
-            skills: `• Computer Literacy & Office Software
-• Customer Service & Client Interaction
-• Retail Operations & Merchandising
-• Manufacturing & Quality Control
-• Construction Assistance & Tool Operation
-• Electrical, Welding & Mechanical Support
-• Multilingual: Sepedi, Xitsonga, English, isiZulu, Setswana, Sesotho, siSwati
-• Team Collaboration & Communication`
-        };
-        
-        // Initialize the resume preview
-        function updateResumePreview() {
-            // Get form values
-            const fullName = document.getElementById('fullName').value || 'John Smith';
-            const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
-            const summary = document.getElementById('summary').value || 'Professional summary...';
-            const email = document.getElementById('email').value || 'john.smith@example.com';
-            const phone = document.getElementById('phone').value || '(123) 456-7890';
-            const address = document.getElementById('address').value || 'New York, NY';
-            const experience = document.getElementById('experience').value || 'No experience provided';
-            const education = document.getElementById('education').value || 'No education provided';
-            const skills = document.getElementById('skills').value || 'No skills provided';
-            
-            // Generate resume preview HTML based on template
-            let resumeHTML = '';
-            
-            switch(currentTemplate) {
-                case '1': // Classic Professional
-                    resumeHTML = `
-                        <div style="font-family: 'Arial', sans-serif; padding: 30px; max-width: 800px; margin: 0 auto;">
-                            <div style="border-bottom: 3px solid ${currentTemplate === '1' ? 'var(--secondary-gold)' : '#d1c4a3'}; padding-bottom: 20px; margin-bottom: 25px;">
-                                <h1 style="color: var(--primary-navy); font-size: 36px; margin-bottom: 5px; text-transform: uppercase;">${fullName}</h1>
-                                <h2 style="color: var(--accent-teal); font-size: 22px; margin-bottom: 15px;">${jobTitle}</h2>
-                                <div style="display: flex; flex-wrap: wrap; gap: 15px; font-size: 14px; color: var(--text-light);">
-                                    <span><i class="fas fa-envelope"></i> ${email}</span>
-                                    <span><i class="fas fa-phone"></i> ${phone}</span>
-                                    <span><i class="fas fa-map-marker-alt"></i> ${address}</span>
-                                </div>
-                            </div>
-                            
-                            <div style="margin-bottom: 25px;">
-                                <h3 style="color: var(--primary-navy); font-size: 20px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 8px; margin-bottom: 15px;">PROFESSIONAL SUMMARY</h3>
-                                <p style="font-size: 14px; line-height: 1.6;">${summary.replace(/\n/g, '<br>')}</p>
-                            </div>
-                            
-                            <div style="margin-bottom: 25px;">
-                                <h3 style="color: var(--primary-navy); font-size: 20px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 8px; margin-bottom: 15px;">WORK EXPERIENCE</h3>
-                                <div style="font-size: 14px; line-height: 1.6;">
-                                    ${formatTextAsBullets(experience)}
-                                </div>
-                            </div>
-                            
-                            <div style="margin-bottom: 25px;">
-                                <h3 style="color: var(--primary-navy); font-size: 20px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 8px; margin-bottom: 15px;">EDUCATION</h3>
-                                <div style="font-size: 14px; line-height: 1.6;">
-                                    ${formatTextAsBullets(education)}
-                                </div>
-                            </div>
-                            
-                            <div>
-                                <h3 style="color: var(--primary-navy); font-size: 20px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 8px; margin-bottom: 15px;">SKILLS</h3>
-                                <p style="font-size: 14px; line-height: 1.6;">${skills.replace(/\n/g, '<br>')}</p>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                    
-                case '2': // Modern Executive
-                    resumeHTML = `
-                        <div style="font-family: 'Arial', sans-serif; padding: 40px; background: linear-gradient(135deg, var(--primary-navy) 0%, #1a2d5a 100%); color: white; min-height: 100%;">
-                            <div style="text-align: center; margin-bottom: 40px;">
-                                <h1 style="color: var(--secondary-gold); font-size: 42px; margin-bottom: 10px; letter-spacing: 2px;">${fullName.toUpperCase()}</h1>
-                                <h2 style="color: white; font-size: 24px; margin-bottom: 25px; font-weight: 300;">${jobTitle}</h2>
-                                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; font-size: 15px; color: rgba(255,255,255,0.9);">
-                                    <span><i class="fas fa-envelope"></i> ${email}</span>
-                                    <span><i class="fas fa-phone"></i> ${phone}</span>
-                                    <span><i class="fas fa-map-marker-alt"></i> ${address}</span>
-                                </div>
-                            </div>
-                            
-                            <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 40px;">
-                                <div>
-                                    <div style="margin-bottom: 30px;">
-                                        <h3 style="color: var(--secondary-gold); font-size: 18px; border-bottom: 1px solid rgba(201, 169, 110, 0.5); padding-bottom: 8px; margin-bottom: 15px;">CONTACT</h3>
-                                        <p style="font-size: 14px; line-height: 1.8;">${email}<br>${phone}<br>${address}</p>
-                                    </div>
-                                    
-                                    <div style="margin-bottom: 30px;">
-                                        <h3 style="color: var(--secondary-gold); font-size: 18px; border-bottom: 1px solid rgba(201, 169, 110, 0.5); padding-bottom: 8px; margin-bottom: 15px;">SKILLS</h3>
-                                        <p style="font-size: 14px; line-height: 1.8;">${skills.replace(/\n/g, '<br>')}</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h3 style="color: var(--secondary-gold); font-size: 18px; border-bottom: 1px solid rgba(201, 169, 110, 0.5); padding-bottom: 8px; margin-bottom: 15px;">EDUCATION</h3>
-                                        <div style="font-size: 14px; line-height: 1.8;">
-                                            ${formatTextAsBullets(education, 'white')}
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <div style="margin-bottom: 30px;">
-                                        <h3 style="color: var(--secondary-gold); font-size: 18px; border-bottom: 1px solid rgba(201, 169, 110, 0.5); padding-bottom: 8px; margin-bottom: 15px;">PROFILE</h3>
-                                        <p style="font-size: 14px; line-height: 1.8;">${summary.replace(/\n/g, '<br>')}</p>
-                                    </div>
-                                    
-                                    <div>
-                                        <h3 style="color: var(--secondary-gold); font-size: 18px; border-bottom: 1px solid rgba(201, 169, 110, 0.5); padding-bottom: 8px; margin-bottom: 15px;">EXPERIENCE</h3>
-                                        <div style="font-size: 14px; line-height: 1.8;">
-                                            ${formatTextAsBullets(experience, 'white')}
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                    
-                case '3': // Creative Design
-                    resumeHTML = `
-                        <div style="font-family: 'Arial', sans-serif; padding: 35px; background: linear-gradient(135deg, var(--accent-teal) 0%, #00c9c9 100%); color: white; min-height: 100%;">
-                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 40px;">
-                                <div>
-                                    <h1 style="color: white; font-size: 38px; margin-bottom: 8px; font-weight: 700;">${fullName}</h1>
-                                    <h2 style="color: var(--secondary-gold); font-size: 22px; margin-bottom: 20px; font-weight: 300;">${jobTitle}</h2>
-                                </div>
-                                <div style="text-align: right;">
-                                    <p style="font-size: 14px; margin-bottom: 5px;"><i class="fas fa-envelope"></i> ${email}</p>
-                                    <p style="font-size: 14px; margin-bottom: 5px;"><i class="fas fa-phone"></i> ${phone}</p>
-                                    <p style="font-size: 14px;"><i class="fas fa-map-marker-alt"></i> ${address}</p>
-                                </div>
-                            </div>
-                            
-                            <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px; margin-bottom: 30px;">
-                                <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                    <i class="fas fa-user"></i> ABOUT ME
-                                </h3>
-                                <p style="font-size: 15px; line-height: 1.7;">${summary.replace(/\n/g, '<br>')}</p>
-                            </div>
-                            
-                            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
-                                <div>
-                                    <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px; margin-bottom: 30px;">
-                                        <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                            <i class="fas fa-briefcase"></i> EXPERIENCE
-                                        </h3>
-                                        <div style="font-size: 14px; line-height: 1.7;">
-                                            ${formatTextAsBullets(experience, 'white')}
-                                        </div>
-                                    </div>
-                                </div>
-                                
-                                <div>
-                                    <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px; margin-bottom: 30px;">
-                                        <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                            <i class="fas fa-graduation-cap"></i> EDUCATION
-                                        </h3>
-                                        <div style="font-size: 14px; line-height: 1.7;">
-                                            ${formatTextAsBullets(education, 'white')}
-                                        </div>
-                                    </div>
-                                    
-                                    <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px;">
-                                        <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                            <i class="fas fa-tools"></i> SKILLS
-                                        </h3>
-                                        <p style="font-size: 14px; line-height: 1.7;">${skills.replace(/\n/g, '<br>')}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                    
-                case '4': // Minimal Professional
-                    resumeHTML = `
-                        <div style="font-family: 'Arial', sans-serif; padding: 40px; background: linear-gradient(135deg, #ffffff 0%, #e8f4f8 100%); color: var(--text-dark); min-height: 100%;">
-                            <div style="text-align: center; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 2px solid var(--secondary-gold);">
-                                <h1 style="color: var(--primary-navy); font-size: 36px; margin-bottom: 8px; font-weight: 300;">${fullName}</h1>
-                                <h2 style="color: var(--accent-teal); font-size: 20px; margin-bottom: 20px; font-weight: 400;">${jobTitle}</h2>
-                                <div style="display: inline-flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 14px; color: var(--text-light);">
-                                    <span>${email}</span>
-                                    <span>${phone}</span>
-                                    <span>${address}</span>
-                                </div>
-                            </div>
-                            
-                            <div style="max-width: 700px; margin: 0 auto;">
-                                <div style="margin-bottom: 30px;">
-                                    <h3 style="color: var(--primary-navy); font-size: 18px; margin-bottom: 12px; font-weight: 600; letter-spacing: 1px;">SUMMARY</h3>
-                                    <p style="font-size: 15px; line-height: 1.7; color: var(--text-dark);">${summary.replace(/\n/g, '<br>')}</p>
-                                </div>
-                                
-                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
-                                    <div>
-                                        <div style="margin-bottom: 30px;">
-                                            <h3 style="color: var(--primary-navy); font-size: 18px; margin-bottom: 12px; font-weight: 600; letter-spacing: 1px;">EXPERIENCE</h3>
-                                            <div style="font-size: 14px; line-height: 1.7; color: var(--text-dark);">
-                                                ${formatTextAsBullets(experience)}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div>
-                                        <div style="margin-bottom: 30px;">
-                                            <h3 style="color: var(--primary-navy); font-size: 18px; margin-bottom: 12px; font-weight: 600; letter-spacing: 1px;">EDUCATION</h3>
-                                            <div style="font-size: 14px; line-height: 1.7; color: var(--text-dark);">
-                                                ${formatTextAsBullets(education)}
-                                            </div>
-                                        </div>
-                                        
-                                        <div>
-                                            <h3 style="color: var(--primary-navy); font-size: 18px; margin-bottom: 12px; font-weight: 600; letter-spacing: 1px;">SKILLS</h3>
-                                            <p style="font-size: 14px; line-height: 1.7; color: var(--text-dark);">${skills.replace(/\n/g, '<br>')}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    break;
-                    
-                case '5': // Example CV (Tshedimosho)
-                    resumeHTML = `
-                        <div style="font-family: 'Arial', sans-serif; padding: 35px; background: linear-gradient(135deg, var(--primary-navy) 0%, #0c2045 100%); color: white; min-height: 100%;">
-                            <div style="text-align: center; margin-bottom: 40px; padding-bottom: 30px; border-bottom: 2px solid var(--secondary-gold);">
-                                <h1 style="color: var(--secondary-gold); font-size: 40px; margin-bottom: 10px; text-transform: uppercase;">${fullName}</h1>
-                                <h2 style="color: white; font-size: 24px; margin-bottom: 20px; font-weight: 300;">${jobTitle}</h2>
-                                <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 25px; font-size: 15px; color: rgba(255,255,255,0.9);">
-                                    <span><i class="fas fa-envelope"></i> ${email}</span>
-                                    <span><i class="fas fa-phone"></i> ${phone}</span>
-                                    <span><i class="fas fa-map-marker-alt"></i> ${address}</span>
-                                </div>
-                            </div>
-                            
-                            <div style="max-width: 800px; margin: 0 auto;">
-                                <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 8px; margin-bottom: 30px;">
-                                    <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                        <i class="fas fa-user-tie"></i> PROFILE
-                                    </h3>
-                                    <p style="font-size: 15px; line-height: 1.7;">${summary.replace(/\n/g, '<br>')}</p>
-                                </div>
-                                
-                                <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 40px;">
-                                    <div>
-                                        <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 8px; margin-bottom: 30px;">
-                                            <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                                <i class="fas fa-briefcase"></i> WORK EXPERIENCE
-                                            </h3>
-                                            <div style="font-size: 14px; line-height: 1.7;">
-                                                ${formatTextAsBullets(experience, 'white')}
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div>
-                                        <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 8px; margin-bottom: 30px;">
-                                            <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                                <i class="fas fa-graduation-cap"></i> EDUCATION
-                                            </h3>
-                                            <div style="font-size: 14px; line-height: 1.7;">
-                                                ${formatTextAsBullets(education, 'white')}
-                                            </div>
-                                        </div>
-                                        
-                                        <div style="background: rgba(255,255,255,0.05); padding: 25px; border-radius: 8px;">
-                                            <h3 style="color: var(--secondary-gold); font-size: 20px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
-                                                <i class="fas fa-tools"></i> SKILLS
-                                            </h3>
-                                            <p style="font-size: 14px; line-height: 1.7;">${skills.replace(/\n/g, '<br>')}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    `;
-                    break;
-            }
-            
-            resumePreview.innerHTML = resumeHTML;
+        // Mobile Menu Toggle
+        if (mobileMenuToggle && mainNav) {
+            mobileMenuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('active');
+                mobileMenuToggle.innerHTML = mainNav.classList.contains('active') 
+                    ? '<i class="fas fa-times"></i>' 
+                    : '<i class="fas fa-bars"></i>';
+            });
         }
-        
-        // Format text with bullet points
-        function formatTextAsBullets(text, textColor = 'var(--text-dark)') {
-            return text.split('\n')
-                .map(line => {
-                    if (line.trim().startsWith('•')) {
-                        return `<p style="margin-bottom: 10px; padding-left: 20px; text-indent: -20px; color: ${textColor};">${line}</p>`;
+
+        // Dropdown Menu Toggle for Mobile
+        if (dropdownToggles.length > 0) {
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', (e) => {
+                    if (window.innerWidth <= 768) {
+                        e.preventDefault();
+                        const dropdown = toggle.closest('.dropdown');
+                        dropdown.classList.toggle('active');
                     }
-                    return `<p style="margin-bottom: 10px; color: ${textColor};">${line}</p>`;
-                })
-                .join('');
-        }
-        
-        // Load Tshedimosho example CV
-        function loadTshedimoshoExample() {
-            document.getElementById('fullName').value = tshedimoshoCV.fullName;
-            document.getElementById('jobTitle').value = tshedimoshoCV.jobTitle;
-            document.getElementById('summary').value = tshedimoshoCV.summary;
-            document.getElementById('email').value = tshedimoshoCV.email;
-            document.getElementById('phone').value = tshedimoshoCV.phone;
-            document.getElementById('address').value = tshedimoshoCV.address;
-            document.getElementById('experience').value = tshedimoshoCV.experience;
-            document.getElementById('education').value = tshedimoshoCV.education;
-            document.getElementById('skills').value = tshedimoshoCV.skills;
-            
-            // Switch to template 5 (the example template)
-            templates.forEach(t => t.classList.remove('active'));
-            document.querySelector('.template[data-template="5"]').classList.add('active');
-            currentTemplate = '5';
-            
-            updateResumePreview();
-            
-            // Show notification
-            alert('Example CV loaded! This comprehensive example demonstrates diverse industry experience suitable for various job applications.');
-        }
-        
-        // Template selection
-        templates.forEach(template => {
-            template.addEventListener('click', () => {
-                templates.forEach(t => t.classList.remove('active'));
-                template.classList.add('active');
-                currentTemplate = template.getAttribute('data-template');
-                updateResumePreview();
-            });
-        });
-        
-        // Load example from button
-        loadExampleBtn.addEventListener('click', loadTshedimoshoExample);
-        
-        // Update preview on form input
-        resumeForm.addEventListener('input', updateResumePreview);
-        
-        // Initialize preview on page load
-        document.addEventListener('DOMContentLoaded', updateResumePreview);
-        
-        // Download as PDF with perfect A4 formatting
-        downloadBtn.addEventListener('click', async () => {
-            downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
-            downloadBtn.disabled = true;
-            
-            try {
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF({
-                    orientation: 'portrait',
-                    unit: 'mm',
-                    format: 'a4',
-                    hotfixes: ["px_scaling"]
                 });
-                
-                // Get resume data
-                const fullName = document.getElementById('fullName').value || 'John Smith';
-                const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
-                const summary = document.getElementById('summary').value || 'Professional summary...';
-                const email = document.getElementById('email').value || 'john.smith@example.com';
-                const phone = document.getElementById('phone').value || '(123) 456-7890';
-                const address = document.getElementById('address').value || 'New York, NY';
-                const experience = document.getElementById('experience').value || 'No experience provided';
-                const education = document.getElementById('education').value || 'No education provided';
-                const skills = document.getElementById('skills').value || 'No skills provided';
-                
-                // Set margins and starting position
-                const margin = 20;
-                let yPos = margin;
-                const pageWidth = 210;
-                const contentWidth = pageWidth - (margin * 2);
-                
-                // Template-specific formatting
-                switch(currentTemplate) {
-                    case '1': // Classic Professional
-                        pdf.setFontSize(24);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text(fullName.toUpperCase(), margin, yPos);
-                        yPos += 10;
-                        
-                        pdf.setFontSize(18);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(0, 168, 168);
-                        pdf.text(jobTitle, margin, yPos);
-                        yPos += 10;
-                        
-                        // Contact info
-                        pdf.setFontSize(11);
-                        pdf.setTextColor(100, 100, 100);
-                        const contactInfo = `${email} | ${phone} | ${address}`;
-                        pdf.text(contactInfo, margin, yPos);
-                        yPos += 15;
-                        
-                        // Draw separator line
-                        pdf.setDrawColor(201, 169, 110);
-                        pdf.setLineWidth(1);
-                        pdf.line(margin, yPos, pageWidth - margin, yPos);
-                        yPos += 10;
-                        
-                        // Professional Summary
-                        pdf.setFontSize(16);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("PROFESSIONAL SUMMARY", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(0, 0, 0);
-                        const summaryLines = pdf.splitTextToSize(summary, contentWidth);
-                        pdf.text(summaryLines, margin, yPos);
-                        yPos += (summaryLines.length * 6) + 15;
-                        
-                        // Work Experience
-                        pdf.setFontSize(16);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("WORK EXPERIENCE", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        const expLines = pdf.splitTextToSize(experience, contentWidth);
-                        pdf.text(expLines, margin, yPos);
-                        yPos += (expLines.length * 6) + 15;
-                        
-                        // Education
-                        pdf.setFontSize(16);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("EDUCATION", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        const eduLines = pdf.splitTextToSize(education, contentWidth);
-                        pdf.text(eduLines, margin, yPos);
-                        yPos += (eduLines.length * 6) + 15;
-                        
-                        // Skills
-                        pdf.setFontSize(16);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("SKILLS", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        const skillLines = pdf.splitTextToSize(skills, contentWidth);
-                        pdf.text(skillLines, margin, yPos);
-                        break;
-                        
-                    case '2': // Modern Executive
-                        // Navy background for header
-                        pdf.setFillColor(10, 26, 61);
-                        pdf.rect(0, 0, 210, 60, 'F');
-                        
-                        // Name in gold
-                        pdf.setFontSize(28);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(201, 169, 110);
-                        pdf.text(fullName.toUpperCase(), pageWidth/2, 30, { align: 'center' });
-                        
-                        // Title in white
-                        pdf.setFontSize(18);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(255, 255, 255);
-                        pdf.text(jobTitle, pageWidth/2, 42, { align: 'center' });
-                        
-                        yPos = 70;
-                        
-                        // Contact info
-                        pdf.setFontSize(10);
-                        pdf.setTextColor(100, 100, 100);
-                        pdf.text(`${email} • ${phone} • ${address}`, pageWidth/2, yPos, { align: 'center' });
-                        yPos += 15;
-                        
-                        // Two column layout
-                        const col1 = margin;
-                        const col2 = margin + 70;
-                        const colWidth = 70;
-                        
-                        // Left column - Skills and Education
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(201, 169, 110);
-                        pdf.text("SKILLS", col1, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(10);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(0, 0, 0);
-                        const skillsColLines = pdf.splitTextToSize(skills, colWidth);
-                        pdf.text(skillsColLines, col1, yPos);
-                        yPos += (skillsColLines.length * 5) + 15;
-                        
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(201, 169, 110);
-                        pdf.text("EDUCATION", col1, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(10);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(0, 0, 0);
-                        const eduColLines = pdf.splitTextToSize(education, colWidth);
-                        pdf.text(eduColLines, col1, yPos);
-                        
-                        // Right column - Profile and Experience
-                        yPos = 70;
-                        
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(201, 169, 110);
-                        pdf.text("PROFILE", col2, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(10);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(0, 0, 0);
-                        const profileLines = pdf.splitTextToSize(summary, colWidth);
-                        pdf.text(profileLines, col2, yPos);
-                        yPos += (profileLines.length * 5) + 15;
-                        
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(201, 169, 110);
-                        pdf.text("EXPERIENCE", col2, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(10);
-                        pdf.setFont("helvetica", "normal");
-                        const expColLines = pdf.splitTextToSize(experience, colWidth);
-                        pdf.text(expColLines, col2, yPos);
-                        break;
-                        
-                    default: // Default format for other templates
-                        pdf.setFontSize(22);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text(fullName, margin, yPos);
-                        yPos += 10;
-                        
-                        pdf.setFontSize(16);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(0, 168, 168);
-                        pdf.text(jobTitle, margin, yPos);
-                        yPos += 10;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setTextColor(100, 100, 100);
-                        pdf.text(`Email: ${email} | Phone: ${phone} | Location: ${address}`, margin, yPos);
-                        yPos += 15;
-                        
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("PROFESSIONAL SUMMARY", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        pdf.setTextColor(0, 0, 0);
-                        const defSummaryLines = pdf.splitTextToSize(summary, contentWidth);
-                        pdf.text(defSummaryLines, margin, yPos);
-                        yPos += (defSummaryLines.length * 6) + 15;
-                        
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("WORK EXPERIENCE", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        const defExpLines = pdf.splitTextToSize(experience, contentWidth);
-                        pdf.text(defExpLines, margin, yPos);
-                        yPos += (defExpLines.length * 6) + 15;
-                        
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("EDUCATION", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        const defEduLines = pdf.splitTextToSize(education, contentWidth);
-                        pdf.text(defEduLines, margin, yPos);
-                        yPos += (defEduLines.length * 6) + 15;
-                        
-                        pdf.setFontSize(14);
-                        pdf.setFont("helvetica", "bold");
-                        pdf.setTextColor(10, 26, 61);
-                        pdf.text("SKILLS", margin, yPos);
-                        yPos += 8;
-                        
-                        pdf.setFontSize(11);
-                        pdf.setFont("helvetica", "normal");
-                        const defSkillLines = pdf.splitTextToSize(skills, contentWidth);
-                        pdf.text(defSkillLines, margin, yPos);
-                }
-                
-                // Footer with branding
-                pdf.setFontSize(9);
-                pdf.setTextColor(150, 150, 150);
-                pdf.text("Created with 9to5 University Resume Builder", margin, 285);
-                
-                // Save the PDF
-                const fileName = `Resume_${fullName.replace(/\s+/g, '_')}.pdf`;
-                pdf.save(fileName);
-                
-                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
-                downloadBtn.disabled = false;
-                
-                // Show success message
-                alert('Your professional resume has been downloaded successfully!');
-            } catch (error) {
-                console.error('Error generating PDF:', error);
-                downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
-                downloadBtn.disabled = false;
-                alert('Error generating PDF. Please try again or use a different template.');
-            }
-        });
-        
-        // Modal functionality
-        openModalBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const modalId = btn.getAttribute('data-modal');
-                const modal = document.getElementById(modalId);
-                if (modal) {
-                    modal.style.display = 'flex';
-                    document.body.style.overflow = 'hidden';
-                }
             });
-        });
-        
-        closeModalBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const modal = btn.closest('.content-modal');
-                if (modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
+        }
+
+        // Modal Functionality
+        if (openModalBtns.length > 0) {
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const modalId = btn.getAttribute('data-modal');
+                    const modal = document.getElementById(modalId);
+                    if (modal) {
+                        modal.style.display = 'flex';
+                        document.body.style.overflow = 'hidden';
+                    }
+                });
             });
-        });
-        
+        }
+
+        if (closeModalBtns.length > 0) {
+            closeModalBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const modal = btn.closest('.content-modal');
+                    if (modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            });
+        }
+
         // Close modal when clicking outside
-        contentModals.forEach(modal => {
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
+        if (contentModals.length > 0) {
+            contentModals.forEach(modal => {
+                modal.addEventListener('click', (e) => {
+                    if (e.target === modal) {
+                        modal.style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                    }
+                });
             });
-        });
-        
+        }
+
         // Close modal with Escape key
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
@@ -2307,41 +455,76 @@ JHL Group (PTY) LTD - Assistant (Nov 2013 - Feb 2020)
                 });
             }
         });
-        
-        // Button functionality
-        startBuildingBtn.addEventListener('click', () => {
-            document.getElementById('resume-builder').scrollIntoView({ behavior: 'smooth' });
-        });
-        
-        // Auth buttons (simple demo)
-        signupBtn.addEventListener('click', () => {
-            alert('Account creation feature would open in a full implementation. For now, you can use all features without an account.');
-        });
-        
-        loginBtn.addEventListener('click', () => {
-            alert('Login feature would open in a full implementation. For now, you can use all features without logging in.');
-        });
-        
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a, .footer-links a').forEach(link => {
-            link.addEventListener('click', function(e) {
+
+        // Auth buttons (demo functionality)
+        if (loginBtn) {
+            loginBtn.addEventListener('click', () => {
+                alert('Login feature would open in a full implementation. For now, you can use all features without logging in.');
+            });
+        }
+
+        if (signupBtn) {
+            signupBtn.addEventListener('click', () => {
+                alert('Account creation feature would open in a full implementation. For now, you can use all features without an account.');
+            });
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
                 const href = this.getAttribute('href');
-                if (href && href.startsWith('#')) {
+                
+                // Skip if it's just "#"
+                if (href === '#') return;
+                
+                const targetElement = document.querySelector(href);
+                
+                if (targetElement) {
                     e.preventDefault();
-                    const targetId = href.substring(1);
-                    const targetElement = document.getElementById(targetId);
-                    if (targetElement) {
-                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    
+                    // Close mobile menu if open
+                    if (mainNav && mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        if (mobileMenuToggle) {
+                            mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
                     }
+                    
+                    // Smooth scroll to target
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
             });
         });
-        
-        // Fade in elements on scroll
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (mainNav && mainNav.classList.contains('active') && 
+                !mainNav.contains(e.target) && 
+                !mobileMenuToggle.contains(e.target)) {
+                mainNav.classList.remove('active');
+                if (mobileMenuToggle) {
+                    mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            }
+        });
+
+        // Make external links open in new tab
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            if (!link.href.includes(window.location.hostname)) {
+                link.setAttribute('target', '_blank');
+                link.setAttribute('rel', 'noopener noreferrer');
+            }
+        });
+
+        // Intersection Observer for fade-in animations
         const observerOptions = {
-            threshold: 0.1
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         };
-        
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
@@ -2349,16 +532,46 @@ JHL Group (PTY) LTD - Assistant (Nov 2013 - Feb 2020)
                 }
             });
         }, observerOptions);
-        
+
         // Observe all elements with fade-in class
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
         });
-        
-        // Make all external links open in new tab
-        document.querySelectorAll('a[href^="http"]').forEach(link => {
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener noreferrer');
+
+        // Handle window resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(() => {
+                // Close mobile menu on larger screens
+                if (window.innerWidth > 768 && mainNav) {
+                    mainNav.classList.remove('active');
+                    if (mobileMenuToggle) {
+                        mobileMenuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                    
+                    // Close all dropdowns
+                    document.querySelectorAll('.dropdown').forEach(dropdown => {
+                        dropdown.classList.remove('active');
+                    });
+                }
+            }, 250);
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add active class to current page link
+            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            document.querySelectorAll('nav a').forEach(link => {
+                const linkPage = link.getAttribute('href');
+                if (linkPage === currentPage || 
+                    (currentPage === '' && linkPage === 'index.html') ||
+                    (currentPage === 'index.html' && linkPage === '/')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
         });
     </script>
 </body>
