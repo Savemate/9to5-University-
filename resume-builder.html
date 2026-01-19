@@ -2,13 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>9to5 University - Professional Career Resources</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume Builder - 9to5 University</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resume-builder.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <!-- Header & Navigation -->
+    <!-- Header -->
     <header>
         <div class="container header-content">
             <a href="index.html" class="logo">
@@ -53,419 +56,288 @@
         </div>
     </header>
 
-    <!-- Main Resume Builder Section -->
-    <main class="container">
-        <div class="resume-builder-container">
-            <!-- Progress Steps -->
-            <div class="progress-steps">
-                <div class="step active" data-step="1">
-                    <span class="step-number">1</span>
-                    <span class="step-text">Personal Info</span>
-                </div>
-                <div class="step" data-step="2">
-                    <span class="step-number">2</span>
-                    <span class="step-text">Experience</span>
-                </div>
-                <div class="step" data-step="3">
-                    <span class="step-number">3</span>
-                    <span class="step-text">Education</span>
-                </div>
-                <div class="step" data-step="4">
-                    <span class="step-number">4</span>
-                    <span class="step-text">Skills</span>
-                </div>
-                <div class="step" data-step="5">
-                    <span class="step-number">5</span>
-                    <span class="step-text">Template</span>
-                </div>
-            </div>
-
-            <!-- Template Selection Section -->
-            <section id="templates" class="template-section fade-in">
-                <div class="section-title">
-                    <h2>Choose Your Template</h2>
-                    <p>Select from professional, ATS-friendly resume templates</p>
-                </div>
-                
-                <div class="templates-grid">
-                    <div class="template-card active" data-template="professional">
-                        <div class="template-preview template-professional">
-                            <div class="template-header">
-                                <div class="template-name">JOHN DOE</div>
-                                <div class="template-title">Software Developer</div>
-                            </div>
-                            <div class="template-content">
-                                <div class="template-section-preview">
-                                    <div class="section-title-preview">Experience</div>
-                                    <div class="section-content-preview"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-info">
-                            <h4>Professional</h4>
-                            <p>Clean, classic design for all industries</p>
-                            <button class="btn btn-select-template" data-template="professional">Select</button>
-                        </div>
-                    </div>
-                    
-                    <div class="template-card" data-template="modern">
-                        <div class="template-preview template-modern">
-                            <div class="template-header">
-                                <div class="template-name">JANE SMITH</div>
-                                <div class="template-title">Marketing Manager</div>
-                            </div>
-                            <div class="template-content">
-                                <div class="template-section-preview">
-                                    <div class="section-title-preview">Skills</div>
-                                    <div class="section-content-preview"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-info">
-                            <h4>Modern</h4>
-                            <p>Contemporary design with sidebar</p>
-                            <button class="btn btn-select-template" data-template="modern">Select</button>
-                        </div>
-                    </div>
-                    
-                    <div class="template-card" data-template="creative">
-                        <div class="template-preview template-creative">
-                            <div class="template-header">
-                                <div class="template-name">ALEX JOHNSON</div>
-                                <div class="template-title">Graphic Designer</div>
-                            </div>
-                            <div class="template-content">
-                                <div class="template-section-preview">
-                                    <div class="section-title-preview">Portfolio</div>
-                                    <div class="section-content-preview"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-info">
-                            <h4>Creative</h4>
-                            <p>For creative professionals</p>
-                            <button class="btn btn-select-template" data-template="creative">Select</button>
-                        </div>
-                    </div>
-                    
-                    <div class="template-card" data-template="executive">
-                        <div class="template-preview template-executive">
-                            <div class="template-header">
-                                <div class="template-name">ROBERT BROWN</div>
-                                <div class="template-title">Senior Executive</div>
-                            </div>
-                            <div class="template-content">
-                                <div class="template-section-preview">
-                                    <div class="section-title-preview">Achievements</div>
-                                    <div class="section-content-preview"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-info">
-                            <h4>Executive</h4>
-                            <p>Elegant design for executives</p>
-                            <button class="btn btn-select-template" data-template="executive">Select</button>
-                        </div>
-                    </div>
-                    
-                    <div class="template-card" data-template="minimal">
-                        <div class="template-preview template-minimal">
-                            <div class="template-header">
-                                <div class="template-name">SARAH MILLER</div>
-                                <div class="template-title">Data Analyst</div>
-                            </div>
-                            <div class="template-content">
-                                <div class="template-section-preview">
-                                    <div class="section-title-preview">Education</div>
-                                    <div class="section-content-preview"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="template-info">
-                            <h4>Minimal</h4>
-                            <p>Simple and clean design</p>
-                            <button class="btn btn-select-template" data-template="minimal">Select</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Resume Builder Form & Preview -->
-            <div class="builder-wrapper">
-                <!-- Form Section -->
-                <div class="form-section">
-                    <div class="form-header">
-                        <h3><i class="fas fa-edit"></i> Edit Your Resume</h3>
-                        <button class="btn btn-example" id="loadExampleBtn">
-                            <i class="fas fa-file-import"></i> Load Example
-                        </button>
-                    </div>
-                    
-                    <form id="resumeForm" class="resume-form">
-                        <!-- Step 1: Personal Information -->
-                        <div class="form-step active" data-step="1">
-                            <div class="step-header">
-                                <h4>Personal Information</h4>
-                                <p>Start with your basic details</p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="fullName">Full Name *</label>
-                                <input type="text" id="fullName" placeholder="John Smith" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="jobTitle">Professional Title *</label>
-                                <input type="text" id="jobTitle" placeholder="Software Developer" required>
-                            </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">Email Address *</label>
-                                    <input type="email" id="email" placeholder="john@example.com" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="phone">Phone Number *</label>
-                                    <input type="tel" id="phone" placeholder="(123) 456-7890" required>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="address">Location</label>
-                                <input type="text" id="address" placeholder="City, State">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="summary">Professional Summary</label>
-                                <textarea id="summary" placeholder="Briefly describe your professional background, skills, and career objectives..." rows="4"></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="linkedin">LinkedIn Profile</label>
-                                <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourprofile">
-                            </div>
-                        </div>
-                        
-                        <!-- Step 2: Experience -->
-                        <div class="form-step" data-step="2">
-                            <div class="step-header">
-                                <h4>Work Experience</h4>
-                                <p>Add your professional experience</p>
-                            </div>
-                            
-                            <div class="experience-entry">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="exp1_title">Job Title</label>
-                                        <input type="text" id="exp1_title" placeholder="Senior Developer">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exp1_company">Company</label>
-                                        <input type="text" id="exp1_company" placeholder="Tech Solutions Inc.">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="exp1_start">Start Date</label>
-                                        <input type="text" id="exp1_start" placeholder="Jan 2020">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exp1_end">End Date</label>
-                                        <input type="text" id="exp1_end" placeholder="Present">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="exp1_description">Description</label>
-                                    <textarea id="exp1_description" placeholder="Describe your responsibilities and achievements..." rows="3"></textarea>
-                                </div>
-                            </div>
-                            
-                            <button type="button" class="btn btn-add" id="addExperienceBtn">
-                                <i class="fas fa-plus"></i> Add Another Experience
-                            </button>
-                        </div>
-                        
-                        <!-- Step 3: Education -->
-                        <div class="form-step" data-step="3">
-                            <div class="step-header">
-                                <h4>Education</h4>
-                                <p>Add your educational background</p>
-                            </div>
-                            
-                            <div class="education-entry">
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="edu1_degree">Degree/Certificate</label>
-                                        <input type="text" id="edu1_degree" placeholder="Bachelor of Science">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="edu1_field">Field of Study</label>
-                                        <input type="text" id="edu1_field" placeholder="Computer Science">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-row">
-                                    <div class="form-group">
-                                        <label for="edu1_school">Institution</label>
-                                        <input type="text" id="edu1_school" placeholder="University of Technology">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="edu1_year">Year</label>
-                                        <input type="text" id="edu1_year" placeholder="2018">
-                                    </div>
-                                </div>
-                                
-                                <div class="form-group">
-                                    <label for="edu1_achievements">Achievements</label>
-                                    <textarea id="edu1_achievements" placeholder="Honors, awards, or relevant coursework..." rows="2"></textarea>
-                                </div>
-                            </div>
-                            
-                            <button type="button" class="btn btn-add" id="addEducationBtn">
-                                <i class="fas fa-plus"></i> Add Another Education
-                            </button>
-                        </div>
-                        
-                        <!-- Step 4: Skills -->
-                        <div class="form-step" data-step="4">
-                            <div class="step-header">
-                                <h4>Skills & Expertise</h4>
-                                <p>Add your key skills and competencies</p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="technicalSkills">Technical Skills</label>
-                                <textarea id="technicalSkills" placeholder="JavaScript, React, Node.js, HTML/CSS, Python..." rows="3"></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="softSkills">Soft Skills</label>
-                                <textarea id="softSkills" placeholder="Communication, Leadership, Problem Solving, Teamwork..." rows="3"></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="languages">Languages</label>
-                                <input type="text" id="languages" placeholder="English (Native), Spanish (Fluent)">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="certifications">Certifications</label>
-                                <textarea id="certifications" placeholder="AWS Certified Developer, PMP Certification..." rows="2"></textarea>
-                            </div>
-                        </div>
-                        
-                        <!-- Navigation Buttons -->
-                        <div class="form-navigation">
-                            <button type="button" class="btn btn-prev" id="prevBtn">
-                                <i class="fas fa-arrow-left"></i> Previous
-                            </button>
-                            <button type="button" class="btn btn-next" id="nextBtn">
-                                Next <i class="fas fa-arrow-right"></i>
-                            </button>
-                            <button type="button" class="btn btn-save" id="saveBtn" style="display: none;">
-                                <i class="fas fa-save"></i> Save Resume
-                            </button>
-                        </div>
-                    </form>
-                </div>
-                
-                <!-- Preview Section -->
-                <div class="preview-section">
-                    <div class="preview-header">
-                        <h3><i class="fas fa-eye"></i> Live Preview</h3>
-                        <div class="preview-actions">
-                            <button class="btn btn-preview-action" id="printBtn">
-                                <i class="fas fa-print"></i>
-                            </button>
-                            <button class="btn btn-preview-action" id="fullscreenBtn">
-                                <i class="fas fa-expand"></i>
-                            </button>
-                        </div>
-                    </div>
-                    
-                    <div class="resume-preview-container">
-                        <div class="resume-paper" id="resumePreview">
-                            <!-- Resume will be generated here -->
-                        </div>
-                    </div>
-                    
-                    <div class="preview-footer">
-                        <button class="btn btn-download" id="downloadBtn">
-                            <i class="fas fa-download"></i> Download as PDF
-                        </button>
-                        <button class="btn btn-share" id="shareBtn">
-                            <i class="fas fa-share-alt"></i> Share
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Example CV Section -->
-            <section id="examples" class="examples-section fade-in">
-                <div class="section-title">
-                    <h2>Example Resumes</h2>
-                    <p>Get inspired by professionally crafted examples</p>
-                </div>
-                
-                <div class="examples-grid">
-                    <div class="example-card">
-                        <div class="example-header">
-                            <h4>Tshedimosho Mlangeni</h4>
-                            <p>Multi-Industry Professional</p>
-                        </div>
-                        <div class="example-content">
-                            <p>Experience across retail, manufacturing, and construction industries</p>
-                            <ul>
-                                <li>Food Lover's Market - Deli Assistant</li>
-                                <li>Tiger Brands - Packer</li>
-                                <li>JHL Group - Construction Assistant</li>
-                            </ul>
-                        </div>
-                        <button class="btn btn-example-load" data-example="tshedimosho">
-                            <i class="fas fa-file-import"></i> Load This Example
-                        </button>
-                    </div>
-                    
-                    <div class="example-card">
-                        <div class="example-header">
-                            <h4>Software Developer</h4>
-                            <p>Tech Industry Example</p>
-                        </div>
-                        <div class="example-content">
-                            <p>Full-stack developer with 5+ years experience</p>
-                            <ul>
-                                <li>JavaScript, React, Node.js</li>
-                                <li>Agile Development</li>
-                                <li>Team Leadership</li>
-                            </ul>
-                        </div>
-                        <button class="btn btn-example-load" data-example="developer">
-                            <i class="fas fa-file-import"></i> Load This Example
-                        </button>
-                    </div>
-                    
-                    <div class="example-card">
-                        <div class="example-header">
-                            <h4>Marketing Manager</h4>
-                            <p>Business & Marketing</p>
-                        </div>
-                        <div class="example-content">
-                            <p>Digital marketing specialist with campaign management experience</p>
-                            <ul>
-                                <li>Social Media Strategy</li>
-                                <li>Content Marketing</li>
-                                <li>Team Management</li>
-                            </ul>
-                        </div>
-                        <button class="btn btn-example-load" data-example="marketing">
-                            <i class="fas fa-file-import"></i> Load This Example
-                        </button>
-                    </div>
-                </div>
-            </section>
+    <!-- Main Resume Builder -->
+    <main class="container resume-builder-container">
+        <div class="section-title fade-in">
+            <h2>Professional Resume Builder</h2>
+            <p>Create a perfect resume in minutes. Choose a template, fill in your details, and download instantly.</p>
         </div>
+
+        <!-- Template Selection -->
+        <section id="templates" class="template-section fade-in">
+            <h3 class="section-subtitle">Choose Your Template</h3>
+            <div class="templates">
+                <div class="template active" data-template="1">
+                    <div class="template-preview template-1">
+                        <div class="template-header">
+                            <div class="template-name">JOHN DOE</div>
+                            <div class="template-title">Software Developer</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Experience</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Classic Professional</h4>
+                        <p>Clean, classic design for all industries</p>
+                        <button class="btn btn-select-template" data-template="1">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="2">
+                    <div class="template-preview template-2">
+                        <div class="template-header">
+                            <div class="template-name">JANE SMITH</div>
+                            <div class="template-title">Marketing Manager</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Skills</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Modern Executive</h4>
+                        <p>Contemporary design with sidebar</p>
+                        <button class="btn btn-select-template" data-template="2">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="3">
+                    <div class="template-preview template-3">
+                        <div class="template-header">
+                            <div class="template-name">ALEX JOHNSON</div>
+                            <div class="template-title">Graphic Designer</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Portfolio</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Creative Design</h4>
+                        <p>For creative professionals</p>
+                        <button class="btn btn-select-template" data-template="3">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="4">
+                    <div class="template-preview template-4">
+                        <div class="template-header">
+                            <div class="template-name">ROBERT BROWN</div>
+                            <div class="template-title">Senior Executive</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Achievements</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Executive Style</h4>
+                        <p>Elegant design for executives</p>
+                        <button class="btn btn-select-template" data-template="4">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="5">
+                    <div class="template-preview template-5">
+                        <div class="template-header">
+                            <div class="template-name">TSHEDIMOSHO M.</div>
+                            <div class="template-title">Multi-Industry Professional</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Experience</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Example CV</h4>
+                        <p>Detailed example resume</p>
+                        <button class="btn btn-select-template" data-template="5">Select</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Builder Form & Preview -->
+        <div class="builder-wrapper">
+            <!-- Form Section -->
+            <div class="form-section">
+                <div class="form-header">
+                    <h3><i class="fas fa-edit"></i> Edit Your Resume</h3>
+                    <button class="btn btn-example" id="loadExampleBtn">
+                        <i class="fas fa-file-import"></i> Load Example
+                    </button>
+                </div>
+                
+                <form id="resumeForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" placeholder="John Smith" value="John Smith" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jobTitle">Professional Title *</label>
+                        <input type="text" id="jobTitle" placeholder="Software Developer" value="Software Developer" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" placeholder="john@example.com" value="john.smith@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" placeholder="(123) 456-7890" value="(123) 456-7890" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Location</label>
+                        <input type="text" id="address" placeholder="City, State" value="New York, NY">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="summary">Professional Summary</label>
+                        <textarea id="summary" rows="4">Experienced software developer with 5+ years of expertise in web technologies, dedicated to creating efficient and scalable solutions. Strong collaborator with excellent problem-solving skills.</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Work Experience</label>
+                        <textarea id="experience" rows="5">Senior Developer at Tech Solutions Inc. (2020-Present)
+• Led a team of 5 developers to create responsive web applications
+• Improved application performance by 30% through code optimization
+• Collaborated with cross-functional teams to deliver projects on time
+
+Web Developer at Digital Creations (2018-2020)
+• Developed and maintained client websites using modern frameworks
+• Implemented UI/UX improvements that increased user engagement by 25%
+• Provided technical support and troubleshooting for client issues</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <textarea id="education" rows="4">Bachelor of Science in Computer Science
+University of Technology, 2014-2018
+• GPA: 3.8/4.0
+• Relevant Coursework: Data Structures, Algorithms, Web Development
+
+Web Development Certification
+Code Academy, 2019
+• Focus: Front-end Development, React, Node.js</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <textarea id="skills" rows="4">• JavaScript, React, Node.js, HTML/CSS, Python
+• Git, Agile Methodologies, Scrum
+• Team Leadership, Problem Solving
+• Communication, Project Management
+• Responsive Web Design, API Integration</textarea>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h3><i class="fas fa-eye"></i> Live Preview</h3>
+                    <div class="preview-actions">
+                        <button class="btn btn-preview-action" id="printBtn" title="Print">
+                            <i class="fas fa-print"></i>
+                        </button>
+                        <button class="btn btn-preview-action" id="refreshBtn" title="Refresh">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resume-preview-container">
+                    <div class="resume-paper" id="resumePreview">
+                        <!-- Resume will be generated here -->
+                    </div>
+                </div>
+                
+                <div class="preview-footer">
+                    <button class="btn btn-download" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download as PDF
+                    </button>
+                    <button class="btn btn-share" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example CV Section -->
+        <section id="examples" class="examples-section fade-in">
+            <h3 class="section-subtitle">Example Resumes</h3>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-header">
+                        <h4>Tshedimosho Mlangeni</h4>
+                        <p>Multi-Industry Professional</p>
+                    </div>
+                    <div class="example-content">
+                        <p>Experience across retail, manufacturing, and construction industries</p>
+                        <ul>
+                            <li>Food Lover's Market - Deli Assistant</li>
+                            <li>Tiger Brands - Packer</li>
+                            <li>JHL Group - Construction Assistant</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-example-load" data-example="tshedimosho">
+                        <i class="fas fa-file-import"></i> Load This Example
+                    </button>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header">
+                        <h4>Software Developer</h4>
+                        <p>Tech Industry Example</p>
+                    </div>
+                    <div class="example-content">
+                        <p>Full-stack developer with 5+ years experience</p>
+                        <ul>
+                            <li>JavaScript, React, Node.js</li>
+                            <li>Agile Development</li>
+                            <li>Team Leadership</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-example-load" data-example="developer">
+                        <i class="fas fa-file-import"></i> Load This Example
+                    </button>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header">
+                        <h4>Marketing Manager</h4>
+                        <p>Business & Marketing</p>
+                    </div>
+                    <div class="example-content">
+                        <p>Digital marketing specialist with campaign management experience</p>
+                        <ul>
+                            <li>Social Media Strategy</li>
+                            <li>Content Marketing</li>
+                            <li>Team Management</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-example-load" data-example="marketing">
+                        <i class="fas fa-file-import"></i> Load This Example
+                    </button>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Footer -->
@@ -485,8 +357,8 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="resume-builder.html">Resume Builder</a></li>
-                        <li><a href="#templates">Templates</a></li>
-                        <li><a href="#examples">Examples</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
                     </ul>
                 </div>
                 
@@ -496,7 +368,6 @@
                         <li><a href="index.html#contact">Contact Us</a></li>
                         <li><a href="#">FAQ</a></li>
                         <li><a href="#">Tutorials</a></li>
-                        <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
                 
@@ -515,9 +386,7 @@
         </div>
     </footer>
 
-    <script>
-        // Resume Builder JavaScript will be added separately
-    </script>
-<script src="resume-builder.js" defer></script>
+    <script src="main.js"></script>
+    <script src="resume-builder.js"></script>
 </body>
 </html>
