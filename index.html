@@ -3,26 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professional Resume Builder - 9to5 University</title>
+    <title>9to5 University - Professional Career Resources</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Removed non-existent resume-builder.css reference -->
-    <script>
-        // Add fallback for CDN failures
-        window.addEventListener('error', function(e) {
-            if (e.filename && e.filename.includes('cdnjs.cloudflare.com')) {
-                console.warn('CDN resource failed to load:', e.filename);
-                // Show user-friendly message
-                const fallbackMsg = document.createElement('div');
-                fallbackMsg.innerHTML = 'Some features may be limited due to network issues. Please check your connection.';
-                fallbackMsg.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; background: #ff6b6b; color: white; padding: 10px; text-align: center; z-index: 9999;';
-                document.body.appendChild(fallbackMsg);
-                setTimeout(() => fallbackMsg.remove(), 5000);
-            }
-        }, true);
-    </script>
 </head>
 <body>
-    <!-- Rest of your HTML content remains the same -->
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <span>9t5U</span>
+                </div>
+                <div class="logo-text">
+                    <h1>9to5 University</h1>
+                    <div class="tagline">Professional Career Resources</div>
+                </div>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navigation -->
+            <nav id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="resume-builder.html">Resume Builder</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-login" id="loginBtn">Login</button>
+                    <button class="btn btn-signup" id="signupBtn">Sign Up</button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Header Ticker/Toddler -->
+        <div class="header-ticker">
+            <div class="ticker-content">
+                <span><i class="fas fa-bullhorn"></i> Professional Resume Builder Now Available!</span>
+                <span><i class="fas fa-graduation-cap"></i> Free Workplace Resources & Guides</span>
+                <span><i class="fas fa-phone-alt"></i> Need Help? Call: 079 487 4559</span>
+                <span><i class="fas fa-file-pdf"></i> Download PDF Templates Instantly</span>
+                <span><i class="fas fa-save"></i> Your data is kept private</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content fade-in">
+            <h1>Professional Career Resources & Support</h1>
+            <p>Build standout resumes, understand your workplace rights, and access professional guidance. Everything you need for career success in one place.</p>
+            <div class="hero-buttons">
+                <a href="resume-builder.html" class="btn btn-primary">
+                    <i class="fas fa-file-alt"></i> Build Your Resume
+                </a>
+                <a href="#resources" class="btn btn-secondary">
+                    <i class="fas fa-book-open"></i> Explore Resources
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- Features Section -->
+        <section class="features-section fade-in">
+            <div class="section-title">
+                <h2>Everything You Need for Career Success</h2>
+                <p>Comprehensive tools and resources designed for professionals</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-file-contract"></i>
+                    </div>
+                    <h3>Professional Resume Builder</h3>
+                    <p>Create polished, ATS-friendly resumes with our intuitive builder. Multiple templates, easy editing, and instant PDF download.</p>
+                    <a href="resume-builder.html" class="feature-link">Start Building →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Workers' Rights Guide</h3>
+                    <p>Understand your legal rights, fair treatment standards, and how to address workplace issues effectively.</p>
+                    <a href="#workers-rights" class="feature-link">Learn Your Rights →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Workplace Support</h3>
+                    <p>Get guidance on workplace conflicts, communication strategies, and professional relationship building.</p>
+                    <a href="#workplace-guide" class="feature-link">Get Support →</a>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Direct Assistance</h3>
+                    <p>Connect with professional advisors and legal help for workplace issues and career development.</p>
+                    <a href="#contact" class="feature-link">Contact Us →</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="resources-section fade-in">
+            <div class="section-title">
+                <h2>Workplace Resources & Support</h2>
+                <p>Essential tools and information for navigating workplace challenges</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div id="workplace-guide" class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Workplace Guide</h3>
+                    <p>Learn how to navigate workplace dynamics, resolve conflicts, communicate effectively, and build professional relationships.</p>
+                    <button class="btn open-modal-btn" data-modal="workplaceGuideModal">Access Guide</button>
+                </div>
+                
+                <div id="workers-rights" class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-scale-balanced"></i>
+                    </div>
+                    <h3>Workers' Rights</h3>
+                    <p>Understand your legal rights in the workplace, including fair treatment, safety regulations, and labor laws.</p>
+                    <button class="btn open-modal-btn" data-modal="workersRightsModal">Learn Your Rights</button>
+                </div>
+                
+                <div id="legal-assistance" class="resource-card">
+                    <div class="resource-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <h3>Legal Assistance</h3>
+                    <p>Connect with legal help, support services, and reporting channels for workplace issues.</p>
+                    <button class="btn open-modal-btn" data-modal="legalAssistanceModal">Find Help</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section fade-in">
+            <div class="contact-content">
+                <h2>Need Immediate Assistance?</h2>
+                <p>Our team is available to help you navigate workplace challenges and find solutions.</p>
+                
+                <div class="contact-methods">
+                    <div class="contact-method">
+                        <i class="fas fa-phone"></i>
+                        <h3>Call Us</h3>
+                        <p>079 487 4559</p>
+                        <small>Mon-Fri, 8am-6pm</small>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>WhatsApp</h3>
+                        <p>079 487 4559</p>
+                        <small>24/7 Support</small>
+                    </div>
+                    <div class="contact-method">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>magtecinvest@gmail.com</p>
+                        <small>Response within 24h</small>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">9t5U</div>
+                    <div>
+                        <h3>9to5 University</h3>
+                        <p>Professional Career Resources & Support</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resume-builder.html">Resume Builder</a></li>
+                        <li><a href="#resources">Resources</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Follow Us</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 9to5 University. All rights reserved.</p>
+                <p>This information is for guidance only. Consult legal professionals for specific advice.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="workplaceGuideModal" class="content-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Workplace Guide</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Navigating Workplace Dynamics</h3>
+                <p>Effective workplace navigation is essential for career success. Here are key strategies:</p>
+                
+                <h4>Communication Strategies</h4>
+                <ul>
+                    <li><strong>Active Listening:</strong> Pay full attention to colleagues and supervisors</li>
+                    <li><strong>Clear Expression:</strong> Be concise and specific in your communication</li>
+                    <li><strong>Professional Tone:</strong> Maintain respect even during disagreements</li>
+                    <li><strong>Regular Updates:</strong> Keep stakeholders informed about project progress</li>
+                </ul>
+                
+                <h4>Building Professional Relationships</h4>
+                <ul>
+                    <li>Network within and outside your department</li>
+                    <li>Seek mentors and be a mentor to others</li>
+                    <li>Participate in team activities and social events</li>
+                    <li>Show appreciation for colleagues' contributions</li>
+                </ul>
+                
+                <h4>Conflict Resolution</h4>
+                <ol>
+                    <li>Address issues early before they escalate</li>
+                    <li>Focus on the problem, not the person</li>
+                    <li>Listen to all perspectives</li>
+                    <li>Seek win-win solutions</li>
+                    <li>Document agreements and follow up</li>
+                </ol>
+                
+                <div class="contact-info-box">
+                    <h4>Need Personalized Advice?</h4>
+                    <p>Contact our workplace advisors for personalized guidance on your specific situation.</p>
+                    <p><strong>Email:</strong> workplacehelp@9to5university.co.za</p>
+                    <p><strong>Phone:</strong> 079 487 4559</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="workersRightsModal" class="content-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Workers' Rights & Labour Law</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Your Legal Rights in the Workplace</h3>
+                
+                <h4>Basic Employment Rights in South Africa</h4>
+                <ul>
+                    <li><strong>Fair Labour Practices:</strong> Protected by Section 23 of the Constitution</li>
+                    <li><strong>Minimum Wage:</strong> Sector-specific minimum wages apply</li>
+                    <li><strong>Working Hours:</strong> Maximum 45 hours per week, 9 hours per day</li>
+                    <li><strong>Overtime:</strong> Paid at 1.5 times normal rate</li>
+                    <li><strong>Leave Entitlement:</strong> Annual, sick, maternity, and family responsibility leave</li>
+                    <li><strong>Safe Working Conditions:</strong> Employer must provide safe environment</li>
+                </ul>
+                
+                <h4>Key Labour Legislation</h4>
+                <ul>
+                    <li><strong>Basic Conditions of Employment Act (BCEA):</strong> Regulates working conditions</li>
+                    <li><strong>Labour Relations Act (LRA):</strong> Governs labour relations and dispute resolution</li>
+                    <li><strong>Employment Equity Act (EEA):</strong> Promotes equal opportunity and fair treatment</li>
+                    <li><strong>Occupational Health and Safety Act (OHSA):</strong> Ensures workplace safety</li>
+                    <li><strong>Compensation for Occupational Injuries and Diseases Act (COIDA):</strong> Provides for compensation</li>
+                </ul>
+                
+                <div class="contact-info-box">
+                    <h4>Emergency Labour Helpline</h4>
+                    <p><strong>Department of Employment and Labour:</strong> 0860 666 663</p>
+                    <p><strong>Available:</strong> Monday-Friday, 8:00-16:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="legalAssistanceModal" class="content-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Find Assistance & Report Issues</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3>Where to Get Help</h3>
+                
+                <h4>Immediate Assistance</h4>
+                <div class="contact-info-box">
+                    <p><strong>9to5 University Helpline:</strong> 079 487 4559</p>
+                    <p><strong>Available:</strong> Monday-Saturday, 8:00-18:00</p>
+                    <p><strong>Email:</strong> help@9to5university.co.za</p>
+                    <p><strong>WhatsApp:</strong> 079 487 4559</p>
+                </div>
+                
+                <h4>Legal Assistance Organizations</h4>
+                <ul>
+                    <li><strong>Legal Aid South Africa:</strong> 0800 110 110 (Free legal advice)</li>
+                    <li><strong>Labour Lawyers Association:</strong> 011 339 2200</li>
+                    <li><strong>Pro Bono Org:</strong> Various organizations offer free legal services</li>
+                </ul>
+                
+                <h4>Support Services</h4>
+                <ul>
+                    <li><strong>Employee Assistance Programs:</strong> Many companies offer EAP services</li>
+                    <li><strong>Trade Unions:</strong> Join a union for collective representation</li>
+                    <li><strong>Community Advice Offices:</strong> Local community-based advice</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
