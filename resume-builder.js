@@ -186,8 +186,8 @@ function updateResumePreview() {
             
         case '2': // Modern Executive
             resumeHTML = `
-                <div style="color: white; background: var(--primary-navy); padding: 30px; border-radius: 5px; margin-bottom: 30px;">
-                    <h1 style="font-size: 32px; margin-bottom: 5px; color: var(--secondary-gold);">${fullName.toUpperCase()}</h1>
+                <div style="color: white; background: #0a1a3d; padding: 30px; border-radius: 5px; margin-bottom: 30px;">
+                    <h1 style="font-size: 32px; margin-bottom: 5px; color: #c9a96e;">${fullName.toUpperCase()}</h1>
                     <h2 style="font-size: 20px; margin-bottom: 15px; color: white; opacity: 0.9;">${jobTitle}</h2>
                     <div style="display: flex; flex-wrap: wrap; gap: 15px; font-size: 14px;">
                         <span><i class="fas fa-envelope"></i> ${email}</span>
@@ -198,7 +198,7 @@ function updateResumePreview() {
                 
                 ${summary ? `
                 <div style="margin-bottom: 25px;">
-                    <h3 style="color: var(--primary-navy); font-size: 18px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 5px; margin-bottom: 15px;">PROFILE</h3>
+                    <h3 style="color: #0a1a3d; font-size: 18px; border-bottom: 2px solid #c9a96e; padding-bottom: 5px; margin-bottom: 15px;">PROFILE</h3>
                     <div style="font-size: 14px; line-height: 1.6;">${formatText(summary)}</div>
                 </div>` : ''}
                 
@@ -206,7 +206,7 @@ function updateResumePreview() {
                     <div>
                         ${experience ? `
                         <div style="margin-bottom: 25px;">
-                            <h3 style="color: var(--primary-navy); font-size: 18px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 5px; margin-bottom: 15px;">EXPERIENCE</h3>
+                            <h3 style="color: #0a1a3d; font-size: 18px; border-bottom: 2px solid #c9a96e; padding-bottom: 5px; margin-bottom: 15px;">EXPERIENCE</h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(experience)}</div>
                         </div>` : ''}
                     </div>
@@ -214,13 +214,13 @@ function updateResumePreview() {
                     <div>
                         ${education ? `
                         <div style="margin-bottom: 25px;">
-                            <h3 style="color: var(--primary-navy); font-size: 18px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 5px; margin-bottom: 15px;">EDUCATION</h3>
+                            <h3 style="color: #0a1a3d; font-size: 18px; border-bottom: 2px solid #c9a96e; padding-bottom: 5px; margin-bottom: 15px;">EDUCATION</h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(education)}</div>
                         </div>` : ''}
                         
                         ${skills ? `
                         <div>
-                            <h3 style="color: var(--primary-navy); font-size: 18px; border-bottom: 2px solid var(--secondary-gold); padding-bottom: 5px; margin-bottom: 15px;">SKILLS</h3>
+                            <h3 style="color: #0a1a3d; font-size: 18px; border-bottom: 2px solid #c9a96e; padding-bottom: 5px; margin-bottom: 15px;">SKILLS</h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(skills)}</div>
                         </div>` : ''}
                     </div>
@@ -230,9 +230,9 @@ function updateResumePreview() {
             
         case '3': // Creative Design
             resumeHTML = `
-                <div style="background: var(--accent-teal); color: white; padding: 30px; border-radius: 5px; margin-bottom: 30px; text-align: center;">
+                <div style="background: #00a8a8; color: white; padding: 30px; border-radius: 5px; margin-bottom: 30px; text-align: center;">
                     <h1 style="font-size: 36px; margin-bottom: 5px; font-weight: 700;">${fullName}</h1>
-                    <h2 style="font-size: 20px; margin-bottom: 15px; color: var(--secondary-gold);">${jobTitle}</h2>
+                    <h2 style="font-size: 20px; margin-bottom: 15px; color: #c9a96e;">${jobTitle}</h2>
                     <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; font-size: 14px;">
                         <span><i class="fas fa-envelope"></i> ${email}</span>
                         <span><i class="fas fa-phone"></i> ${phone}</span>
@@ -242,7 +242,7 @@ function updateResumePreview() {
                 
                 ${summary ? `
                 <div style="margin-bottom: 25px; padding: 20px; background: rgba(0, 168, 168, 0.1); border-radius: 5px;">
-                    <h3 style="color: var(--accent-teal); font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                    <h3 style="color: #00a8a8; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
                         <i class="fas fa-user"></i> ABOUT ME
                     </h3>
                     <div style="font-size: 14px; line-height: 1.6;">${formatText(summary)}</div>
@@ -252,7 +252,7 @@ function updateResumePreview() {
                     <div>
                         ${experience ? `
                         <div style="margin-bottom: 25px;">
-                            <h3 style="color: var(--accent-teal); font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <h3 style="color: #00a8a8; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
                                 <i class="fas fa-briefcase"></i> EXPERIENCE
                             </h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(experience)}</div>
@@ -262,7 +262,7 @@ function updateResumePreview() {
                     <div>
                         ${education ? `
                         <div style="margin-bottom: 25px;">
-                            <h3 style="color: var(--accent-teal); font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <h3 style="color: #00a8a8; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
                                 <i class="fas fa-graduation-cap"></i> EDUCATION
                             </h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(education)}</div>
@@ -270,7 +270,7 @@ function updateResumePreview() {
                         
                         ${skills ? `
                         <div>
-                            <h3 style="color: var(--accent-teal); font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+                            <h3 style="color: #00a8a8; font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
                                 <i class="fas fa-tools"></i> SKILLS
                             </h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(skills)}</div>
@@ -282,8 +282,8 @@ function updateResumePreview() {
             
         case '4': // Executive Style
             resumeHTML = `
-                <div style="border-bottom: 3px solid var(--secondary-gold); padding-bottom: 20px; margin-bottom: 30px;">
-                    <h1 style="font-size: 34px; color: var(--primary-navy); margin-bottom: 5px; font-weight: 300;">${fullName}</h1>
+                <div style="border-bottom: 3px solid #c9a96e; padding-bottom: 20px; margin-bottom: 30px;">
+                    <h1 style="font-size: 34px; color: #0a1a3d; margin-bottom: 5px; font-weight: 300;">${fullName}</h1>
                     <h2 style="font-size: 18px; color: #666; margin-bottom: 15px; font-weight: 400;">${jobTitle}</h2>
                     <div style="display: flex; flex-wrap: wrap; gap: 20px; font-size: 14px; color: #888;">
                         <span>${email}</span>
@@ -296,13 +296,13 @@ function updateResumePreview() {
                     <div>
                         ${summary ? `
                         <div style="margin-bottom: 30px;">
-                            <h3 style="color: var(--primary-navy); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Summary</h3>
+                            <h3 style="color: #0a1a3d; font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Summary</h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(summary)}</div>
                         </div>` : ''}
                         
                         ${skills ? `
                         <div style="margin-bottom: 30px;">
-                            <h3 style="color: var(--primary-navy); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Skills</h3>
+                            <h3 style="color: #0a1a3d; font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Skills</h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(skills)}</div>
                         </div>` : ''}
                     </div>
@@ -310,13 +310,13 @@ function updateResumePreview() {
                     <div>
                         ${experience ? `
                         <div style="margin-bottom: 30px;">
-                            <h3 style="color: var(--primary-navy); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Experience</h3>
+                            <h3 style="color: #0a1a3d; font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Experience</h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(experience)}</div>
                         </div>` : ''}
                         
                         ${education ? `
                         <div>
-                            <h3 style="color: var(--primary-navy); font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Education</h3>
+                            <h3 style="color: #0a1a3d; font-size: 16px; letter-spacing: 1px; margin-bottom: 15px; text-transform: uppercase;">Education</h3>
                             <div style="font-size: 14px; line-height: 1.6;">${formatText(education)}</div>
                         </div>` : ''}
                     </div>
@@ -365,9 +365,9 @@ function updateResumePreview() {
                     <div class="resume-section-title">Skills & Competencies</div>
                     <div class="resume-content">
                         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                            ${formatText(skills).split('<br>').map(skill => `
-                                <div style="padding: 10px; background: var(--gold-light); border-radius: 5px; border-left: 3px solid var(--secondary-gold);">
-                                    ${skill}
+                            ${skills.split(/\r?\n/).filter(skill => skill.trim()).map(skill => `
+                                <div style="padding: 10px; background: rgba(201, 169, 110, 0.1); border-radius: 5px; border-left: 3px solid #c9a96e;">
+                                    ${skill.trim()}
                                 </div>
                             `).join('')}
                         </div>
@@ -390,9 +390,10 @@ function updateResumePreview() {
 // Format text with bullet points
 function formatText(text) {
     return text
-        .split('\n')
+        .split(/\r?\n/)
         .map(line => {
-            if (line.trim().startsWith('•')) {
+            const trimmed = line.trim();
+            if (trimmed.startsWith('•') || trimmed.startsWith('-') || trimmed.startsWith('*')) {
                 return `<p style="margin-bottom: 8px; padding-left: 20px; text-indent: -20px;">${line}</p>`;
             }
             return `<p style="margin-bottom: 10px;">${line}</p>`;
@@ -449,16 +450,20 @@ function loadExample(exampleName) {
     alert('Example loaded! Customize the information to match your own experience.');
 }
 
-loadExampleBtn.addEventListener('click', () => {
-    loadExample('tshedimosho');
-});
-
-loadExampleBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const example = btn.getAttribute('data-example');
-        loadExample(example);
+if (loadExampleBtn) {
+    loadExampleBtn.addEventListener('click', () => {
+        loadExample('tshedimosho');
     });
-});
+}
+
+if (loadExampleBtns.length > 0) {
+    loadExampleBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const example = btn.getAttribute('data-example');
+            loadExample(example);
+        });
+    });
+}
 
 // Update preview on form input
 if (resumeForm) {
@@ -466,153 +471,157 @@ if (resumeForm) {
 }
 
 // Download PDF
-downloadBtn.addEventListener('click', async () => {
-    downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
-    downloadBtn.disabled = true;
-    
-    try {
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF({
-            orientation: 'portrait',
-            unit: 'mm',
-            format: 'a4'
-        });
+if (downloadBtn) {
+    downloadBtn.addEventListener('click', async () => {
+        downloadBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Creating PDF...';
+        downloadBtn.disabled = true;
         
-        // Get resume data
-        const fullName = document.getElementById('fullName').value || 'John Smith';
-        const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
-        const summary = document.getElementById('summary').value || 'Professional summary...';
-        const email = document.getElementById('email').value || 'john.smith@example.com';
-        const phone = document.getElementById('phone').value || '(123) 456-7890';
-        const address = document.getElementById('address').value || 'New York, NY';
-        const experience = document.getElementById('experience').value || 'No experience provided';
-        const education = document.getElementById('education').value || 'No education provided';
-        const skills = document.getElementById('skills').value || 'No skills provided';
-        
-        // Set margins
-        const margin = 20;
-        let yPos = margin;
-        const pageWidth = 210;
-        const contentWidth = pageWidth - (margin * 2);
-        
-        // Set font
-        pdf.setFont("helvetica");
-        
-        // Name
-        pdf.setFontSize(24);
-        pdf.setFont("helvetica", "bold");
-        pdf.setTextColor(10, 26, 61);
-        pdf.text(fullName.toUpperCase(), margin, yPos);
-        yPos += 10;
-        
-        // Title
-        pdf.setFontSize(16);
-        pdf.setFont("helvetica", "normal");
-        pdf.setTextColor(0, 168, 168);
-        pdf.text(jobTitle, margin, yPos);
-        yPos += 10;
-        
-        // Contact info
-        pdf.setFontSize(11);
-        pdf.setTextColor(100, 100, 100);
-        const contactInfo = `${email} | ${phone} | ${address}`;
-        pdf.text(contactInfo, margin, yPos);
-        yPos += 15;
-        
-        // Line separator
-        pdf.setDrawColor(201, 169, 110);
-        pdf.setLineWidth(0.5);
-        pdf.line(margin, yPos, pageWidth - margin, yPos);
-        yPos += 15;
-        
-        // Summary
-        if (summary) {
-            pdf.setFontSize(14);
-            pdf.setFont("helvetica", "bold");
-            pdf.setTextColor(10, 26, 61);
-            pdf.text("PROFESSIONAL SUMMARY", margin, yPos);
-            yPos += 8;
+        try {
+            const { jsPDF } = window.jspdf;
+            const pdf = new jsPDF({
+                orientation: 'portrait',
+                unit: 'mm',
+                format: 'a4'
+            });
             
-            pdf.setFontSize(11);
-            pdf.setFont("helvetica", "normal");
-            pdf.setTextColor(0, 0, 0);
-            const summaryLines = pdf.splitTextToSize(summary, contentWidth);
-            pdf.text(summaryLines, margin, yPos);
-            yPos += (summaryLines.length * 6) + 15;
-        }
-        
-        // Experience
-        if (experience) {
-            pdf.setFontSize(14);
-            pdf.setFont("helvetica", "bold");
-            pdf.setTextColor(10, 26, 61);
-            pdf.text("WORK EXPERIENCE", margin, yPos);
-            yPos += 8;
+            // Get resume data
+            const fullName = document.getElementById('fullName').value || 'John Smith';
+            const jobTitle = document.getElementById('jobTitle').value || 'Software Developer';
+            const summary = document.getElementById('summary').value || 'Professional summary...';
+            const email = document.getElementById('email').value || 'john.smith@example.com';
+            const phone = document.getElementById('phone').value || '(123) 456-7890';
+            const address = document.getElementById('address').value || 'New York, NY';
+            const experience = document.getElementById('experience').value || 'No experience provided';
+            const education = document.getElementById('education').value || 'No education provided';
+            const skills = document.getElementById('skills').value || 'No skills provided';
             
-            pdf.setFontSize(11);
-            pdf.setFont("helvetica", "normal");
-            const expLines = pdf.splitTextToSize(experience, contentWidth);
-            pdf.text(expLines, margin, yPos);
-            yPos += (expLines.length * 6) + 15;
-        }
-        
-        // Education
-        if (education) {
-            pdf.setFontSize(14);
-            pdf.setFont("helvetica", "bold");
-            pdf.setTextColor(10, 26, 61);
-            pdf.text("EDUCATION", margin, yPos);
-            yPos += 8;
+            // Set margins
+            const margin = 20;
+            let yPos = margin;
+            const pageWidth = 210;
+            const contentWidth = pageWidth - (margin * 2);
             
-            pdf.setFontSize(11);
-            pdf.setFont("helvetica", "normal");
-            const eduLines = pdf.splitTextToSize(education, contentWidth);
-            pdf.text(eduLines, margin, yPos);
-            yPos += (eduLines.length * 6) + 15;
-        }
-        
-        // Skills
-        if (skills) {
-            pdf.setFontSize(14);
-            pdf.setFont("helvetica", "bold");
-            pdf.setTextColor(10, 26, 61);
-            pdf.text("SKILLS", margin, yPos);
-            yPos += 8;
+            // Set font
+            pdf.setFont("helvetica");
             
-            pdf.setFontSize(11);
+            // Name
+            pdf.setFontSize(24);
+            pdf.setFont("helvetica", "bold");
+            pdf.setTextColor(10, 26, 61); // primary-navy
+            pdf.text(fullName.toUpperCase(), margin, yPos);
+            yPos += 10;
+            
+            // Title
+            pdf.setFontSize(16);
             pdf.setFont("helvetica", "normal");
-            const skillLines = pdf.splitTextToSize(skills, contentWidth);
-            pdf.text(skillLines, margin, yPos);
+            pdf.setTextColor(0, 168, 168); // accent-teal
+            pdf.text(jobTitle, margin, yPos);
+            yPos += 10;
+            
+            // Contact info
+            pdf.setFontSize(11);
+            pdf.setTextColor(100, 100, 100);
+            const contactInfo = `${email} | ${phone} | ${address}`;
+            pdf.text(contactInfo, margin, yPos);
+            yPos += 15;
+            
+            // Line separator
+            pdf.setDrawColor(201, 169, 110); // secondary-gold
+            pdf.setLineWidth(0.5);
+            pdf.line(margin, yPos, pageWidth - margin, yPos);
+            yPos += 15;
+            
+            // Summary
+            if (summary) {
+                pdf.setFontSize(14);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61);
+                pdf.text("PROFESSIONAL SUMMARY", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                pdf.setTextColor(0, 0, 0);
+                const summaryLines = pdf.splitTextToSize(summary, contentWidth);
+                pdf.text(summaryLines, margin, yPos);
+                yPos += (summaryLines.length * 6) + 15;
+            }
+            
+            // Experience
+            if (experience) {
+                pdf.setFontSize(14);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61);
+                pdf.text("WORK EXPERIENCE", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                const expLines = pdf.splitTextToSize(experience, contentWidth);
+                pdf.text(expLines, margin, yPos);
+                yPos += (expLines.length * 6) + 15;
+            }
+            
+            // Education
+            if (education) {
+                pdf.setFontSize(14);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61);
+                pdf.text("EDUCATION", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                const eduLines = pdf.splitTextToSize(education, contentWidth);
+                pdf.text(eduLines, margin, yPos);
+                yPos += (eduLines.length * 6) + 15;
+            }
+            
+            // Skills
+            if (skills) {
+                pdf.setFontSize(14);
+                pdf.setFont("helvetica", "bold");
+                pdf.setTextColor(10, 26, 61);
+                pdf.text("SKILLS", margin, yPos);
+                yPos += 8;
+                
+                pdf.setFontSize(11);
+                pdf.setFont("helvetica", "normal");
+                const skillLines = pdf.splitTextToSize(skills, contentWidth);
+                pdf.text(skillLines, margin, yPos);
+            }
+            
+            // Footer
+            pdf.setFontSize(9);
+            pdf.setTextColor(150, 150, 150);
+            pdf.text("Created with 9to5 University Resume Builder", margin, 285);
+            
+            // Save PDF
+            const fileName = `Resume_${fullName.replace(/\s+/g, '_')}.pdf`;
+            pdf.save(fileName);
+            
+            downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
+            downloadBtn.disabled = false;
+            
+            alert('Your professional resume has been downloaded successfully!');
+        } catch (error) {
+            console.error('Error generating PDF:', error);
+            downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
+            downloadBtn.disabled = false;
+            alert('Error generating PDF. Please try again.');
         }
-        
-        // Footer
-        pdf.setFontSize(9);
-        pdf.setTextColor(150, 150, 150);
-        pdf.text("Created with 9to5 University Resume Builder", margin, 285);
-        
-        // Save PDF
-        const fileName = `Resume_${fullName.replace(/\s+/g, '_')}.pdf`;
-        pdf.save(fileName);
-        
-        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
-        downloadBtn.disabled = false;
-        
-        alert('Your professional resume has been downloaded successfully!');
-    } catch (error) {
-        console.error('Error generating PDF:', error);
-        downloadBtn.innerHTML = '<i class="fas fa-download"></i> Download as PDF';
-        downloadBtn.disabled = false;
-        alert('Error generating PDF. Please try again.');
-    }
-});
+    });
+}
 
 // Print Resume
 if (printBtn) {
     printBtn.addEventListener('click', () => {
-        const printContent = resumePreview.innerHTML;
-        const originalContent = document.body.innerHTML;
-        
-        document.body.innerHTML = `
+        const printWindow = window.open('', '_blank');
+        if (!printWindow) {
+            alert('Please allow pop-ups for printing.');
+            return;
+        }
+        printWindow.document.write(`
             <!DOCTYPE html>
             <html>
             <head>
@@ -633,17 +642,13 @@ if (printBtn) {
                 </style>
             </head>
             <body>
-                ${printContent}
-                <script>
-                    window.onafterprint = function() {
-                        document.body.innerHTML = \`${originalContent.replace(/`/g, '\\`')}\`;
-                        window.location.reload();
-                    };
-                    window.print();
-                <\/script>
+                ${resumePreview.innerHTML}
             </body>
             </html>
-        `;
+        `);
+        printWindow.document.close();
+        printWindow.focus();
+        printWindow.print();
     });
 }
 
