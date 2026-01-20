@@ -6,23 +6,387 @@
     <title>Professional Resume Builder - 9to5 University</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- Removed non-existent resume-builder.css reference -->
-    <script>
-        // Add fallback for CDN failures
-        window.addEventListener('error', function(e) {
-            if (e.filename && e.filename.includes('cdnjs.cloudflare.com')) {
-                console.warn('CDN resource failed to load:', e.filename);
-                // Show user-friendly message
-                const fallbackMsg = document.createElement('div');
-                fallbackMsg.innerHTML = 'Some features may be limited due to network issues. Please check your connection.';
-                fallbackMsg.style.cssText = 'position: fixed; top: 0; left: 0; right: 0; background: #ff6b6b; color: white; padding: 10px; text-align: center; z-index: 9999;';
-                document.body.appendChild(fallbackMsg);
-                setTimeout(() => fallbackMsg.remove(), 5000);
-            }
-        }, true);
-    </script>
+    <link rel="stylesheet" href="resume-builder.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <!-- Rest of your HTML content remains the same -->
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <span>9t5U</span>
+                </div>
+                <div class="logo-text">
+                    <h1>Resume Builder</h1>
+                    <div class="tagline">Create Professional Resumes</div>
+                </div>
+            </a>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <!-- Navigation -->
+            <nav id="mainNav">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="resume-builder.html" class="active">Resume Builder</a></li>
+                    <li><a href="index.html#resources">Resources</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                
+                <div class="auth-buttons">
+                    <button class="btn btn-login" id="loginBtn">Login</button>
+                    <button class="btn btn-signup" id="signupBtn">Sign Up</button>
+                </div>
+            </nav>
+        </div>
+        
+        <!-- Header Ticker -->
+        <div class="header-ticker">
+            <div class="ticker-content">
+                <span><i class="fas fa-file-pdf"></i> Download as PDF with one click</span>
+                <span><i class="fas fa-palette"></i> 5 Professional Templates Available</span>
+                <span><i class="fas fa-mobile-alt"></i> Mobile-friendly design</span>
+                <span><i class="fas fa-save"></i> Your data is kept private</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Resume Builder -->
+    <main class="container resume-builder-container">
+        <div class="section-title fade-in">
+            <h2>Professional Resume Builder</h2>
+            <p>Create a perfect resume in minutes. Choose a template, fill in your details, and download instantly.</p>
+        </div>
+
+        <!-- Template Selection -->
+        <section id="templates" class="template-section fade-in">
+            <h3 class="section-subtitle">Choose Your Template</h3>
+            <div class="templates">
+                <div class="template active" data-template="1">
+                    <div class="template-preview template-1">
+                        <div class="template-header">
+                            <div class="template-name">JOHN DOE</div>
+                            <div class="template-title">Software Developer</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Experience</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Classic Professional</h4>
+                        <p>Clean, classic design for all industries</p>
+                        <button class="btn btn-select-template" data-template="1">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="2">
+                    <div class="template-preview template-2">
+                        <div class="template-header">
+                            <div class="template-name">JANE SMITH</div>
+                            <div class="template-title">Marketing Manager</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Skills</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Modern Executive</h4>
+                        <p>Contemporary design with sidebar</p>
+                        <button class="btn btn-select-template" data-template="2">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="3">
+                    <div class="template-preview template-3">
+                        <div class="template-header">
+                            <div class="template-name">ALEX JOHNSON</div>
+                            <div class="template-title">Graphic Designer</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Portfolio</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Creative Design</h4>
+                        <p>For creative professionals</p>
+                        <button class="btn btn-select-template" data-template="3">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="4">
+                    <div class="template-preview template-4">
+                        <div class="template-header">
+                            <div class="template-name">ROBERT BROWN</div>
+                            <div class="template-title">Senior Executive</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Achievements</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Executive Style</h4>
+                        <p>Elegant design for executives</p>
+                        <button class="btn btn-select-template" data-template="4">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template" data-template="5">
+                    <div class="template-preview template-5">
+                        <div class="template-header">
+                            <div class="template-name">TSHEDIMOSHO M.</div>
+                            <div class="template-title">Multi-Industry Professional</div>
+                        </div>
+                        <div class="template-content">
+                            <div class="template-section-preview">
+                                <div class="section-title-preview">Experience</div>
+                                <div class="section-content-preview"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="template-info">
+                        <h4>Example CV</h4>
+                        <p>Detailed example resume</p>
+                        <button class="btn btn-select-template" data-template="5">Select</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resume Builder Form & Preview -->
+        <div class="builder-wrapper">
+            <!-- Form Section -->
+            <div class="form-section">
+                <div class="form-header">
+                    <h3><i class="fas fa-edit"></i> Edit Your Resume</h3>
+                    <button class="btn btn-example" id="loadExampleBtn">
+                        <i class="fas fa-file-import"></i> Load Example
+                    </button>
+                </div>
+                
+                <form id="resumeForm">
+                    <div class="form-group">
+                        <label for="fullName">Full Name *</label>
+                        <input type="text" id="fullName" placeholder="John Smith" value="John Smith" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="jobTitle">Professional Title *</label>
+                        <input type="text" id="jobTitle" placeholder="Software Developer" value="Software Developer" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" placeholder="john@example.com" value="john.smith@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" placeholder="(123) 456-7890" value="(123) 456-7890" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="address">Location</label>
+                        <input type="text" id="address" placeholder="City, State" value="New York, NY">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="summary">Professional Summary</label>
+                        <textarea id="summary" rows="4">Experienced software developer with 5+ years of expertise in web technologies, dedicated to creating efficient and scalable solutions. Strong collaborator with excellent problem-solving skills.</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="experience">Work Experience</label>
+                        <textarea id="experience" rows="5">Senior Developer at Tech Solutions Inc. (2020-Present)
+• Led a team of 5 developers to create responsive web applications
+• Improved application performance by 30% through code optimization
+• Collaborated with cross-functional teams to deliver projects on time
+
+Web Developer at Digital Creations (2018-2020)
+• Developed and maintained client websites using modern frameworks
+• Implemented UI/UX improvements that increased user engagement by 25%
+• Provided technical support and troubleshooting for client issues</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="education">Education</label>
+                        <textarea id="education" rows="4">Bachelor of Science in Computer Science
+University of Technology, 2014-2018
+• GPA: 3.8/4.0
+• Relevant Coursework: Data Structures, Algorithms, Web Development
+
+Web Development Certification
+Code Academy, 2019
+• Focus: Front-end Development, React, Node.js</textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills">Skills</label>
+                        <textarea id="skills" rows="4">• JavaScript, React, Node.js, HTML/CSS, Python
+• Git, Agile Methodologies, Scrum
+• Team Leadership, Problem Solving
+• Communication, Project Management
+• Responsive Web Design, API Integration</textarea>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Preview Section -->
+            <div class="preview-section">
+                <div class="preview-header">
+                    <h3><i class="fas fa-eye"></i> Live Preview</h3>
+                    <div class="preview-actions">
+                        <button class="btn btn-preview-action" id="printBtn" title="Print">
+                            <i class="fas fa-print"></i>
+                        </button>
+                        <button class="btn btn-preview-action" id="refreshBtn" title="Refresh">
+                            <i class="fas fa-sync-alt"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="resume-preview-container">
+                    <div class="resume-paper" id="resumePreview">
+                        <!-- Resume will be generated here -->
+                    </div>
+                </div>
+                
+                <div class="preview-footer">
+                    <button class="btn btn-download" id="downloadBtn">
+                        <i class="fas fa-download"></i> Download as PDF
+                    </button>
+                    <button class="btn btn-share" id="shareBtn">
+                        <i class="fas fa-share-alt"></i> Share
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example CV Section -->
+        <section id="examples" class="examples-section fade-in">
+            <h3 class="section-subtitle">Example Resumes</h3>
+            <div class="examples-grid">
+                <div class="example-card">
+                    <div class="example-header">
+                        <h4>Tshedimosho Mlangeni</h4>
+                        <p>Multi-Industry Professional</p>
+                    </div>
+                    <div class="example-content">
+                        <p>Experience across retail, manufacturing, and construction industries</p>
+                        <ul>
+                            <li>Food Lover's Market - Deli Assistant</li>
+                            <li>Tiger Brands - Packer</li>
+                            <li>JHL Group - Construction Assistant</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-example-load" data-example="tshedimosho">
+                        <i class="fas fa-file-import"></i> Load This Example
+                    </button>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header">
+                        <h4>Software Developer</h4>
+                        <p>Tech Industry Example</p>
+                    </div>
+                    <div class="example-content">
+                        <p>Full-stack developer with 5+ years experience</p>
+                        <ul>
+                            <li>JavaScript, React, Node.js</li>
+                            <li>Agile Development</li>
+                            <li>Team Leadership</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-example-load" data-example="developer">
+                        <i class="fas fa-file-import"></i> Load This Example
+                    </button>
+                </div>
+                
+                <div class="example-card">
+                    <div class="example-header">
+                        <h4>Marketing Manager</h4>
+                        <p>Business & Marketing</p>
+                    </div>
+                    <div class="example-content">
+                        <p>Digital marketing specialist with campaign management experience</p>
+                        <ul>
+                            <li>Social Media Strategy</li>
+                            <li>Content Marketing</li>
+                            <li>Team Management</li>
+                        </ul>
+                    </div>
+                    <button class="btn btn-example-load" data-example="marketing">
+                        <i class="fas fa-file-import"></i> Load This Example
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo-icon">9t5U</div>
+                    <div>
+                        <h3>9to5 University</h3>
+                        <p>Professional Resume Builder</p>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="resume-builder.html">Resume Builder</a></li>
+                        <li><a href="index.html#resources">Resources</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Support</h3>
+                    <ul>
+                        <li><a href="index.html#contact">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>Need Help?</h3>
+                    <p><i class="fas fa-phone"></i> 079 487 4559</p>
+                    <p><i class="fab fa-whatsapp"></i> 079 487 4559</p>
+                    <p><i class="fas fa-envelope"></i> magtecinvest@gmail.com</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 9to5 University. All rights reserved.</p>
+                <p>Create professional resumes with our free builder tool</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script src="resume-builder.js"></script>
 </body>
 </html>
